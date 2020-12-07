@@ -1,0 +1,622 @@
+=========================================================================
+*			面向对象						*
+=========================================================================
+	------------------------------------------------
+			1、面向对象思想概述
+	------------------------------------------------
+A：面向过程思想概述
+	第一步
+	第二步
+	  ...
+
+B：面向对象思想概述
+	找对象，对象负责调用它中的方法就行
+
+C：区别
+	洗衣服：手洗（面向过程）。复杂，每个步骤都要你去考虑（亲力亲为），强调的是过程。
+		洗衣机洗（面向对象）。交给指定的对象去完成就行，强调的是对象。
+
+D：面向对象思想特点
+	a：是一种更符合我们思想习惯的思想。
+		懒人思想：事情自己不做，交给别人去做
+	b：可以将复杂的事情简单化。
+		对你来说是简单化了，但是对象里面是会比较复杂的。优点：对象创建之后，一直提供给他人服务。一直可以被复用。
+	c：将我们从执行者变成了指挥者
+		角色发生了转换
+E：面向对象的开发
+	就是不断的创建对象，使用对象，指挥对象做事情
+	原则是：如果有对象，直接用对象提供服务；如果没有对象，就创建对象，再使用对象、指挥对象，提供我们需要的服务，也可以为以后提供服务
+F：面向对象的设计
+	其实就是在管理和维护对象之间的关系。
+	每个对象可能具备不同的功能，为了使用不同的功能，对其进行管理和维护，
+G：面向对象的三大特征
+	封装（encapsulation）
+	继承（inheritance）
+	多态（polymorphism）
+
+	------------------------------------------------
+			2、类与对象思想概述
+	------------------------------------------------
+类与对象的概述
+A：学习编程的目的
+	为了把我们日常生活中实物用学习语言描述出来
+B：如何描述现实世界事物
+	属性：该事物的描述信息（事物身上的名词）
+	行为：该事物能够做什么（事物身上的动词）
+C：Java中最基本的单位是类，Java中用class描述事物也是如此
+	成员变量：就是事物的属性
+	成员方法：就是事物的行为
+D：定义类其实就是定义类的成员（成员变量和成员方法）
+	a：成员变量：和以前定义变量是一样的，只是尾部发生了改变。在类中，方法外。
+	b：成员方法：和以前定义方法是一样的，只是把static去掉，后续详细讲解static的作用。
+E：类和对象的概念
+	a：类：是一组相关的属性和行为的集合
+	b：对象：是该类事物的具体体现
+	c：举例：
+		类：学生
+		对象：具体的某个学生就是一个对象
+	------------------------------------------------
+			3、类的定义
+	------------------------------------------------
+学生类
+	属性：姓名，年龄，性别
+	行为：学习，睡觉，跑，说话
+	
+class Student {
+	//学生属性的描述
+	String name;				//姓名
+	int age;				//年龄
+	String gender;				//性别
+
+	//学生行为
+	public void study() {			//定义学习的方法，方法名见名知意
+		System.out.println("学生学习");
+	}
+
+	public void sleep() {			//定义睡觉的方法
+		System.out.println("学生睡觉");
+	}
+}
+
+手机类
+	属性:品牌(brand)、价格(price)
+	行为:打电话(call)、发信息(sendMessage)、玩游戏(playGame)
+
+class Phone {
+	String brand;				//品牌
+	int price;				//价格
+
+	public void call() {			//打电话
+		System.out.println("打电话");
+	}
+
+	public void sendMessage() {		//发信息
+		System.out.println("发信息");
+	}
+
+	public void playGame() {		//玩游戏
+		System.out.println("玩游戏");
+	}
+}
+
+	------------------------------------------------
+			4、类的使用
+	------------------------------------------------
+A：文件名问题
+	在一个java文件中写两个类：一个基本类，一个测试类(有主方法，也叫主类)
+	建议：文件名称和测试类名称一致
+B：如何使用对象
+	创建对象并使用
+	格式：类名 对象名 = new 类名 ();
+C：如何使用成员变量
+	对象名.变量名
+D：如何使用成员方法
+	对象名.方法名(...);
+
+
+class Demo1_Student {
+	public static void main(String[] args) {
+		//创建对象的格式:类名 对象名 = new 类名();
+		//对象名:其实就是合法的标识符,如果是一个单词所有字母小写,如果是多个单词,从第二个单词开始首字母大写
+		Student s = new Student();//进堆内存
+		//如何使用成员变量呢?
+		//对象名.变量名
+		s.name = "张三";
+		s.age = 23;
+
+		System.out.println(s.name + "..." + s.age);
+		//如何使用成员方法呢?
+		//对象名.方法名(...)
+		s.study();
+		s.sleep();
+	}
+}
+
+
+class Demo2_Phone {
+	public static void main(String[] args) {
+		//创建对象
+		Phone p = new Phone();
+		//调用对象中的属性并赋值
+		p.brand = "华为荣耀";
+		p.price = 998;
+
+		System.out.println(p.brand + "..."  + p.price);
+
+		//调用成员方法
+		p.call();
+		p.sendMessage();
+		p.playGame();
+	}
+}
+
+	------------------------------------------------
+			5、面向对象的内存图
+	------------------------------------------------
+如何创建对象，如何进内存
+
+详见：一个对象的内存图.png
+
+汽车类
+	属性：颜色、轮胎数
+	行为：行驶
+class Car {
+	//成员变量
+	String color;			//车的颜色
+	int num;			//车的轮胎数
+
+	public void run() {		//车运行
+		System.out.println(color + "..." + num);
+	}
+}
+
+class Demo1_Car {
+	public static void main(String[] args) {
+		Car c1 = new Car();	//创建对象
+
+		//调用属性并赋值
+		c1.color = "red";	//为车的颜色赋值
+		c1.num = 8;		//为车的轮胎数赋值
+
+		//调用行为
+		c1.run();
+
+		Car c2 = new Car();	//创建对象
+		c2.color = "black";	//为车的颜色赋值
+		c2.num = 4;		//为车的轮胎数赋值
+		c2.run();
+
+		//c2 = null;		//用null把原来的地址值覆盖掉了
+
+		//c2.run();		//c2里面记录的是null,所以报出空指针异常
+
+		Car c3 = c2;
+		c3.run();
+		
+	}
+}
+
+
+内存图加入方法区。
+方法区相当于代码仓库。字节码(.class)文件在硬盘上，运行之后字节码文件进入内存，进入到方法区。
+只有进入内之后，才能使用其中的对应的属性、行为等。
+
+主类（测试类）首先加载到内存，进入方法区，因为要运行从main方法。
+main方法不是我们调用的，是JVM帮我们调入栈区的。
+调用main方法，main方法就会进栈。
+
+---------------------------------------------------
+两个对象的内存图：详见《两个对象的内存图.png》
+
+一个类可以创建多个对象。即按照图纸，可以制造多辆汽车。
+
+讲解：并不是每次使用完对象都要设置为null，因为mian方法执行完是要出栈的，
+      main方法出栈后 对象自动成为垃圾，有JVM定时进行垃圾回收。
+
+class Demo1_Car {
+	public static void main(String[] args) {
+		Car c1 = new Car();	//创建对象
+
+		//调用属性并赋值
+		c1.color = "red";	//为车的颜色赋值
+		c1.num = 8;		//为车的轮胎数赋值
+
+		//调用行为
+		c1.run();
+
+		Car c2 = new Car();	//创建对象
+		c2.color = "black";	//为车的颜色赋值
+		c2.num = 4;		//为车的轮胎数赋值
+		c2.run();
+
+		//c2 = null;		//用null把原来的地址值覆盖掉了
+
+		//c2.run();		//c2里面记录的是null,所以报出空指针异常
+
+		Car c3 = c2;
+		c3.run();
+		
+	}
+}
+
+class Car {
+	//成员变量
+	String color;			//车的颜色
+	int num;			//车的轮胎数
+
+	public void run() {		//车运行
+		System.out.println(color + "..." + num);
+	}
+}
+
+---------------------------------------------------
+三个引用两个对象的内存图：详见《三个引用两个对象的内存图.png》
+	Car c3 = c2;
+	c3.run();
+
+	------------------------------------------------
+			6、成员变量和局部变量的区别
+	------------------------------------------------
+A：在类中的位置不同
+	成员变量：在类中，方法外
+	局部变量：在方法定义中，或方法声明上
+B：在内存中的位置不同
+	成员变量：在堆内存（成员变量属于对象，对象进堆内存）
+	局部变量：在栈内存（局部变量属于方法，方法进栈内存）
+C：生命周期不同
+	成员变量：随着对象的创建而存在，随着对象的消失而消失
+	局部变量：随着方法的调用而存在，随着方法的调用完毕而消失
+D：初始化值不同
+	成员变量：有默认初始化值
+	局部变量：没有默认初始化值，必须定义、赋值，然后才能使用。只定义不赋值，直接使用时，编译报错。
+
+注意事项：
+	局部变量名称可以和成员变量名称一样，在方法中使用的时候，采用的是就近原则。
+	因为进的内存空间不一样，一个是堆一个是栈。
+	基本数据类型变量包括：byte、char、short、int、long、float、double、boolean（四类八种）
+	引用数据类型变量包括：数组、类、接口、枚举
+class Demo_Person {
+	public static void main(String[] args) {
+		Person p = new Person();
+		p.speak();
+	}
+}
+
+class person {
+	String name;	//成员变量
+	
+	public void speak(int x){
+		int num = 10;	//x和num都是局部变量
+		System.out.println(name);
+		System.out.println(num);
+	}
+}
+
+class person {
+	String name;				//成员变量
+	int num;
+	public void speak(int x){
+		int num = 10;			//x和num都是局部变量
+		System.out.println(name);
+		System.out.println(num);	//输出的是10
+	}
+}
+
+	------------------------------------------------
+		7、方法的形式参数是类名的时候如何调用
+	------------------------------------------------
+方法的参数是类名public void print(Student s){}//print(new Student());
+	如果你看到了一个方法的形式参数是一个类类型(引用类型)，这里其实需要的是该类的对象。
+
+记住：
+	引用数据类型作为形式参数的时候，传的是地址值
+	基本数据类型作为形式参数的时候，传的是值
+class Demo1_Student {
+	public static void main(String[] args) {
+		print(10);
+
+		Student s = new Student();	//创建对象,并将对象的地址值赋值给s
+		print(s);
+	}
+
+	public static void print(int x) {	//基本数据类型当作形式参数
+						//void 不能赋值调用、不能输出调用，直接调用即可
+		System.out.println(x);
+	}
+
+	public static void print(Student stu) {	//引用数据类型当作形式参数，传的是地址值	//方法的重载	
+		stu.name = "张三";		//两个方法中的局部变量是不能互相访问的
+		stu.age = 23;
+		stu.speak();
+	}
+}
+
+class Student {
+	String name;		//姓名
+	int age;		//年龄
+
+	public void speak() {
+		System.out.println(name + "..." + age);
+	}
+}
+
+	------------------------------------------------
+		8、匿名对象的概述和应用
+	------------------------------------------------
+A：什么是匿名对象
+	没有名字的对象
+B：匿名对象应用场景
+	a：调用方法，仅仅只调用一次的时候
+		那么，这种匿名调用有好处吗：
+		答：节省代码
+			Car c1 = new Car();
+			c1.run();
+			=
+			new Car().run();
+
+		注意：调用多次的时候，不适合。匿名对象调用完毕就是垃圾。可以被垃圾回收器回收。
+	b：匿名对象可以作为参数传递
+C：案例演示
+	匿名对象应用场景
+
+	Student s = new Student();
+	s就是对象名
+	匿名对象就是不写名字的对象：new Student();
+class Demo_car {
+	public static void main(String[] args){
+		/*Car c1 = new Car();	//创建有名字的对象
+		c1.run();
+		c1.run();
+		new Car().run();	//匿名对象调用方法
+		new Car().run();*/	//匿名对象只适合对方法的一次调用
+					//因为调用多次就会产生多个对象,不如用有名字的对象	
+	
+		//匿名对象是否可以调用属性并赋值?有什么意义?
+		/*
+		匿名对象可以调用属性,但是没有意义,因为调用后就变成垃圾
+		如果需要赋值还是用有名字对象
+		*/
+		
+		new Car().color = "red";
+		new Car().num = 8;
+		new Car().run();
+
+	}
+}
+
+class Car {
+	String color;		//颜色
+	int num;		//轮胎数
+
+	public void run(){
+		//System.out.println("车运行");
+		System.out.println(color + "..." + num);
+	}
+}
+
+------------------------------
+b：匿名对象可以作为参数传递
+class Demo3_Car {
+	public static void main(String[] args) {
+		/*Car c1 = new Car();
+		c1.color = "red";
+		c1.num = 8;
+		c1.run();
+
+		Car c2 = new Car();
+		c2.color = "red";
+		c2.num = 8;
+		c2.run();
+		
+		...
+		//若有100辆车，得写100遍，很痛苦哇。
+		代码的复用性太差，将其抽取成一个方法
+		*/
+
+		/*Car c1 = new Car();
+		method(c1);
+
+		Car c2 = new Car();
+		method(c2);
+		*/
+
+		method(new Car());		//用for循环创建100量汽车
+
+		method(new Car());		//匿名对象可以当作参数传递
+	}
+
+	//抽取方法提高代码的复用性
+	//注意：
+		跟主函数在一起的方法都加static。
+		不跟主函数在一起的方法都不加static。
+	public static void method(Car cc) {	//Car cc = new Car();
+		cc.color = "red";
+		cc.num = 8;
+		cc.run();
+	}
+}
+
+class Car {
+	String color;		//颜色
+	int num;		//轮胎数
+
+	public void run() {
+		System.out.println(color + "..." + num);
+	}
+}
+
+	------------------------------------------------
+			9、封装的概述
+	------------------------------------------------
+A：封装概述
+	是指隐藏对象的属性和实现细节，仅对外提供公共访问方式。
+	
+	举例：插排。零线火线
+	
+B：封装的好处
+	隐藏实现细节，提供公共的访问方式
+	提高代码的复用性
+	提高安全性
+C：封装原则
+	将不需要对外提供的内容都隐藏起来
+	把属性隐藏，提供公共方法对其访问
+
+	------------------------------------------------
+		10、private关键字的的概述和特点
+	------------------------------------------------
+A：人类赋值年龄的问题
+B：private关键字特点
+	a：是一个权限修饰符
+	b：可以修饰成员变量和成员方法
+	c：被其修饰的成员只能在本类中被访问
+C：案例演示
+	封装和private的应用
+	a：把成员变量用private修饰
+	b：提供对应的getXxx()和setXxx=()方法
+	private仅仅是封装的一种体现形式，不能说封装就是私有
+
+class Demo1_Person {
+	public static void main(String[] args) {
+		Person p1 = new Person();
+		p1.name = "张三";	//调用姓名属性并赋值
+		//p1.age = -17;		//调用年龄属性并赋值	//报错，只能在其本类中被访问
+		p1.speak();		//调用行为
+
+		p1.setAge(-17);
+
+		System.out.println(p1.getAge());
+	}
+}
+
+class Person {
+	String name;			//姓名
+	private int age;		//年龄
+	
+	public void setAge(int a) {	//设置年龄
+		if (a > 0 && a < 200) {
+			age = a;
+		}else {
+			System.out.println("请回火星吧,地球不适合你");
+		}
+		
+	}
+
+	public int getAge() {		//获取年龄
+		return age;
+	}
+
+	public void speak() {
+		System.out.println(name + "..." + age);
+	}
+}
+
+private仅仅是封装的一种体现形式，不能说封装就是私有。
+	目的：只要不让其它类访问，就是一种封装。
+	现在这2个类都是在同一个包（文件夹）下，可以互相访问。
+	有多个包后，不在同一个包下的类，使用的是默认修饰符（portected），也是不可以互相访问的。
+	如果访问不了就是一种封装，只要是没有权限去访问，对你来说就是一种封装。
+
+	------------------------------------------------
+		10、this关键字的概述和应用
+	------------------------------------------------
+A：this关键字
+	代表当前对象的引用。
+	“谁来调用我，我就代表谁。”
+B：案例演示
+	this的应用场景
+	用来区分成员变量和局部变量重名
+
+class Demo1_This {
+	public static void main(String[] args) {
+		Person p1 = new Person();
+		p1.setName("张三");
+		p1.setAge(23);
+		System.out.println(p1.getName() + "..." + p1.getAge());
+
+		Person p2 = new Person();
+		p2.setName("李四");
+		p2.setAge(24);
+		System.out.println(p2.getName() + "..." + p2.getAge());
+	}
+}
+
+class Person {
+	private String name;			//姓名
+	private int age;			//年龄
+	
+	public void setAge(int age) {		//设置年龄
+		if (age > 0 && age < 200) {
+			this.age = age;
+			//System.out.println(age);
+		}else {
+			System.out.println("请回火星吧,地球不适合你");
+		}
+		
+	}
+
+	public int getAge() {			//获取年龄
+		return age;
+	}
+
+	//设置的时候不需要有返回值，用void，获取的时候才有返回值
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+		//System.out.println(name);
+	}
+
+	public String getName() {
+		return name;
+	}
+}
+---------------------
+      this举例
+---------------------
+class Demo2_Phone {
+	public static void main(String[] args) {
+		Phone p1 = new Phone();
+		p1.setBrand("三星");
+		p1.setPrice(5288);
+
+		System.out.println(p1.getBrand() + "..." + p1.getPrice());
+		p1.call();
+		p1.sendMessage();
+		p1.playGame();
+	}
+}
+
+手机类
+	属性:品牌brand,价格price
+	行为:打电话call,发短信sendMessage,玩游戏,playGame
+
+class Phone {					//java bean
+	private String brand;			//品牌
+	private int price;			//价格
+
+	public void setBrand(String brand) {	//设置品牌
+		this.brand = brand;
+	}
+
+	public String getBrand() {		//获取品牌
+		return this.brand;		//this.可以省略,你不加系统会默认给你加
+	}
+
+	public void setPrice(int price) {	//设置价格
+		this.price = price;
+	}
+
+	public int getPrice() {			//获取价格
+		return price;
+	}
+
+	public void call() {			//打电话
+		System.out.println("打电话");
+	}
+
+	public void sendMessage() {		//发短信
+		System.out.println("发短信");
+	}
+
+	public void playGame() {		//玩游戏
+		System.out.println("玩游戏");
+	}
+}

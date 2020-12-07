@@ -1,0 +1,1316 @@
+要学很多的常用类，这些类不像String类中的有那么多的方法去掌握。
+要求，只要知道这个类，需要用到某个类的功能时，去API中去查到使用就行。
+
+正则表达式，在实际开发中很少自己去写，需要什么规则就去网上搜，网上有很多大神，
+都给你写好了，直接复制粘贴就行。
+在自己做开发2-3年后，很多不是在自己敲代码，而是在复制粘贴代码。只要把代码粘到
+合适的位置就可以了。
+
+
+  ====================================================
+    1、常见对象：正则表达式的概述和简单实用
+  ====================================================
+注册邮箱时，有用户名和密码。用户名和密码有些限制，用户名>6位，<15位。这种限制就是用正则表达式来实现的。
+正则表达式是针对字符串来操作的，注册用户时，都是以字符串的形式注册的，所以，正则表达式就是对字符串的一个操作。
+如果满足规则，通过注册，不满足规则，给出提示。
+
+A：正则表达式
+  定义：是指一个用来描述或者匹配一系列符合某个语法规则的字符串的单个字符串。其实就是一种规则。有自己特殊的应用。
+  作用：比如注册邮箱，邮箱有用户名和密码，一般会对其限制长度，这个限制长度的事情，就是正则表达式做的。
+B：案例演示
+  需求：校验QQ号码。
+  1：要求必须是5-15位数字
+  2：0不能开头
+  3：必须都是数字
+
+  应该以字符串去校验，再去判断字符串的长度。
+
+  a：非正则表达式实现
+
+  b：正则表达式实现
+
+-------------------
+a：非正则表达式实现
+-------------------
+package com.regex
+public Demo1_Regex {
+  public static void main(String[] args) {
+    System.out.println(chechkQQ("012345"));	// false
+    System.out.println(chechkQQ("a12345"));	// false
+    System.out.println(chechkQQ("123456"));	// true
+    System.out.println(chechkQQ("1234567890987654321"));	// false
+  }
+  
+  /*
+  需求：校验QQ号码。
+  1：要求必须是5-15位数字
+  2：0不能开头
+  3：必须都是数字
+
+  校验QQ：
+  1，明确返回值类型boolean	
+  2，明确参数列表String qq
+  */
+
+  public static boolean checkQQ(String qq) {
+    boolean flag = true;	// 如果校验qq不符合要求，就把flag置为false，如果符合要求，直接返回
+    
+    if(qq.length >= 5 && qq.length <= 15) {
+      if(!qq.startsWith("0")) {
+        char[] arr = qq.toCharArray();	// 将字符串转换成字符数组
+        for(int i = 0 ;i < arr.length; i++) {
+          char ch = arr[i];	// 记录每一个字符
+          if(!(ch >= '0' && ch <= '9')) {
+            flag = false;	// 不是数字
+            break;
+          }
+        }
+      }else {
+        flag = false;	// 以0开头，不符合qq标准
+      }
+    }else {
+      flag = false;	// 长度不符合
+    }
+
+    return flag;
+  }
+
+}
+
+这么多的条件判断，太痛苦了！
+
+
+-------------------
+b：正则表达式实现
+-------------------
+1行代码就可以搞定
+public Demo1_Regex {
+  public static void main(String[] args) {
+    String regex = "[1-9]\\d{4,14}";	// 就这一行就搞定
+
+    // [1-9]：1-9的字符都可以，就是不能是0
+    // \d：代表任意的数字字符
+
+    System.out.println("2553868".matches(regex));	// true
+    
+    // String中有个方法就是用来检测正则的，
+    // 打开《JDK API 1.6.0 中文版》→【索引】→输入String→boolean matches(String regex)
+    // 匹配返回true，不匹配返回false
+
+    System.out.println("012345".matches(regex));	// false
+    System.out.println("2553868abc".matches(regex));// false
+  }
+}
+
+  ====================================================
+      2、常见对象：字符类演示
+  ====================================================
+A：字符类
+  [abc]		a、b或c（简单类）	[]：代表单个字符
+  [^abc]		任何字符，除了a、b或c（否定）
+
+  [a-zA-Z]	a到z 或 A到Z，两头的字母包括在内（范围）
+  [a-d[m-p]]	a 到 d 或 m 到 p：[a-dm-p]（并集）
+    // 以上两个是同样的意思
+
+  [a-z&&[def]]	d、e或f（交集）
+    // a-z 包含 d、e、f，[def]也包含d、e、f，所以，两者的交集部分就是：d、e、f
+    // 和直接写一个[def]结果是一样的。
+    // 这只是另一种写法而已
+  [a-z&&[^bc]]	a 到 z，除了b 和 c：[ad-z]（减去）
+    // 除了b、c字符
+  [a-z&&[^m-p]]	a 到 z，而非m 到 p：[a-lq-z]（减去）
+    // 除了一个范围
+  [0-9]		0到9的字符都包括
+
+字符类在《JDK API 1.6.0中文版》→索引→String→matches(String regex)→单击“正则表达式”中找→字符类、预定义字符类
+属于：java.util.regex 包下的 Pattern类
+
+public static void Demo2_Regex {
+  public static void main(String[] args) {
+    // demo1();
+    // demo2();
+    // demo3();
+    // demo4();
+    // demo5();
+    // demo6();
+    String regex = "[a-z&&[^m-p]]";
+    System.out.println("m".matches(regex));	// false
+    System.out.println("a".matches(regex)); // true
+    System.out.println("z".matches(regex)); // true
+    System.out.println("n".matches(regex)); // false
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo1() {
+    String regex = "[abc]";			// []代表单个字符。a字符、b字符或c字符
+    System.out.println("a".matches(regex));	// matches()是用来做匹配的，传递的参数是regex正则表达式
+              // 判断前面的字符串 能不能和正则表达式匹配上，
+              // 或者，判断字符串符不符合正则这种规则
+    System.out.println("b".matches(regex));	// true
+    System.out.println("c".matches(regex));	// true
+    System.out.println("d".matches(regex));	// false
+    System.out.println("1".matches(regex));	// false
+    System.out.println("%".matches(regex)); // false
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo2() {
+    String regex = "[^abc]";	// 取反，不要a、b、c，其它的字符都是可以的。
+            // 除了a、b、c之外的所有单个字符
+    System.out.println("a".matches(regex));	// false
+    System.out.println("b".matches(regex));	// false
+    System.out.println("c".matches(regex));	// false
+    System.out.println("d".matches(regex));	// true
+    System.out.println("1".matches(regex));	// true
+    System.out.println("%".matches(regex));	// true
+    System.out.println("10".matches(regex));// false 
+              // []：代表单个字符。
+              "10"是2个字符，不是单个字符，所以，false
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo3() {
+    String regex = "[a-zA-Z]";
+    System.out.println("a".matches(regex));	// true
+    System.out.println("A".matches(regex)); // true
+    System.out.println("z".matches(regex)); // true
+    System.out.println("Z".matches(regex)); // true
+    System.out.println("1".matches(regex)); // false
+    System.out.println("%".matches(regex)); // false
+    System.out.println("ab".matches(regex));// false 	因为：是两个字符。[]：代表单个字符
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo4() {
+    String regex = "[a-d[m-p]]";
+    System.out.println("a".matches(regex));	// true
+    System.out.println("m".matches(regex)); // true
+    System.out.println("n".matches(regex)); // true
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo5() {
+    String regex = "[a-z&&[def]]";		// 取交集，相当于是[def]
+    System.out.println("a".matches(regex));	// false
+    System.out.println("d".matches(regex)); // true
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo6() {
+    String regex = "[a-z&&[^bc]]";
+    System.out.println("a".matches(regex));	// true
+    System.out.println("b".matches(regex)); // false
+    System.out.println("1".matches(regex)); // false
+  }
+}
+
+  ====================================================
+      3、常见对象：预定义字符类演示
+  ====================================================
+A：预定义字符类
+  .	任何一个字符（与行结束符可能匹配也可能不匹配）
+  \d	单个数字：[0-9]，代表单个数字字符
+  \D	非数字：[^0-9]，除了0-9，其它的单个字符
+  \s	空白单个字符：[ \t\n\x0B\f\r]，空格、tab键（制表符）、换行符、垂直制表符(\v)、换页符、回车符
+    // dos中，有水平制表符\t，垂直制表符\x0B
+  \S	非空白单个字符：[^\s]
+  \w	单词字符：[a-zA-Z_0-9]
+  \W	非单词字符：[^\w]
+
+public class Demo3_Regex {
+  public static void main(String[] args) {
+    //demo1();
+    //demo2();
+    //demo3();
+    //demo4();
+    //demo5();
+    String regex = "\\W";
+    System.out.println("a".matches(regex));	//false
+    System.out.println("z".matches(regex));	//false
+    System.out.println("_".matches(regex));	//false
+    System.out.println("%".matches(regex));	//true
+  }
+  
+  // 抽取为方法 alt+shift+m
+  private static void demo1() {
+    String regex = ".";	// .：代表任意一个字符；一个点代表一个字符
+    System.out.println("a".matches(regex));	// true
+    System.out.println("ab".matches(regex));// false
+
+    String regex1 = "..";	// ..：代表任意两个字符
+    System.out.println("a".matches(regex1));	// false
+    System.out.println("ab".matches(regex1));	// true
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo2() {
+    String regex = "\\d";	// \代表转义字符，如果想表示\d的话，需要\\d
+    System.out.println("0".matches(regex));	// true
+    System.out.println("a".matches(regex));	// false
+    System.out.println("9".matches(regex));	// true
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo3() {
+    String regex = "\\D";
+    System.out.println("0".matches(regex));	// false
+    System.out.println("9".matches(regex));	// false
+    System.out.println("a".matches(regex)); // true
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo4() {
+    String regex = "\\s";
+    System.out.println(" ".matches(regex));						// true
+    System.out.println("	".matches(regex));	// 一个tab键			// true
+    System.out.println("    ".matches(regex));	// 四个空格，代表四个字符	// false
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo5() {
+    String regex = "\\S";
+    System.out.println(" ".matches(regex));	// 空格		// false
+    System.out.println("	".matches(regex));// tab键	// false
+    System.out.println("a".matches(regex));			// true
+  }
+
+  // 抽取为方法 alt+shift+m
+  private static void demo6() {
+    String regex = "\\w";
+    System.out.println("a".matches(regex));	//true
+    System.out.println("z".matches(regex));	//true
+    System.out.println("_".matches(regex));	//true
+    System.out.println("%".matches(regex));	//false
+  }
+}
+
+  ====================================================
+      4、常见对象：数量词
+  ====================================================
+A：Greedy 数量词
+  X?	X，1次或一次也没有。X：代表任意字符；？：表示字符X出现1次或一次也没有。
+  X*	X，0次或多次。0次到多次，包括1次。
+  X+	X，1次或多次。不包括0次。
+  X{n}	X，恰好n次。多余或少于n次都不行。
+  X{n,}	X，至少n次。可以到∞。
+  X{n,m}	X，至少n次，但是不超过m次。包含头，也包含尾。
+
+
+public class Demo4_Regex {
+  public static void main(String[] args) {
+    //demo1();
+    //demo2();
+    //demo3();
+    //demo4();
+    //demo5();
+    String regex = "[abc]{5,15}";
+    System.out.println("abcba".matches(regex));		//5次 true
+    System.out.println("abcbabbbaaaaacb".matches(regex));	//15次 true
+    System.out.println("abcb".matches(regex));		//4次  false
+    System.out.println("abcbaabaabcbaaba".matches(regex));	//16次 false
+  }
+
+  // 抽取为方法 alt+shift+m
+  public static void demo1() {
+    String regex = "[abc]?";	// [abc]：表示a、b或c单个字符；
+            // ？：表示前面的字符出现1次或1次也没有出现过
+    System.out.println("abcba".matches(regex));	// true
+    System.out.println("abbbbaadd".matches(regex));	// true
+    System.out.println("c".matches(regex));	// true
+    System.out.println("d".matches(regex));	// false	
+              // ？前面的字符1次也没有出现过，但是也不能出现别的字符。
+              // 如果可以出现别的字符的话，就没法对字符进行限制了。
+    System.out.println("".matches(regex));	// true	// 1次也没有出现过
+  }
+  
+  // 抽取为方法 alt+shift+m
+  public static void demo2() {
+    String regex = "[abc]*";
+    System.out.println("".matches(regex));		// true
+    System.out.println("abc".matches(regex));	// true
+    System.out.println("a".matches(regex));		// true
+  }
+
+  // 抽取为方法 alt+shift+m
+  public static void demo3() {
+    String regex = "[abc]+";
+    System.out.println("".matches(regex));	// true
+    System.out.println("a".matches(regex));	// true
+    System.out.println("aaaabbbbccccc".matches(regex));	//true
+
+  }
+
+  // 抽取为方法 alt+shift+m
+  public static void demo4() {
+    String regex = "[abc]{5}";
+    System.out.println("abcba".matches(regex));		//true
+    System.out.println("abcbaabcabbabab".matches(regex));	//false
+    System.out.println("abcb".matches(regex));		//false
+    System.out.println("abcbaaba".matches(regex));		//false
+  }
+
+  // 抽取为方法 alt+shift+m
+  public static void demo5() {
+    String regex = "[abc]{5,}";
+    System.out.println("abcba".matches(regex));		//true
+    System.out.println("abcbaababbbbaac".matches(regex));	//true
+    System.out.println("abcb".matches(regex));		//false
+    System.out.println("abcbaaba".matches(regex));		//true
+  }
+}
+
+  ====================================================
+       5、常见对象：正则表达式的分割功能
+  ====================================================
+A：正则表达式的分割功能
+  String类的的一个方法：public String[] split(String regex)
+      功能：根据给定正则表达式拆分字符串，拆分完毕后，生成一个字符串数组。
+
+  正则都是对字符串类的操作。
+
+  《JDK API 1.6.0中文版》→索引→【String】→String[] split(String regex)方法
+                
+B：案例演示
+  正则表达式的分割功能
+
+public class Demo5_Split {
+  public static void main(String[] args) {
+    String s = "相声 小品 歌曲";
+    String[] arr = s.split(" ");	// 正则是空格
+    
+    for(int i = 0; i < arr.length; i++) {
+      System.out.println(arr[i]);
+    } 
+  }
+
+  public static void main(String[] args) {
+    String s = "相声.小品.歌曲";
+    //String[] arr = s.split(".");	// 有问题，没有输出
+            // .：代表任意字符，“相声.小品.歌曲”中每一个字符都能匹配。
+            // 切的太碎了，相当于什么都没得到
+            // 非要用.去切，就要转义，这个转义比较特殊，用两个\，即\\.
+
+    String[] arr = s.split("\\.");	// 通过正则表达式切割字符串
+
+    for(int i = 0; i < arr.length; i++) {
+      //System.out.println("2222222222222");	// 没有输出
+      System.out.println(arr[i]);
+    } 
+
+    System.out.println("1111111111111111");	// 有输出
+  }
+
+}
+
+  ====================================================
+       6、常见对象：练习：把给定字符串中的数字排序 （掌握，比较综合一些）
+  ====================================================
+A：案例
+  需求：有如下字符串：“91 27 46 38 50”
+  请写代码实现最终输出结果：“27 38 46 50 91”
+
+B：分析
+  1，将字符串切割成字符串数组
+    得到每一个元素，其实是字符串，字符串的排序和数字的排序不一样
+    “80” > “100”，因为“8” > “1”，排出的结果不是我们所期望的。
+    需要把字符串转换成int数，再去比较
+  2，将字符串转换成数字，并将其存储在一个等长度的int数组中
+  3，排序
+  4，将排序后的结果遍历，并拼接成一个字符串
+
+C：代码
+public class Test1 {
+  public static void main(String[] args) {
+    String s = "91 27 46 38 50";
+
+    // 1，将字符串切割成字符串数组
+    String[] sArr = s.split(" ");	// 空格就是一个正则
+            // 通过空格把字符串切割成字符串数组，每一个元素都是数字字符串
+    // 2，将字符串转换成数字，并将其存储在一个等长度的int数组中
+    int[] arr = new int[sArr.length];	// sArr的长度和arr的长度相等
+
+    //  遍历int数组，将字符串转换成int数组，并依次存储到int数组中
+    for(int i = 0; i < arr.length.length; i++) {	//
+      // 基本类型的包装类，paseInt可以将数字字符串，转换成数字
+      arr[i] = Integer.parseInt(sArr[i]);	// 将数字字符串转换成数字
+    }
+
+    // 3，排序。可以用选择、冒泡、
+    Arrays.sort(arr);
+
+    // 4,将排序后的结果遍历，并拼接成一个字符串
+    // 用String，还是StringBuilder？用String不好，因为会产生很多垃圾。
+    /* String str = "";
+    for(int i =0; i < arr.length; i++) {
+      if(i == arr.length - 1) {	// =最大索引
+        str = str + arr[i];
+      }else {
+        str = str + arr[i] + " ";
+      }
+    }
+    System.out.println(str);
+      // 这种做法不好，在内存中会不断的产生垃圾
+    */
+
+    StringBuilder sb = new StringBuilder();	// 可变的字符序列，所以，只需要在堆里创建一个对象就可以了
+    for(int i = 0; i < arr.length; i++) {
+      if(i == arr.length - 1) {
+        sb.append(arr[i]);
+      }else {
+        sb.append(arr[i] + " ");
+      }
+    }
+
+    System.out.println(sb);	// 不用在调用sb.toString()了，
+          // 因为打印一个类型的引用时，默认会调用该类型的toString()方法
+    // StringBuilder比String更节约一些内存
+  }
+}
+
+  ====================================================
+       7、常见对象：正则表达式的替换功能
+  ====================================================
+A：正则表达式的替换功能
+  String类的功能：public String replaceAll(String regex,String replacement)
+public class Demo6_ReplaceAll {
+  public static void main(String[] args) {
+    String s = "wo1ai2hb3n4db5678h";
+    String regex = "\\d";	// \\d代表任意数字
+
+    String s2 = s.replaceAll(regex,"");	// 用空串替换掉数字1、2
+        // 用\\d去s中挨个匹配，匹配上数字后替换掉
+    System.out.println(s2);
+  }
+}
+
+  =============================================================
+      8、常见对象：正则表达式的分组功能		（最难）
+  =============================================================
+A：正则表达式的分组功能
+  捕获组可以通过从左到右计算其开括号来编号。
+  例如：在表达式((A)(B(C)))中，存在4个这样的组：
+    1	((A)(B(C)))
+    2	(A)
+    3	(B(C))
+    4	(C)
+    组0始终代表整个表达式
+
+  解释：以一对括号()进行分组的，有几个左括号(，就分为几组
+
+  在《JDK API 1.6.0中文版》中→索引→Pattern→组和捕获
+
+public class Demo7_Regex {
+  public static void main(String[] args) {
+    // 叠词1：高高兴兴、快快乐乐
+    // 叠词的正则：能匹配上所有的叠词
+    String regex = "(.)\\1(.)\\2";
+      // 第1个是任意字符，可以是“高”，也可以是“快”，用.来匹配
+      // 希望第2个字符和第1个字符相同，用(.)括起来，代表一组
+      // 希望第1组再出现一次，用\\1
+      // \\2：代表第2组又出现1次
+    System.out.println("快快乐乐".matches(regex));	//true
+    System.out.println("快乐乐乐".matches(regex));	//true
+    System.out.println("高高兴兴".matches(regex));	//true
+
+    System.out.println("你好你好".matches(regex));	//false
+
+    // 叠词2：你好你好，高兴高兴
+    String regex2 = "(..)\\1";	// 让2个任意字符再出现一次
+    System.out.println("你好你好".matches(regex));	// true
+    System.out.println("高兴高兴".matches(regex));	// true
+    System.out.println("快快乐乐".matches(regex));	// false
+  }
+}
+
+B：案例演示
+  a：切割
+    需求：请按照叠词切割：“sdqqfgkkkhjppppkl”
+  b：替换
+    需求：我我....我...我.要...要要...要学....学学..学.编..编编.编.程.程.程..程
+    将字符串还原成：“我要学编程”。
+  a：切割代码：
+  public static void main(String[] args) {
+    // 需求：请按照叠词切割：“sdqqfgkkkhjppppkl”
+    String s = "sdqqfgkkkhjppppkl";
+    String regex = "(.)\\1";
+    String[] arr = s.split(regex);
+
+    for(int i = 0; i < arr.length; i++) {	// sd
+      System.out.println(arr[i]);	// fg
+    }					// khj
+              // 	//pp和pp切了2次，切出空来
+              // kl
+    // 让第1组出现1次或多次即可
+    String regex = "(.)\\1+";	// +：表示第一组出现一次到多次
+  }
+
+  b：替换代码
+  public static void main(String[] args) {
+    String s = "我我....我...我.要...要要...要学....学学..学.编..编编.编.程.程.程..程";
+
+    // 1，先去掉.，用空串替换
+    String s2 = s.replaceAll("\\.+","");	// .出现1次到多次，用空替换
+    System.out.println(s2);	//我我我我要要要要学学学学编编编编程程程程
+    
+    String s3 = s2.replaceAll("(.)\\1+","$1");	// $1：代表第1组的内容，替换前面一串的数据
+                // ()就代表1组，如果还有(，就代表$2
+    System.out.println(s3);	//我要学编程
+  }
+
+  =============================================================
+      9、常见对象：Pattern和Mathcher的概述 （掌握）
+  =============================================================
+A：Pattern和Mathcher的概述
+  Pattern类：属于java.util.regex包中的类
+  public final class Pattern：final类，不能被继承
+  
+  典型的调用顺序：
+  Pattern p = Pattern.compile("a*b");
+  Matcher m = p.matcher("aaaaab");
+  boolean b = m.matches();
+
+导包快捷键：ctrl+shift+o
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Demo8_Pattern {
+  public static void main(String[] args) {
+    Pattern p = Pattern.compile("a*b");	// 获取到正则表达式：a出现0次~多次，后面紧跟一个b
+      // 类名.方法名调用，说明该方法是static
+      // static Pattern compile(String regex); 
+        将给定的正则表达式编译到具有给定标志的模式中
+        返回的就是Pattern类型的值
+      // p中有一个matcher()方法
+    Matcher m = p.matcher("aaaaab");	// 获取匹配器，匹配要匹配的字符串"aaaaab"
+      // Matcher matcher(CharSequence input)	：创建匹配给定输入与此模式匹配的匹配器
+      
+    boolean b = m.matches();	// 判断是否能匹配上，匹配上就返回true
+      // boolean matches()	：尝试将整个区域与模式匹配
+
+    System.out.println(b);	// true	
+
+    // 以上4条语句等价于以下1条语句
+    System.out.println("aaaaab".matches("a*b"));	// 判断字符串有没有匹配上正则
+  }
+}
+  ============================================================
+        10、常见对象：正则表达式的获取功能
+  ============================================================
+上一讲中Pattern和Matcher不知道在哪儿用。
+现在介绍它们的给力应用。
+A：正则表达式的获取功能
+  Pattern和Matcher的结合使用
+B：案例演示
+  需求：把一个字符串中国的手机号码获取出来
+  作用：为什么要拿到每个人的手机号码？在淘宝上买东西，需要留下买家的联系方式，
+    之后，隔段时间就会收到其短信广告。如果能把字符串中的手机号码获取出来，
+    也可以把邮箱获取出来，然后发垃圾广告邮件。所以，该功能是非常有用的。
+
+  public static void main(String[] args) {
+    String s = "我的手机号码18988888888，曾经用过18987654321，还用过18812345678";
+    
+    // 手机号码的正则
+    String regex = "1[3578]\\d{9}";		
+      // 第一位固定：1；第二位：3、4、5、7、8；第三-11位：任意数字
+    /* Pattern p = Pattern.compile("regex");
+    Matcher m = p.matcher("s");
+    boolean b = m.matcher();
+
+    System.out.println(b);	// false */
+
+    Pattern p = Pattern.compile("regex");
+    Matcher m = p.matcher("s");
+    // 查看Matcher类中有没有可以帮助查找手机号码的方法
+    // boolean find()：那正则到指定字符串找对应的符合正则规则的字符串
+      找到指定字符串，返回true；找不到，返回false
+    /* boolean b1 = m.find();
+    System.out.println(b1);	// true 说明找到了手机号码
+    // 找到手机号码不是目的，目的是获取手机号码
+    // String group()：返回由以前匹配操作期间由给定组捕获的输入子序列
+    String s1 = m.group();
+    System.out.println(s1); */
+
+    while(m.find()) {	// 有一个指针指向第一个号码，指针后移指向第二个号码，一次类推
+      System.out.println(m.group());
+    }
+    
+    // 会了该方法就可以获取一堆手机号码或邮箱，就可以发广告了。大家不要小瞧这些垃圾短信，
+    // 不要觉得这些垃圾短信很烦人，但是，总会有人去读、去看。俞敏洪在创业的时候，
+    // 贴的是电线杆上的小广告，最后也做到了今天。创业初期，可能你会用各种节约成本的方式去做这种事情，
+    // 虽然柑橘很恶心，但是，的的确确有它的阅读者、有使用者，而且也有人通过这样的广告
+    // 去买这样的产品。所以，鄙视归鄙视，学还是要去学的。
+  }
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+  =============================================================
+      11、常见对象：Math类概述和方法使用 （了解）
+  =============================================================
+A：Math类概述
+  Math类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数
+B：成员方法
+  public static int abs(int a)	// 取绝对值
+  public static double ceil(double a)
+  public static double floor(double a)
+  public static int max(int a,int b)  min()方法自学
+  public static double pow(double a,double b)
+  public static double random()
+  public static int round(float a)  参数为double的方法自学
+  public static double sqrt(double a)
+C：Math类的介绍
+《JDK API 1.6.0中文版》
+  public final class Math
+  属于java.lang包下的类，用的时候不用导包，直接使用。
+  final修饰的类，不能被继承。
+
+  Math类中所有的成员（属性、方法）都是static的。
+  Java会多做一步：当一个类中所有的成员都是static时，私有该类的构造方法。
+      目的是不让其它类创建本类对象。
+  ctrl + shift + t：查看原码快捷键
+
+  static double PI：
+
+public class Demo1_Math {
+  publci static void main(String[] args) {
+    System.out.println(Math.PI);		// 3.141592653589793
+    System.out.println(Math.abs(-10));	// 10	// 取绝对值
+  
+    // ceil：天花板。
+    /* 
+       13.0
+       12.3
+       12.0
+    */
+    System.out.println(Math.ceil(12.3));	// 13.0	// ceil()：向上取整。注意：结果是一个double值
+    System.out.println(Math.ceil(12.99));	// 13.0
+    
+    // 获取两个值中的最大值
+    System.out.println(Math.max(20,30));	// 30	// 比较两个数的大小，参数有很多类型，重载有很多个方法
+    System.out.println(Math.min(20,30.2));
+
+    // 前面的数是底数，后面的数是指数
+    System.out.println(Math.pow(2,3));	//2.0 ^ 3.0 = 8.0	// 给int值时，会自动类型提升
+    
+    // 生成0.0到1.0之间的小数，包括0.0，不包括1.0	[0.0,1.0)
+    System.out.println(Math.random());
+
+    // 四舍五入
+    System.out.println(Math.round(12.3f));	// 12	//参数double、float、long
+    System.out.println(Math.round(12.9f));	// 13
+
+    // 开平发
+    System.out.println(Math.sqrt(4));	// 2.0
+    System.out.println(2);			// 1.4142135623730951
+    System.out.println(3);			// 1.7320508075688772
+  }
+}
+
+  =============================================================
+      12、常见对象：Random类的概述和方法使用 （了解）
+  =============================================================
+
+该类属于java.util包，使用该类时需要导包，直接父类是Object
+
+A：Random类的概述
+  此类的实例用于生成伪随机数。不是真正的随机数，因为它的随机数是通过算法算出来的。
+
+  此类用于产生随机数如果用相同的种子创建两个Random实例，则对每个
+  实例进行相同的方法调用序列，它们将生成并返回相同的数字序列。
+B：构造方法
+  public Random()			// 创建一个新的随机数生成器
+  public Random(long seed)	// 使用单个long种子创建一个新的随机数生成器
+          // 根据种子，当做一个数，根据数将结果算出来
+C：成员方法
+  public int nextInt()	
+  public int nextInt(int n)(重点掌握)
+
+import java.util.Random;
+
+public class Demo2_Random {
+  public static void main(Strin[] args) {
+    Random r = new Random();	// 用的种子是纳秒值。查看原码可看到
+            // this(seedUniquifier() ^ System.nanoTime()
+            // 种子每一纳秒都是变化的，所以，每次种子都不一样
+    /* int x = r.nextInt();	// 生成int范围之内的随机数
+
+    System.out.println(x);*/
+
+    for(int i = 0; i < 10; i++) {
+      System.out.println(r.nextInt);
+    }
+
+    // 有参构造
+    Random r2 = new Random(1000);	// 具体如何算，不用管，底层算法比较复杂，对我们没什么帮助
+
+    int a = r2.nextInt();
+    int b = r2.nextInt();
+
+    System.out.println(a);
+    System.out.println(b);
+
+    System.out.println("-----------------------------");
+    // public int nextInt(int n)：[0,n-1]或[0,n)
+    // 返回一个伪随机数，取自此随机数生成器序列的、在0（包括）和指定值（不包括）之间均匀分布的int值。
+    for(int i = 0;i < 10;i++) {
+      System.out.println(r.nextInt(100)); // 要求掌握，生成0到n范围内的随机数，包含0，不包含n
+    }
+  }
+}
+  =============================================================
+      13、常见对象：System类的概述和方法使用 （了解）
+  =============================================================
+System类：
+  在java.lang包中，直接父类是Object
+  public final class System， final修饰的类，不能有子类
+  包含一些有用的类字段和方法，不能被实例化。说明该类中所有成员都是static，字段和方法，通过类名.成员名调用
+  私有了其构造方法，不让任何类创建该类的对象。ctrl+shift+t查看原码。
+
+  ** System类是不能new的（考点）
+
+  System类中有标准输入、标准输出和错误输出类。
+     字段
+    static PrintStream err	// “标准”错误输出流
+    static PrintStream in	// “标准”输入流	// 标准的键盘输入流，默认指向键盘
+                // Scanner中的参数System.in就是指键盘
+    static PrintStream out	// “标准”输出流	// 默认指向的是控制台
+
+A：System类的概述
+  System类包含一些有用的类字段和方法。它不能被实例化。
+B：成员方法
+查看《JDK API 1.6.0》
+  public static void gc()
+    // 运行垃圾回收器。虚拟机帮助回收垃圾，创建的对象，不用自己手动回收。
+    // 回收时有回收器，回收器就是通过gc()方法运行垃圾回收器。
+
+    // 如何知道回收器有没有执行呢？其实就是调用某个方法，让它去执行。
+    // Object类中有个protected void finalize()方法：
+      当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。
+      此方法可以清理无用对象，如果此方法不执行，可以用gc()方法把该对象调用出来执行。
+      该方法类似于保洁阿姨，当产生一堆垃圾之后，保洁阿姨可能觉得来及不够多，或者懒得
+      过来，或者在忙别的事儿。gc()方法相当于，呼叫保洁阿姨，“我们这儿有垃圾，帮忙收一下！”
+      相当于对其呼喊。但是，有时呼喊它，它也有可能不过来，可能觉得垃圾少啊，或者在忙啊，但是，
+      如果你垃圾足够多，或者呼喊的次数足够多的话，它肯定就会过来了。
+
+    想要看看改方法有没有被执行，只需要在该方法中加一句话就行，因为该方法在Object中，需要在子类中重写
+    该finalize()方法即可。
+
+  public static void exit(int status)
+    // 终止当前正在运行的Java虚拟机。
+    // 参数：根据习惯，非0的状态码表示异常终止。
+
+  public static long currentTimeMillis()
+    // 返回以毫秒为单位的当前时间。
+    // 返回当前时间与协调世界时1970年1月1日午夜之间的时间差（以毫秒为单位测量）
+    // 该方法的作用：计算程序的运行时间
+
+  public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+    // 从指定源数组中复制一个数组，复制从指定位置开始，到目标数组的指定位置结束
+    // 参数：
+      src	：源数组
+      srcPos	：源数组中的起始位置
+      dest	：目标数组
+      destPos	：目标数组中的起始位置
+      length	：要复制的数组元素的数量
+
+    // 该方法的应用，在后面是会有讲的，集合的底层是用数组来做的，集合的长度是可变的，
+       本来是做了10个长度的数组，10个装满之后，再创建一个1.5倍大小的数组，变成15个大
+       小的数组，需要把源数组的内容拷贝到新数组中，用的就是arraycopy()方法。
+       因为要保留源数组的数据，然后把源数组扔掉，用新数组继续装数据。所以，集合的可变，
+       底层是依赖于不断地去创建新数组，达到一个可变。
+
+C：案例演示
+
+class Demo3_System {
+  public static void main(String[] args) {
+    // demo1();
+    // demo2();
+    // demo3();
+    int[] src = {11,22,33,44,55};
+    int[] dest = new int[8];
+    for(int i = 0; i < dest.length; i++) {	// 查看dest中的原始值
+      System.out.println(dest[i]);
+    }
+  
+    System.out.println("---------------------------");
+    System.arraycopy(src,0,dest,destPos,0,src.length);
+
+    for(int i = 0; i < dest.length; i++) {	// 查看copy之后dest中的原始值
+      System.out.println(dest[i]);
+    }
+  }
+
+  public static void demo1() {
+    // 创造垃圾出来。什么是垃圾呢？没有任何引用指向的对象就是垃圾，
+    // 匿名对象也是没有任何引用指向的对象。
+    for(int i = 0; i < 100; i++){
+      new Demo();
+      System.gc();	// 运行垃圾回收器。	// 相当于呼喊保洁阿姨
+    }
+  }
+
+  public static void demo2() {
+    System.exit(0);				// 非0状态是异常终止，退出JVM
+    System.out.pirntln("1111111111111");	// 该语句没有输出，因为JVM已经退出
+  }
+
+  public static void demo3() {
+    long start = System.currentTimeMillis();	// 获取当前时间的毫秒值
+    for(int i = 0; i < 10000; i++) {
+      System.out.println("*");
+    }
+    long end = System.out.currentTimeMillis();
+
+    System.out.println(end - start);
+  }
+}
+
+// 强调：在一个java源文件中，是不允许出现两个public修饰的class的，
+  因为两个public类会抢公共资源。
+  一般建议，拥有main()方法的类有public修饰。在实际开发中不存在这种情况。
+  因为每个类写在不同的源文件中，写在单独的源文件中，愿意定义为public就定因为public
+class Demo {
+  // 重写finalize()方法。
+  // alt+shift+s → v 重写父类中的方法
+  public void finalize() {
+    System.out.println("垃圾被清扫了");
+  }
+
+  // 注意：该方法不是手动调用的，只要垃圾产生一定数量之后，该方法就会去执行。
+}
+
+  =============================================================
+      14、常见对象：BigInteger类的概述和方法使用 （了解）
+  =============================================================
+Integer是整数类的包装类，BigInteger可以存很大的整数，你有多大，我就能存多大。
+
+属于java.math包中的类，
+直接父类是java.lang.Number：不可改变的任意精度的整数。很狂妄的，byte、short、int、long，超过long的也可以
+
+A：BigInteger的概述
+  可以让超过Integer范围内的数据进行运算
+B：构造方法
+  public BigInteger(String val)
+C：成员方法
+  public BigInteger add(BigInteger val)
+  public BigInteger subtract(BigInteger val)
+  public BigInteger multiply(BigInteger val)
+  public BigInteger divide(BigInteger val)
+  public BigInteger[] divideAndRemainder(BigInteger val)
+    // 返回包含（this / val）后跟（this % val）的BigInteger的数组。
+
+C：案例演示
+public class Demo4_BigInteger {
+  public static void main(String[] args) {
+    // int 其实是有弊端的，不能存很大的数
+    // int num = 12345678909876;	// 装不下这么大的数
+    // long num = 123456789098765432123L;	// 装不下这么大的数
+    // 这么大的数也不是不可能，有钱人的财产。这只是我们一个梦。梦想是要有的，万一实现了呢！
+
+    String s = "123456789098765432123";	// 字符串用于给构造方法传参
+
+    BigInteger bi1 = new BigInteger("100");
+      // 遇到一个没见过的新类时，或者开发时用到的新的东西，不要懵掉，需要回去查资料。
+      // 查看其API、构造，就知道大概是干嘛的了。
+      // 该类只做了解，今后做金融、银行、证券之类的业务时，可能会用到这样的类。
+         其它开发很少会用到BigInteger类。
+
+    BigInteger bi2 = new BigInteger("100");
+
+    System.out.println(bi1.add(bi2));	// +：102	// 让两个BigIntger数相加
+    System.out.println(bi1.subtract(bi2));	// -：98		// 让两个BigIntger数相jia
+    System.out.println(bi1.multiply(bi2));	// ×：200
+    System.out.println(bi1.divide(bi2));	// ÷：50	//
+
+    BigInteger[] arr = bi1.divideAndRemainder(bi2);	// 取除数和余数
+
+    for(int i = 0; i < arr.length; i++) {
+      System.out.println(arr[i]);
+    }
+  }
+}
+
+  =============================================================
+      15、常见对象：BigDecimal类的概述和方法使用 （了解）
+  =============================================================
+有同学就认为：是不是可以存很大的小数啊。其实，double和float已经可以存很大的小数了。第2章推算过，float比long表示的
+范围还要大。double存更大的小数。但是，double和float存的数值不精确，即无限于接近某个数。BigDecimal可以精确的表示小数。
+
+主要作用不是存储很小的小数，是为了更精确的存储小数，
+
+A：BigDecimal的概述
+  由于运算时，float类型和double很容易丢失精度，演示案例。
+  所以，为了能精确的表示、计算浮点数，Java提供了BigDeci。
+
+  不可变的、任意精度的有符号十进制数
+
+  属于java.math包下的类，父类是java.lang.Number
+
+B：构造方法
+  public BigDecimal(BigInteger val)
+    // int数没有double表示的数大，int可以自动提升为double
+  public BigDecimal(double val)
+  public BigDecimal(String val)
+
+C：成员方法
+  public BigDecimal add(BigDecimal augend)
+  public BigDecimal subtract(BigDecimal subtrahend)
+  public BigDecimal multiply(BigDecimal multiplicand)
+  public BigDecimal divide(BigDecimal divisor)
+
+  static BigDecimal valueOf(double val)
+  static BigDecimal valueOf(long val)
+
+D：案例演示
+  BigDecimal类的构造方法和成员方法使用
+
+public class Demo5_BigDecimal {
+  public static void main(String[] args) {
+    // 案例演示double很容易丢失精度
+    System.out.println(2.0 - 1.9);	// 0.8999999999999999 无限与接近0.9，不是0.9
+        // 因为计算机存储的都是二进制形式，二进制表示小数的时候，
+        // 很多时候不能直接表示出来，只是无限接近这个小数。
+        // 例如表示十进制1/3，不能完全精确的表示0.3,3循环的1/3，这样就出现了精度损失。
+        // 如果是做银行、金融、证券方面的开发，出现了差一点点的情况，就有可能损失惨重。
+        // 这辈子都可能还不完。所以，就出现了BigDecimal类，可以很精确的计算。
+
+    /*BigDecimal bd1 = new BigDecimal(2.0);
+    BigDecimal bd1 = new BigDecimal(1.1);
+
+    System.out.println(bd1.subtract(bd2));	// 结果比刚才更精确了，小数位数更长了，但是还不是理想结果
+              // 这种方式在开发中不推荐，因为不够精确
+    */
+    /*
+    BigDecimal bd1 = new BigDecimal("2.0");	// 今后计算小数的+-×÷，就用这种构造方法传入字符串参数方式，开发时推荐
+    BigDecimal bd1 = new BigDecimal("1.1");
+
+    System.out.println(bd1.subtract(bd2));	// 0.9
+    */
+    
+    BigDecimal bd1 = BigDecimal.valueOf(2.0);	// 这种方式在开发中也是推荐的
+    BigDecimal bd1 = BigDecimal.valueOf(1.1);
+
+    System.out.println(bd1.subtract(bd2));	// 0.9
+
+    // 以上2种方法都可以，区别是一个new对象，另一个直接调用static方法。
+    // 根据自己的习惯，用那个都可以。
+  }
+}
+
+  =============================================================
+      16、常见对象：Date类的概述和方法使用 （掌握）
+  =============================================================
+Date是日期类，也是很关键的一个类。
+
+A：Date类的概述
+  类Date表示特定的瞬间，精确到毫秒
+  
+  Date类有两个：
+    一个是java.sql包下的
+    另一个是java.util包下的（现在学的），直接父类是java.lang.Object
+
+  该类中绝大多数的方法都是过时的，只学几个不过时的方法。
+
+B：构造方法
+  public Date()
+  public Date(long date)
+C：成员方法
+  public long getTime()	// 返回自1970年1月1日00:00:00 GMT以来此Date对象表示的毫秒数
+  public void setTime(long time)
+
+
+public class Demo_Date {
+  public static void main(String[] args) {
+    // demo1();
+    // demo2();	// 获取时间
+    // demo3();	// 设置时间
+    Date d1 = new Date();
+    d1.setTime(10000);	// 设置毫秒值，改变时间对象
+  }
+
+  public static void demo1() {
+    // ctrl + shift + o 导包
+    Date d1 = new Date();	// 空参构造
+          // 如果没有传参数，代表的是当前时间
+    System.out.println(d1);	// 
+
+    Date d2 = new Date(0);	// 如果构造方法中参数传为0，代表的是1970年1月1日
+    System.out.println(d2);	// 通过毫秒值创建时间对象
+      // Thu Jan 08:00:00 CST 1970	// 东八区显示的时间是8:00:00
+      // 1970年1月1日，数码产品恢复出厂设置时的时间就是1970年1月1日
+      // 参考《32位和64位OS的由来.png》
+      // 1970年1月1日 算UNIX和C语言的生日。
+  }
+
+  public static void demo2() {
+    Date d1 = new Date();
+    System.out.println(d1.getTime());		// 通过时间对象获取毫秒值
+    System.out.println(System.currentTimeMillis());	// 通过系统类的方法获取当前时间毫秒值
+  }
+}
+
+  =============================================================
+     17、常见对象：SimpleDateFormat类实现日期和字符串的相互转换 （掌握）
+  =============================================================
+Date类在打印结果时，很不爽。希望按照中国人的习惯，1970年1月1日 08:00:00。
+SimpleDateFormat类，对日期进行格式化。
+
+A：DateFormat类的概述
+  是SimpleDateFormat类的父类。为什么要定义子类呀，因为子类有比父类更加强大的地方。
+  我们先学习父类DateFormat类，在学习子类SimpleDateFormat类。
+
+  查看《JDK API 1.6.0》
+  在java.text包下，使用时需要导包。
+  public abstract class DateFormat extends Format 是抽象类，抽象类是不能直接new对象的。
+  构造方法使用protected修饰的，为子类进行初始化使用的。protected DateFormat()。
+  
+  DateFormat是日期/时间格式化子类的抽象类，它以与语言无关的方式格式化并解析日期活时间。
+  是抽象类，所以，使用其子类SimpleDateFormat类。
+
+B：SimpleDateFormat类构造方法
+  父类是java.text.DateFormat
+
+  public SimpleDateFormat()
+    // 
+  public SimpleDateFormat(String pattern)	// 用的最多的
+
+C：成员方法
+（掌握）	public final String format(Date date) 	// 继承的父类只有一个参数的format()方法
+            // 有很多重载的format()的方法
+（掌握）	public Date parse(String source)
+
+import java.text.DateFormat;
+
+public class Demo7_SimpleDateFormat {
+  public static void main(String[] args) throws ParseException {
+    //demo1();
+    //demo2();
+    //demo3();
+
+    // 将时间字符串转换成日期对象。
+    // 转换成日期对象的好处：对象中有setTime()、getTime()之类的方法，
+      可以获取毫秒值，然后进行计算。比如两个字符串，一个是出生时的字符串，
+      另一个字符串是今天。把出生的字符串转换成日期对象，再把今天的字符串，
+      转换成日期对象，求出其毫秒值，再相减，就求出来到这个世界多少天了。
+    String str = "2000年08月08日 08:08:08";
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");	// 参数和字符串的格式匹配上
+    Date d = sdf.parse(str);	// 将时间字符串转换成日期对象
+            // 有可能字符串格式瞎写，不符合规范，所以抛出异常
+    System.out.println(d);
+  }
+
+  public static void demo1() {
+    //DateFormat df = new DateFormat(); 	// DateFormat是抽象类，不允许被实例化
+
+    DateFormat df1 = DateFormat.getDateInstance();	// 相当于父类引用指向子类对象，右边的方法返回一个子类对象
+        // getDateInstance()方法是返回一个子类对象。
+    // 相当于 DateFormat df1 = new SimpleDateFormat();
+    // getDateInstance()是底层实现了的，封装好的，直接调用就可以。
+    // new SimpleDateFormat()是自己需要创建的。
+    // 介绍这么多，是为了说明：SimpleDateFormat类拥有DateFormat中的所有方法、所有的功能。
+    // 我们不用DateFormat去创建了，而DateFormat本身又是一个抽象类，所以，重点学习SimpleDateFormat类。
+  }
+
+  public static void demo2() {
+    Date d = new Date();	// 获取当前时间对象
+    SimpleDateFormat sdf = new SimpleDateFormat();	// 创建日期格式化对象
+    // SimplyDateFormat类中的format()方法参数太多，去父类DateFormat中找
+    // 有没有一个参数的format()方法。从父类继承一个参数的format()方法使用。
+  }
+
+  public static void demo3() {
+    // 按照中国人的习惯，年月日时分秒的格式打印
+    Date d = new Date();	// 获取当前时间对象
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");	// 创建日期格式化对象。建议用这种方式书写
+    //					   ("yyyy/MM/dd/ HH:mm:ss")
+    //					   ("yyy/MM/dd/ HH:mm:ss")	// 少写一个y，不影响结果
+    //					   ("yy/MM/dd/ HH:mm:ss")	// 少写两个y，也没关系
+    //					   ("y/MM/dd/ HH:mm:ss")	// 写一个y，也没问题
+    //					   ("y/M/d/ HH:mm:ss")		// 也OK
+    //					   ("y/M/d/ H:m:s")		// 也不报错
+    // 查看API中的格式说明
+    System.out.println(sdf.format(d));	// 将日期对象转换为字符串
+  }
+}
+
+  =============================================================
+      18、常见对象案例：你来到这个世界多少天
+  =============================================================
+A：案例演示
+  需求：算一下你来到这个世界多少天？
+B：分析
+  1，将生日字符串和今天字符串存在String类型的变量中
+  2，定义日期格式化对象
+  3，将日期字符串转换成日期对象
+  4，通过日期对象获取时间毫秒值
+  5，将两个时间毫秒值相减÷1000÷60÷60÷24，得到天
+        秒    分  时  天
+
+public class Test2 {
+  public static void main(String[] args) throws ParseExcepiton {
+    // 1，将生日字符串和今天字符串存在String类型的变量中
+    String birthday = "2000年08月01日";
+    String today = "2019年10月2日";
+
+    // 2，定义日期格式化对象
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+
+    // 3，将日期字符串转换成日期对象
+    Date d1 = sdf.parse(birthday);
+    Date d2 = sdf.parse(today);
+
+    // 4，通过日期对象获取时间毫秒值
+    long time = d2.getTime() - d1.getTime();
+
+    // 5，将两个时间毫秒值相减÷1000÷60÷60÷24，得到天
+    System.out.println(time / 1000 / 60 / 60 / 24 / 365);
+  }
+}
+
+  =============================================================
+      19、常见对象：Calendar类的概述和方法使用 （掌握）
+  =============================================================
+Calendar类是日历类。
+
+Date类中有很多方法都过时了，那么有谁来替代呢？有Calendar类替代。
+Calendar类相当于把Date类中的很多方法给替代了，
+
+A：Calendar类的概述
+  属于java.util包下类，需要导包
+  直接子类：GregorianCalendar 格林威治日期类
+  是抽象类，不能直接new对象。public abstract class Calendar extends Object
+
+  Calendar类是一个抽象类，它为特定瞬间与一组诸如YEAR、MONTH、DAY_OF_MONTH、HOUR 等
+  日历字段之间的转换
+
+B：成员方法
+  public static Calendar getInstance()
+  public int get(int field)
+
+
+import java.util.Calendar;
+public class Demo9_Calendar {
+  public static void main(String[] args) {
+    Calendar c = Calendar.getInstance();	// 父类引用在指向子类对象
+      // 抽象类还能这么去用，说明该语句是 父类引用在指向子类对象
+      // getInstance()方法返回的是子类对象
+    System.out.println(c);	// 打印一长串字符，看起来很痛苦。
+
+    System.out.println(c.get(Calendar.YEAR));	// 通过字段获取年
+      // Calendar类的API中有很多字段，这些字段都是常量，final修饰的
+    System.out.println(c.get(Calendar.MONTH));	// 通过字段获取月，但是月是从0开始编号的
+      // 月分是按照0开始编号的
+    System.out.println(c.get(Calendar.DAY_OF_MONTH);// 月中的第几天
+    System.out.println(c.get(Calendar.DAY_OF_WEEK);	// 周日是第1天、周六是最后一天
+      // DAY_OF_MONTH、 DAY_OF_WEEK、DAY_OF_WEEK_IN_MONTH、DAY_OF_YEAR
+
+    System.out.println(c.get(Calendar.YEAR) + "年" + (c.get(Calendar.MONTH) + 1) + "月" 
+        + c.get(Calendar.DAY_OF_MONTH) + "日" + getWeek(c.get(Caleandar.DAY_OF_WEEK)));
+
+    // 2019年6月6日的话，显示2019年06月06日
+    // 2019年10月6日的话，显示2019年10月06日 保证长度是一样的
+    // 即：如果<=9的数字，前面补个0；如果是>9的数字，正常显示
+    System.out.println(c.get(Calendar.YEAR) + "年" + getNum((c.get(Calendar.MONTH) + 1)) + "月" 
+        + getNum(c.get(Calendar.DAY_OF_MONTH)) + "日" + getWeek(c.get(Caleandar.DAY_OF_WEEK)));
+  }
+  
+  /*
+   * 将星期存储表中，进行查表
+   * 1，返回值类型String
+   * 2，参数列表int
+   * /
+  public static String getWeek(int week) {
+    String[] arr = {"","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
+        // 永远不会传0
+    return arr[week];
+  }
+
+  /*
+   * 如果是个位数字，前面补0
+   * 1，返回值类型String
+   * 2，参数列表int
+   */
+  public static String getNum(int num) {
+    /*if(num > 9) {
+      return "" + num;
+    }else {
+      return "0" + num;
+    }*/
+
+    // 三元运算符优化
+    return num > 9 ? "" + num : "0" + num;
+  }
+}
+  =============================================================
+        20、常见对象：Calendar类的add()和set()方法
+  =============================================================
+A：成员方法
+  public void add(int field,int amount)
+  public final void ste(int year,int month,int date)
+B：案例演示
+  Calendar类的成员方法使用
+
+  public static void main(String[] args) {
+    Calendar c = Calendar.getInstance();	// 父类引用在指向子类对象
+
+    c.add(Calendar.YEAR,1);		// 对指定的字段进行向前-或向后+
+    c.add(Calendar.YEAR,-1);
+    c.add(Calendar.MONTH,-1);
+
+    c.set(Calendar.YEAR,2000);	// 修改指定字段
+
+    c.set(2000,8,8);		// 设置年月日
+
+    System.out.println(c.get(Calendar.YEAR) + "年" + getNum((c.get(Calendar.MONTH) + 1)) + "月" 
+        + getNum(c.get(Calendar.DAY_OF_MONTH)) + "日" + getWeek(c.get(Caleandar.DAY_OF_WEEK)));
+  }
+
+  =============================================================
+    21、常见对象：练习：如何获取任职年份是平年还是闰年
+  =============================================================
+A：案例演示
+  需求：键盘录入任意一个年份，判断该年是闰年还是平年。
+    是平年，返回false，是闰年，返回true。
+
+  分析：
+  1，键盘录入年Scanner
+    录入完年之后，根据年去判断2月是28天还是29天。
+    29天 是闰年；28天是平年。
+  2，创建Calendar对象
+    Calendar c = Calendar.getInstance();	// 父类引用在指向子类对象
+  3，通过set方法设置为那一年的3月1日
+  4，将日向前-1，变为2月的最后一天
+    有可能是29天，也有可能是28天
+  5，判断日是多少天，如果是29天，返回true，否则，返回false
+  
+public class Test3 {
+  public static void main(String[] args) {
+    // 不用÷100、÷4的口诀。
+    // 学了Calendar类，用Calendar类中方法
+    
+    Scanner sc = new Scanner(System.in);
+    System.out.println("请输入年份，判断该年份是闰年还是平年：");
+    //int year = sc.nextInt();
+
+    String line = sc.nextLine();		// 录入数字字符串
+    int year = Integer.parseInt(line);	// 将数字字符串转换成数字
+    boolean b = getYear(year);
+
+    System.out.println(b);
+  }
+
+  public static boolean getYear(int year) {
+    // 2，创建Calendar对象
+    Calendar c = Calendar.getInstance();
+
+    // 3，通过set方法设置为那一年的3月1日
+    c.set(year,2,1);
+
+    // 4，将日向前-1，变为2月的最后一天
+    c.add(Calendar.DAY_OF_MONTH,-1);
+
+    // 5，判断是否是29天
+    return c.get(Calendar.DAY_OF_MONTH) == 29 ;
+  }
+}

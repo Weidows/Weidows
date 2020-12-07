@@ -1,0 +1,845 @@
+=========================================================================
+*			面向对象2					*
+=========================================================================
+	------------------------------------------------
+		1、构造方法Constructor概述和格式
+	------------------------------------------------
+A：构造方法概述和作用
+	给对象的数据（属性）进行初始化
+B：构造方法格式特点
+	a：方法名与类名相同（大小写也要与类名一致）
+	b：没有返回值类型，连void都没有
+（考点）	c：没有具体的返回值return；
+		没有返回值的方法，可以不写return语句，系统会默认自动加上return;
+C：举例演示
+class Demo1_Constructor {				//Constructor构造
+	public static void main(String[] args) {
+		Person p = new Person();		//在一创建对象的时候,系统就帮我调用了构造方法
+		//p.Person();				//编译报错。构造方法不能用对象调用
+		p.show();
+
+		Person p2 = new Person();		//再次创建对象
+		p2.show();
+	}
+}
+
+class Person {
+	//以后成员变量都私有，为了保证数据的安全
+	private String name;
+	private int age;
+
+	//构造方法
+	public Person() {
+		//System.out.println("Hello World!");
+		//return;				//构造方法也是有return语句的,格式是return;
+		name = "张三";				//这样不好，因为每次创建的对象属性值都相同
+		age = 23;
+	}
+
+	public void show() {
+		System.out.println(name + "..." + age);
+	}
+}
+
+	------------------------------------------------
+		2、构造方法的重载及注意事项
+	------------------------------------------------
+A：构造方法的重载：
+	重载：方法名相同，与返回值类型无关（构造方法没有返回值），只看参数列表
+B：构造方法注意事项：
+	a：如果我们没有给出构造方法，系统将自动提供一个无参构造方法。
+		public 类名(){
+		}
+	b：如果我们给出了个构造方法，系统将不再提供默认的无参构造方法。
+		注意：这个时候，如果我们还想使用无参构造方法，就必须自己给出。
+		      建议永远自己给出无参构造方法。
+C：案例演示
+
+class Demo2_Person {
+	public static void main(String[] args) {
+		Person p1 = new Person();
+		p1.show();
+
+		System.out.println("-----------");
+
+		Person p2 = new Person("张三",23);
+		p2.show();
+
+		System.out.println("-----------");
+
+		Person p3 = new Person("李四",24);
+		p3.show();
+	}
+}
+
+class Person {
+	private String name;			//姓名
+	private int age;			//年龄
+
+	public Person() {			//空参构造
+		System.out.println("空参的构造");
+	}
+
+	public Person(String name,int age) {
+		this.name = name;
+		this.age = age;
+		System.out.println("有参的构造");
+	}
+	//有参构造的好处：使用随机传的参数给成员变量赋值，给对象中的属性初始化，
+	//还可以动态赋值，没创建一个对象，给一个值。
+	public void show() {
+		System.out.println(name + "..." + age);
+	}
+}
+
+	------------------------------------------------
+	3、给成员变量赋值的两种方式（setXxx和构造方法）的区别
+	------------------------------------------------
+构造方法
+	给属性进行初始化
+setXxx方法
+	修改属性值
+	这两种方式,在开发中用setXxx更多一些,因为比较灵活。
+	不用总是创建对象，创建完对象就可以去修改属性值了。
+
+class Demo3_Person {
+	public static void main(String[] args) {
+		Person p1 = new Person("张三",23);
+		//p1 = new Person("张天一",23);	//不是改名，是“杀人”。这种方式看运行结果貌似是改名了,其实是将原对象变成垃圾
+		System.out.println(p1.getName() + "..." + p1.getAge());
+
+		System.out.println("-----------");
+		Person p2 = new Person();	//空参构造创建对象
+		p2.setName("李四");
+		p2.setAge(24);
+		System.out.println(p2.getName() + "..." + p2.getAge());
+
+		p2.setName("李鬼");		//这是改值
+		System.out.println(p2.getName() + "..." + p2.getAge());
+	}
+}
+
+class Person {
+	private String name;			//姓名
+	private int age;			//年龄
+
+	public Person() {			//空参构造
+	}
+
+	public Person(String name,int age) {	//有参构造
+		this.name = name;
+		this.age = age;
+	}
+	
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+	}
+
+	public String getName() {		//获取姓名
+		return name;
+	}
+
+	public void setAge(int age) {		//设置年龄
+		this.age = age;
+	}
+
+	public int getAge() {			//获取年龄
+		return age;
+	}
+}
+
+-----------------------------------------------------------
+A:案例演示
+	完整学生类：
+		成员变量：
+			name，age
+		构造方法：
+			无参，带两个参
+		成员方法：
+			getXxx()/setXxx()
+			show()：输出该类的所有成员变量值
+B:给成员变量赋值：
+	a:setXxx()方法
+	b:构造方法
+	
+C:输出成员变量值的方式：
+	a:通过getXxx()分别获取然后拼接
+	b:通过调用show()方法搞定
+-----------------------------------------------------------
+class Demo4_Student {
+	public static void main(String[] args) {
+		Student s1 = new Student();		//使用空参构造
+		s1.setName("张三");			//设置姓名
+		s1.setAge(23);				//设置年龄
+
+		System.out.println("我的姓名是:" + s1.getName() + ",我的年龄是:" + s1.getAge());
+							//getXxx()获取属性值,可以打印,也可以赋值给其他的变量,做其他的操作
+		Student s2 = new Student("李四",24);
+		s2.show();				//show()和getAge()的区别。
+							//show只是为了显示属性值，而getAge可以打印，也可以做别的操作。
+	}
+}
+
+class Student {
+	private String name;			//姓名
+	private int age;			//年龄
+
+	public Student(){}			//空参构造
+
+	public Student(String name,int age) {	//有参构造
+		this.name = name;
+		this.age = age;
+	}
+
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+	}
+
+	public String getName() {		//获取姓名
+		return name;
+	}
+
+	public void setAge(int age) {		//设置年龄
+		this.age = age;
+	}
+
+	public int getAge() {			//获取年龄
+		return age;
+	}
+
+	public void show() {
+		System.out.println("我的姓名是:" + name +  ",我的年龄是:" +  age);
+	}
+}
+----------------------------------------------
+模仿学生类，完成手机类
+手机类:
+	成员变量:
+		品牌brand,价格price
+	构造方法
+		无参,有参
+	成员方法
+		setXxx和getXxx
+		show
+---------------------------------------------
+class Demo5_Phone {
+	public static void main(String[] args) {
+		Phone p1 = new Phone();
+		p1.setBrand("苹果");
+		p1.setPrice(1500);
+		System.out.println(p1.getBrand() + "..." + p1.getPrice());
+
+		Phone p2 = new Phone("小米",98);
+		p2.show();
+	}
+}
+
+class Phone {
+	private String brand;			//品牌
+	private int price;			//价格
+
+	public Phone(){}			//空参构造
+
+	public Phone(String brand,int price) {	//有参构造
+		this.brand = brand;
+		this.price = price;
+	}
+
+	public void setBrand(String brand) {	//设置品牌
+		this.brand = brand;
+	}
+
+	public String getBrand() {		//获取品牌
+		return brand;
+	}
+
+	public void setPrice(int price) {	//设置价格
+		this.price = price;
+	}
+
+	public int getPrice() {			//获取价格
+		return price;
+	}
+
+	public void show() {
+		System.out.println(brand + "..." + price);
+	}
+}
+
+
+	------------------------------------------------
+		4、创建一个对象的步骤（如何加载进内存）
+	------------------------------------------------
+详见：《创建一个对象步骤过程.png》
+
+class Demo1_Student {
+	public static void main(String[] args) {
+		Student s = new Student();
+		s.show();
+	}
+}
+
+class Student {
+	private String name = "张三";
+	private int age = 23;
+
+	public Student() {
+		name = "李四";
+		age = 24;
+	}
+
+	public void show() {
+		System.out.println(name + "..." + age);
+	}
+}
+
+总结：说明一个对象的创建过程做了哪些事情
+	Student s = new Student();
+	1.Student.class加载进内存
+	2.声明一个Student类型引用
+	3.在堆内创建对象
+	4.给对象中属性默认初始化值
+	5.属性进行显示初始化
+	6.构造方法进栈，对对象中的属性赋值，构造方法弹栈
+	7.将对象的地址值赋值给s
+
+
+----------------------------------------------
+练习巩固
+案例演示1：长方形案例练习
+	需求：
+		定义一个长方形类，定义 求周长和面积方法，
+		然后定义一个测试类进行测试。
+	分析:
+		成员变量:
+			宽width,高high
+		空参有参构造
+		成员方法:
+			setXxx和getXxx
+			求周长:getLength()
+			求面积:getArea()
+---------------------------------------------
+class Test1_Rectangle {					//Rectangle矩形
+	public static void main(String[] args) {
+		Rectangle r = new Rectangle(10,20);
+		System.out.println(r.getLength());	//周长
+		System.out.println(r.getArea());	//面积
+	}
+}
+
+class Rectangle {
+	private int width;			//宽
+	private int high;			//高
+
+	public Rectangle(){}			//空参构造
+
+	public Rectangle(int width,int high) {
+		this.width = width;		//有参构造
+		this.high = high;
+	}
+
+	public void setWidth(int width) {	//设置宽
+		this.width = width;
+	}
+
+	public int getWidth() {			//获取宽
+		return width;
+	}
+
+	public void setHigh(int high) {		//设置高
+		this.high = high;
+	}
+
+	public int getHigh() {			//获取高
+		return high;
+	}
+
+	public int getLength() {		//获取周长
+		return 2 * (width + high);
+	}
+
+	public int getArea() {			//获取面积
+		return width * high;
+	}
+}
+
+----------------------------------------------
+练习巩固
+案例演示2：员工类案例练习
+	需求：定义一个员工类Employee，自己分析出几个成员，然后给出成员变量
+		姓名name,工号id,工资salary 
+	构造方法，
+		空参和有参的
+	getXxx()setXxx()方法，
+	以及一个显示所有成员信息的方法。并测试。
+		work 
+---------------------------------------------
+class Test2_Employee {					//employee员工
+	public static void main(String[] args) {
+		Employee e = new Employee("唐伯虎","9527",20000);
+		e.work();
+	}
+}
+
+class Employee {
+	private String name;				//姓名
+	private String id;				//工号
+	private double salary;				//工资
+
+	public Employee() {}				//空参构造
+
+	public Employee(String name, String id, double salary) {//有参构造
+		this.name = name;
+		this.id = id;
+		this.salary = salary;
+	}
+
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+	}
+
+	public String getName() {		//获取姓名
+		return name;
+	}
+
+	public void setId(String id) {		//设置id
+		this.id = id;
+	}
+
+	public String getId() {			//获取id
+		return id;
+	}
+
+	public void setSalary(double salary) {	//设置工资
+		this.salary = salary;
+	}
+	
+	public double getSalary() {		//获取工资
+		return salary;
+	}
+
+	public void work() {
+		System.out.println("我的姓名是:" + name + ",我的工号是:" + id + ",我的工资是:" + salary 
+			+ ",我的工作内容是敲代码");
+	}
+}
+	
+	------------------------------------------------
+		5、static关键字及内存图
+	------------------------------------------------
+人类：Person。
+每个人都有国籍：中国
+
+不加static内存图：《不加static内存图.png》
+
+加static内存图：
+
+class Demo1_Static {
+	public static void main(String[] args) {
+		/*Person p1 = new Person();	//创建对象
+		p1.name = "范冰冰";		//调用姓名属性并赋值
+		p1.country = "中国";		//调用国籍属性并赋值
+		
+
+		Person p2 = new Person();
+		p2.name = "李健";		//调用姓名属性并赋值
+		//p2.country = "中国";		//调用国籍属性并赋值
+
+		p1.speak();
+		p2.speak();*/
+
+		Person.country = "中国";	//静态多了一种调用方式,可以通过类名.
+		System.out.println(Person.country);
+	}
+}
+
+class Person {
+	String name;				//姓名
+	static String country;			//国籍
+
+	public void speak() {			//说话的方法
+		System.out.println(name + "..." + country);
+	}
+}
+
+-----------------------------------------------------------------
+static关键字特点
+	a：随着类的加载而加载
+	b：优先于对象存在
+	c：被类的所有对象共享
+		举例：
+			一个班的学生应该共用同一个班级编号
+		此特点也是在告诉我们什么时候使用静态
+			如果某个成员变量识别所有对象共享的，那么它就应该定义为静态的
+		举例：
+			饮水机/电茶炉（用静态修饰）
+			水杯（不能用静态修饰）
+		总结：
+			共性用静态，特性用非静态
+	d：可以通过类名调用
+		它本身也可以通过对象名调用
+		推荐使用类名调用
+		静态修饰的内容一般我们称其为：与类相关的，类成员
+-----------------------------------------------------------------
+static的注意事项
+(考点)	a:在静态方法中是没有this关键字的
+		如何理解呢?
+			静态是随着类的加载而加载，this是随着对象的创建而存在。
+			静态比对象先存在。
+	b:静态方法只能访问静态的成员变量和静态的成员方法
+		静态方法：
+			成员变量：只能访问静态变量
+			成员方法：只能访问静态成员方法
+		非静态方法：
+			成员变量：可以是静态的，也可以是非静态的
+			成员方法：可是是静态的成员方法，也可以是非静态的成员方法。
+		简单记：
+			静态只能访问静态。
+
+class Demo2_Static {
+	public static void main(String[] args) {
+		//Demo d = new Demo();
+		//d.print1();
+
+		Demo.print2();
+	}
+}
+
+class Demo {
+	int num1 = 10;				//非静态的成员变量
+	static int num2 = 20;			//静态的成员变量
+
+	/*public void print1() {		//非静态的成员方法,既可以访问静态的成员也可以访问非静态的
+		System.out.println(num1);
+		System.out.println(num2);
+	}*/
+
+	public static void print2() {		//静态的成员方法
+		//System.out.println(this.num1);//静态的成员方法不能访问非静态的,错误: 无法从静态上下文中引用非静态 变量 num1
+		System.out.println(num2);
+	}
+}
+
+.class中静态的成员和非静态的成员，都是同时加载到方法区的。
+但是可以这样理解，静态的成员是解压缩的，非静态是压缩的。
+
+小小解释
+class Demo3_Static {
+	public static void main(String[] args) {
+		//method();				//错误: 无法从静态上下文中引用非静态 方法 method()
+		Demo3_Static.print();			//在主方法中调用本类的静态方法,可以省略类名.,系统会默认加上
+		Demo3_Static d = new Demo3_Static();	//非静态方法在调用的时候必须创建对象调用
+		d.method();
+	}
+
+	public void method() {					
+		System.out.println("Hello World!");		
+	}
+
+	public static void print() {
+		System.out.println("Hello World!");
+	}
+}
+
+	------------------------------------------------
+		6、静态变量和成员变量的区别（考点）
+	------------------------------------------------
+静态变量也叫类变量，成员变量也叫对象变量
+A：所属不同
+	静态变量属于类，所以也称为类变量
+	成员变量属于对象，所以也称为实例变量（对象变量）
+B：内存中位置不同
+	静态变量存储于方法区的静态区
+	成员变量存储于堆内存
+C：内存出现时间不同
+	静态变量随着类的加载而加载，随着类的消失而消失
+	成员变量随着对象的创建而存在，随着对象的消失而消失
+D：调用不同
+	静态变量可以通过类名调用，也可以通过对象调用
+	成员变量只能通过对象名调用
+
+	------------------------------------------------
+		7、main方法的格式详细解释
+	------------------------------------------------
+public static void main(String[] args)
+
+public：被JVM调用，所以权限要足够大
+static：被JVM调用，不需要创建对象，直接类名.调用即可
+void：	被JVM调用，不需要有任何的返回值
+main：	只有这样写才被JVM识别，main不是关键字
+String[] args：以前是用来接收键盘录入的
+
+***********************************************
+
+main(int argc,char *argv[])
+
+parameter和argument的区别
+1. parameter是指函数定义中参数，而argument指的是函数调用时的实际参数。
+2. 简略描述为：parameter=形参(formal parameter)， argument=实参(actual parameter)。
+3. 在不很严格的情况下，现在二者可以混用，一般用argument，而parameter则比较少用。
+　　While defining method, variables passed in the method are called parameters.
+　　当定义方法时，传递到方法中的变量称为参数.
+　　While using those methods, values passed to those variables are called arguments.
+　　当调用方法时，传给变量的值称为引数.（有时argument被翻译为“引数“）
+
+C语言中：main(int argc,char * argv[])
+	argc：命令行中参数的个数
+	argv[]：指向字符串的指针数组
+***********************************************
+class Demo3_Main {
+	public static void main(String[] args) {			
+		System.out.println(args.length);	//打印数组的长度
+		for (int i = 0;i < args.length ;i++ ) {
+			System.out.println(args[i]);
+		}
+	}
+}
+
+命令行窗口执行时，加参数
+java Demo3_Main haha xixi hehe
+
+
+	------------------------------------------------
+		8、工具类中使用使用静态
+	------------------------------------------------
+制作一个工具类
+	ArrayTool（数组工具类），有以下三个方法
+	1.获取最大值
+	2.数组的遍历
+	3.数组的反转
+
+开发时，不同的类放在不同的源文件中
+class ArrayTool {
+	//如果一个类中所有的方法都是静态的,需要再多做一步,私有构造方法,目的是不让其他类创建本类对象
+	//直接用类名.调用即可
+	
+	私有构造方法
+	
+	private ArrayTool(){}
+
+	//1,获取最大值
+	public (static) int getMax(int[] arr) {
+		int max = arr[0];			//记录第一个元素
+		for (int i = 1;i < arr.length ;i++ ) {	//从第二个元素开始遍历
+			if (max < arr[i]) {		//max与数组中其他的元素比较
+				max = arr[i];		//记录住较大的
+			}
+		}
+
+		return max;				//将最大值返回
+	}
+
+	//2.数组的遍历
+	public (static) void print(int[] arr) {
+		for (int i = 0;i < arr.length ;i++ ) {	//遍历数组
+			System.out.print(arr[i] + " ");
+		}
+	}
+
+	//3.数组的反转
+	public (static) void revArray(int[] arr) {
+		for (int i = 0;i < arr.length / 2 ;i++ ) {	//循环次数是元素个数的一半
+			/*
+			arr[0]与arr[arr.length-1-0]	交换
+			arr[1]与arr[arr.length-1-1]	交换
+			arr[2]与arr[arr.length-1-2] 	交换
+			*/
+			int temp = arr[i];
+			arr[i] = arr[arr.length-1-i];
+			arr[arr.length-1-i] = temp;
+		}
+	}
+}
+//以上类中的三个方法都是实现某种功能，这些方法都定义为非静态的，也就意味着，
+//在测试类Demo1_ArrayTool中需要创建对象，才能使用这些方法。
+//如果把这些方法都定义为静态static的，就不用再去创建对象，
+
+
+//测试类Demo1_ArrayTool，和类ArrayTool不在同一个源文件中
+class Demo1_ArrayTool {
+	public static void main(String[] args) {
+		int[] arr = {33,11,22,66,55,44};
+		/*ArrayTool at = new ArrayTool();
+		int max = at.getMax(arr);		//获取最值
+		System.out.println(max);
+		
+		System.out.println("---------------");
+		at.print(arr);				//打印
+		System.out.println();
+		System.out.println("---------------");
+		System.out.println("反转后:");
+		at.revArray(arr);			//反转
+		at.print(arr);	*/
+
+		ArrayTool.print(arr);
+	}
+}
+
+//但是，如果一个类中所有的方法都是静态的,需要再多做一步,做一步定义私有构造方法,目的是不让其他类创建本类对象。
+如果不定义私有的构造方法，有人就非要创建对象，创建完对象，通过对象调用这些静态方法。
+如果把构造方法私有化，就访问不到构造方法，就不能创建对象。
+//直接用类名.调用即可
+
+	------------------------------------------------
+		9、说明书的制作过程（了解）
+	------------------------------------------------
+A：对工具类加入文档注释
+B：通过javadoc命令生成文档说明书
+	@author（提取作者内容）
+	@version（提取版本内容）
+	javadoc -d 指定的文件目录 -author -version ArrayTool.java
+	@param 参数名称	//形式参数的变量名称@return 函数运行完返回的数据
+C：案例演示
+
+
+/**
+这是一个数组工具类,里面封装了查找数组最大值,打印数组,数组反转的方法
+@author fengjia
+@version v1.0
+*/
+public class ArrayTool {
+	//如果一个类中所有的方法都是静态的,需要再多做一步,私有构造方法,目的是不让其他类创建本类对象
+	//直接用类名.调用即可
+	/**
+	私有构造方法，没有意义，因为私有的在说明书上是不会体现的
+	*/
+	private ArrayTool(){}
+
+	//1,获取最大值
+
+	/**
+	这是获取数组中最大值的方法
+	@param arr 接收一个int类型数组
+	@return 返回数组中最大值
+	*/
+	public static int getMax(int[] arr) {
+		int max = arr[0];			//记录第一个元素
+		for (int i = 1;i < arr.length ;i++ ) {	//从第二个元素开始遍历
+			if (max < arr[i]) {		//max与数组中其他的元素比较
+				max = arr[i];		//记录住较大的
+			}
+		}
+
+		return max;				//将最大值返回
+	}
+	//2,数组的遍历
+	/**
+	这是遍历数组的方法
+	@param arr 接收一个int类型数组
+	*/
+	public static void print(int[] arr) {
+		for (int i = 0;i < arr.length ;i++ ) {	//遍历数组
+			System.out.print(arr[i] + " ");
+		}
+	}
+	//3,数组的反转
+	/**
+	这是数组反转的方法
+	@param arr 接收一个int类型数组
+	*/
+	public static void revArray(int[] arr) {
+		for (int i = 0;i < arr.length / 2 ;i++ ) {	//循环次数是元素个数的一半
+			/*
+			arr[0]与arr[arr.length-1-0]	交换
+			arr[1]与arr[arr.length-1-1]	交换
+			arr[2]与arr[arr.length-1-2]	交换
+			*/
+			int temp = arr[i];
+			arr[i] = arr[arr.length-1-i];
+			arr[arr.length-1-i] = temp;
+		}
+	}
+}
+
+生成文档说明书用javadoc命令
+1.找到.class文件所在的目录；
+2.空白部分，shift+右键单击，选择【在此处打开命令窗口】；
+3.javadoc -d api -version -author ArrayTool.java
+	该类必须是公共的，所以在类前加上public
+4.index.html查看生成的文档内容
+
+说明书的方法的好处，有什么样的方法，返回值类型、参数一目了然。
+不用自己做，oralc公司（sun公司）只要出一个新版本的jdk，都会有针对的文档说明书，用它做好的文档说明是就行。
+
+	------------------------------------------------
+		10、如何使用JDK提供的帮助文档（了解）
+	------------------------------------------------
+1.打开某一版本的JDK API
+2.点击显示，找到索引，出现输入框
+3.在左侧搜索框中，输入查找的类名
+4.你应该知道你要找的类名
+5.看这个类的结构（需不需要导包）
+	成员变量		字段
+	构造方法		构造方法
+	成员方法		方法
+
+	------------------------------------------------
+		11、学习Math类的随机数功能（了解）（不考）
+	------------------------------------------------
+打开JDK提供的帮助文档学习，加深JDK帮助文档的使用
+A：Math类
+	类包含用于执行基本数学运算的方法
+B：Math类特点
+	由于Math类在Java.lang包下，所以不需要导包
+	因为它的成员全部是静态的，所以私有了构造方法
+	所有的方法都是静态的static，就会私有它的构造方法，目的是不让其它类创建这个类的对象
+
+	如何查看该类的构造方法有没有私有呢？看源码src.zip。
+	src.zip\java\lang\Math.java
+	private Math() {};
+
+C：获取随机数的方法
+	搜索Math
+	public static double random();返回带正号的double值，该值大于等于0.0且小于1.0。返回一个伪随机数。
+	伪随机数：不是一个真正的随机数，是用算法算出的一个随机数
+D：我要获取一个1-100之间的随机数，怎么办？
+	int number = (int)(Math.random() * 100) + 1;
+E：案例演示
+class Demo2_Math {
+	public static void main(String[] args) {
+		//double d = Math.random();
+		//System.out.println(d);
+		
+		//Math.random()会生成大于等于0.0并且小于1.0的伪随机数
+		for (int i = 0;i < 10 ;i++ ) {
+			System.out.println(Math.random());
+		}
+
+		//生成1-100的随机数
+		//Math.random()		0.0000000 - 0.999999999
+		//Math.random() * 100 ====> 0.00000 - 99.999999999
+		//(int)(Math.random() * 100) ====> 0 - 99
+		//(int)(Math.random() * 100) + 1
+
+		for (int i = 0;i < 10 ;i++ ) {
+			System.out.println((int)(Math.random() * 100) + 1);
+		}
+	}
+}
+
+	------------------------------------------------
+		12、猜数字小游戏（数据在1-100之间）（了解）
+	------------------------------------------------
+案例演示
+	需求：猜数字小游戏（数据在1-100之间）
+
+import java.util.Scanner;
+class Test1_GuessNum {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);			//创建键盘录入对象
+		System.out.println("请输入一个整数,范围在1-100之间");
+		int guessNum = (int)(Math.random() * 100) + 1;		//心里想的随机数
+		while (true) {						//因为需要猜很多次,所以用无限循环
+			int result = sc.nextInt();			//大家猜的数
+			if (result > guessNum) {			//如果你们猜的数大于了我心里想的数
+				System.out.println("大了");		//提示大了
+			} else if (result < guessNum) {			//如果你们猜的数小于了我心里想的数
+				System.out.println("小了");		//提示小了
+			} else {					//如果既不大也不小
+				System.out.println("中了");		//中了
+				break;
+			}
+		}
+	}
+}
+

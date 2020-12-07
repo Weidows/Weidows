@@ -1,0 +1,918 @@
+=========================================================================
+*			常见对象：Object、Scanner、String		*
+=========================================================================
+	------------------------------------------------
+			1、API概述
+	------------------------------------------------
+A：API（Application Programming Interface）
+	应用程序接口
+B：Java API
+	指的是Java提供给我们使用的类，这些类将底层的实现封装起来。
+	我们不需要关心这些类是如何实现的，只需要学习这些类如何使用。
+	------------------------------------------------
+			2、Object类的概述
+	------------------------------------------------
+A：Object类概述
+	类层次结构的根类
+	所有类都直接或间接的继承该类
+	所有对象（包括数组）都实现这个类的方法
+B：构造方法
+	public Object()
+	回想面向对象中所说：子类的构造方法默认访问的是父类的无参构造方法
+	------------------------------------------------
+			3、Object类的hashCode()方法
+	------------------------------------------------
+A：案例演示
+	public int hashCode()
+	a：返回该类对象的哈希码值。默认情况下，该方法会根据对象的地址来计算。
+	b：不同对象的hashCode()一般来说不会相同。但是，同一个对象的hashCode()值肯定相同。
+	c：不是对象的实际地址值，可以理解为逻辑地址值。
+		举例：物体和编号
+	Object obj1 = new Object();
+	int hashCode = obj1.hashCode();
+	System.out.println(hashCode);
+
+	每个对象都有一个hashCode值
+
+快捷键：光标定位到该行后
+	ctrl+alt+↑ 向上复制一行
+	ctrl+alt+↓ 向下复制一行
+
+hashCode()方法在集合中使用，hashSet集合，需要重写hashCode()方法。
+	------------------------------------------------
+			4、Object类的getClass()方法
+	------------------------------------------------
+getClass在讲反射的时候详细讲
+
+案例演示：
+	public final class getClass()
+	a：返回此Object对象的运行时类。返回值是一个类，用来描述属性和行为的。相当于描述类的类。
+	b：可以通过Class类中的getName()方法，获取对象的真实类的全名称
+		public String getName()：以String的形式返回此Class对象所表示的实体（类、接口、数组类、基本类型或void）名称。
+
+	public static void main(String[] args) {
+		Student s = new Student("张三",23);
+		Class clazz = s.getClass();	//获取该对象的字节码文件
+		String name = clazz.getName();	//获取名称
+		System.out.println(name);
+	}
+
+	------------------------------------------------
+			5、Object类的toString()方法
+	------------------------------------------------
+toString()方法中有对hashCode()、getClass()方法的调用
+
+A：方法名
+	public String toString()
+	a：返回值
+		String类型，返回该对象的字符串表示
+		public String toString() {
+			return name + "," + age;
+		}
+	b：它的值等于
+		getClass().getName() + "@" + Integer.toHexString(hashCode());
+	c：由于默认情况下的数据对我们来说没有意义，一般建议重写该方法
+	d：作用：可以更方便的显示属性值
+		getXXX()方法是为了获取值，可以显示也可以赋值或做其它操作
+B：最终版
+	自动生成
+C：案例演示
+package com.hebau.object;
+import com.hebau.Student;
+public class Demo_ToString {
+	public static void main(String[] args) {
+		Student s = new Student("张三",23);
+
+		String str = s.toString();	//调用Student父类Object的toString()方法
+		System.out.println(str);
+	
+		//以上两行代码等价于：System.out.println(s.toString());
+		//运行结果：com.hebau.Student@67064
+		//          		类名@hashCode值
+		//toString()方法的原码
+		//public String toString() {
+		//	return getClass().getName() + "@" + Integer.toHexString(hashCode());
+		//  拿到这个类的字节码文件.拿到这个类的名字 @    类名.静态方法（该类的hashCode十六进制字符串值）
+		//查看Integer类的API：属于java.lang包下的类，是不用导包的
+		//	static String toHexString(int i)：以十六进制无符号整数形式返回一个整数参数的字符串表示形式
+		//--------------------------------------------------
+		//这么写没有实际意义，一般情况对其进行重写。
+		//在Student类中alt+shift+s 再按v 重写父类的方法→选择toSting方法
+		//public String toString() {
+		//	return "我的姓名是：" + name + "，我的年龄是：" + age;//显示其属性值
+		//}
+		System.out.println(s.toString());
+		System.out.println(s);	//如果直接打印对象的引用，会默认调用toString()方法
+	}
+}
+
+toString()方法可以用eclipse自动生成，因为其用途非常多
+alt+shift+s→s（Generate toString()）→
+public String toString() {
+	return "Student [name=" + name + ",age=" + age + "]";
+}
+
+	------------------------------------------------
+			6、Object类的equals()方法
+	------------------------------------------------
+A：equals(Object obj)方法功能
+	a：指示其它某个对象是否与此对象“相等”。判断两个对象是否相等的。
+	b：返回Boolean类型的值
+B：说明
+	a：默认情况下比较的是对象的引用是否相同。比较的是地址值。
+	b：由于比较对象的引用没有意义，一般建议重写该方法
+C：举例
+	Student s1 = new Student("张三",23);
+	Student s2 = new Student("张三",23);
+	boolean b = s1.equals(s2);
+	System.out.println(b);		//false
+
+	System.out.println(s1 == s2);	//false
+D：equals()原码
+	public boolean equals(Object obj) {
+		return (this == obj);	//调入的对象和传入的对象比较
+	}
+	Object中的equals方法是比较对象的地址值的，没有什么实际意义，我们需要重写它。
+	因为在开发中，通常比较的是对象中的属性值，我们认为相同属性是同一个对象。
+	这样，我们需要重写equals方法。
+E：重写equals方法
+	在Student类中重写父类Object中的equals方法
+	alt+shift+s → v → 勾选equals
+
+	public boolean equals(Object obj) {	//形参是多态。父类引用指向子类对象。name是子类的属性，必须向下转型
+		Student s = (Student)obj;
+		return this.name.equals(obj.name);	//报错。因为其使用的是父类访问的子类中特有的属性和方法。
+		return this.name.equals(s.name) && this.age == s.age;
+						   基本数据类型是不能调用方法的，只能直接去比较
+	}	//重写之后就是比较的是对象中的属性值
+	//this.name是调用者的姓名，是一个字符串。
+	//字符串中也封装了很多方法，
+	String类中equals()方法的含义：
+	将此字符串与制定的对象比较。当且仅当该参数不为null，并且与此对象表示相同字符串序列的String对象时，结果才为true。
+
+	------------------------------------------------
+			7、==号和equals()方法的区别
+	-----------------------------------------------
+A：共同点：
+	都可以做比较，返回值都是boolean
+B：区别：
+	1.==是比较运算符，基本可以比较基本数据类型，也可以比较引用数据类型。
+	  基本数据类型比较的是值，引用数据类型比较的是地址值。
+	2.equals()方法只能比较的是引用数据类型。equals()方法在没重写之前，比较的是地址值，底层依赖的是==号，
+	但是比较地址值是没有意义的。 我们需要重写equals()方法，比较对象中的属性。
+
+
+	------------------------------------------------
+			8、Scanner的概述和方法介绍
+	------------------------------------------------
+A：Scanner的概述
+	一个可以使用正则表达式来解析基本类型和字符串的简单文本扫描器。
+	属于：java.util包中的类。
+
+	想了解一个类，查看它的API就可以——学会使用API
+
+B：Scanner的构造方法原理
+	Scanner(InputStream source)
+	System类下有一个静态的字段：
+		public static final InputStream in;标准的输入流，对应着键盘录入。
+C：案例演示
+	Scanner sc = new Scanner(System.in);
+	int i = sc.nextInt();
+	System.out.println(i);	//输入字符，则抛出异常
+D：一般方法
+	hasNextXxx()	判断是否还有下一个输入项，其中Xxx可以是Int、Double等。如果需要判断是否包含下一个字符串，则可以省略Xxx。
+	nextXxx()	获取下一个输入项。Xxx的含义和上个方法中的Xxx相同，默认情况下，Scanner使用空格，回车等作为分隔符。
+
+	hasNextByte()、hasNextDouble()、hasNextFloat()、hasNextInt()、hasNextLong()、hasNextShort()
+
+	if(sc.hasNextInt()) {
+		int i = sc.nextInt();
+		System.out.println(i);
+	}else {
+		System.out.println("输入的类型错误");
+	}
+
+	------------------------------------------------
+	  9、Scanner获取数据出现的小问题及解决方案（掌握）
+	------------------------------------------------
+A：两个常用的方法
+	public int nextInt()：获取一个int类型的值
+	public String nextLine()：获取一个String类型的值
+				  此扫描器执行当前行，并返回跳过的输入信息
+				  录入字符串，什么样的类型都行，包括数字、字母、特殊符号等
+B：案例演示
+	a：先演示获取多个int值，多个String值的情况
+	b：再演示先获取int值，然后获取String值出现问题
+	c：解决方案
+		1.现获取一个数值后，再创建一个新的键盘录入对象获取字符串
+		2.把所有的数据都先按照字符串获取，然后要什么，你就对应的转换为什么。
+
+	public static void main(String[] args) {
+		/*Scanner sc = new Scanner(System.in);
+		System.out.println("请输入第一个整数：");
+		int i = sc.nextInt();
+		System.out.println("请输入第二个整数");
+		int j = sc.nextInt();
+		System.out.println("i = " + i + ", j = " + j);
+		//输入10 20，输出 i = 10, j = 20
+		*/
+
+		/*Scanner sc = new Scanner(System.in);
+		System.out.println("请输入第一个字符串：");
+		String line1 = sc.nextLine();
+		System.out.println("请输入第二个整数：");
+		String line2 = sc.nextLine();
+		System.out.println("line1 = " + line1 + ", line2 = " + line2);
+		//输入abc 123，输出line1 = abc，line2 = 123*/
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入第一个整数：");
+		int i = sc.nextInt();
+		System.out.println("请输入第二个字符串");
+		String line2 = sc.nextLine();
+		System.out.println("i = " + i + ", line2 = " + line2);
+		//输入10 回车，输出
+		//i = 10, line2 = 
+		//原因：
+		//nextInt()是键盘录入整数的方法，当我们录入10的时候
+		//其实在键盘上录入的是10和\r\n，nextInt()方法只获取10就结束了
+		//nextLine()是键盘录入字符串的方法，可以接受任意类型，但是它凭什么能获取一行呢？
+		//通过\r\n，只要遇到\r\n就证明一行结束
+		---------------------------------------------
+		//演示下到底有没有拿到\r\n
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入第一个整数：");
+		int i = sc.nextInt();
+		System.out.println("请输入第二个字符串");
+		String line2 = sc.nextLine();
+		System.out.print("11111111");
+		System.out.print(line2);
+		System.out.println("22222222");	//如果11111111执行了，22222222也执行了，就证明line2也执行了
+						//今后经常用这样的语句跟踪程序到底执行到那条语句了
+		//请输入第一个整数：
+		//10
+		//请输入第二个字符串：
+		//10
+		//1111111122222222
+		//line2中什么都没接收，遇到\r\n后就立即结束
+		----------------------------------------------
+		//解决方案
+		//1.创建2次对象，但是浪费空间
+		//2.键盘录入的都是字符串，都用nextLine()方法。后续学习，将字符串转换成整数的方法（推荐使用）
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();	//有弊端，录入aaa字符串后，就会产生异常
+		Scanner sc2 = new Scanner(System.in);	//创建2次对象
+		String line = sc2.nextLine();
+		System.out.println(line);
+	}
+
+	------------------------------------------------
+			10、String类的概述
+	------------------------------------------------
+String类中的方法，都要求掌握，内容不难，但是方法特别多，要求大家记住、掌握。
+其它类不这么要求，只有String类这样要求。
+
+A：String类的概述
+	通过JDK提供的API，查看String类的说明
+
+	可以看到2句话
+		a：字符串字面值"abc"也可以看成是一个字符串对象
+		b：字符串是常量，一旦被赋值，就不能被改变
+
+说明：属于java.lang包下的的类，java.lang包下的的类是不用导包的直接使用就行
+	public final class String：最终类，不能有子类
+	extends ：直接父类是Object
+
+	字符串字面值"abc"也可以看成是一个字符串对象
+
+	public static void main(String[] args) {
+		//Person p = new Person();
+		String str = "abc";		//"abc"可以看成一个字符串对象。意味着可以调用String类中的方法。
+		System.out.println(str);	//String类重写了toString()方法，返回的是该对象本身
+						//在讲Object类的时候，如果打印对象的引用的时候，输出的结果不是
+						//类名@哈希code十六进制值的时候，说明，这个类肯定重写了toString()方法
+						//String中toString()：返回此对象本身（它已经是一个字符串！）
+		System.out.println(str.toString());	//打印对象名的时候，默认会调用toString()方法
+		str = "def";			//当把"def"赋值给str，原来的"abc"对象就变成了垃圾
+		System.out.println(str);
+	}
+
+	------------------------------------------------
+			11、String类的构造方法
+	------------------------------------------------
+public String()：空构造
+public String(byte[] bytes)：把字节数组转成字符串
+public String(byte[] bytes, int index, int length)：把字节数组的一部分转成字符串
+public String(char[] value)：把字符数组转成字符串
+public String(char[] value, int index, int count)：把字符数组的一部分转成字符串
+public String(String origianl)：把字符串常量转成字符串
+
+	String s1 = new String();	//空构造
+	System.out.println(s1);
+
+	byte[] arr1 = {97,98,99};
+	String s2 = new String(arr1);	//API介绍：通过使用平台的默认字符集解码指定的byte数组，构造一个新的String
+					//解码：将计算机读的懂的转换成我们人能读的懂的
+	System.out.println(s2);		//打印结果：abc
+					//使用的是平台当前项目默认的码表GBK
+					//码表范围从小到大：ASCII→GBK→Unicode
+	byte[] arr2 = {97,98,99,100,101,102};
+	String s3 = new String(arr2,2,3);//将arr2字节数组从2索引开始转换3个
+	System.out.pirntln(s3);		//cde。转部分内容
+
+	char[] arr3 = {'a','b','c','d','e'}	//将字符数组转换成字符串
+	String s4 = new String(arr3);
+	System.out.println(s4);
+
+	String s5 = new String(arr3,1,3);	//将arr3字符数组，从1索引开始转换3个
+	System.out.println(s5);
+
+	String s6 = new String("hebau");
+	System.out.println(s6);
+
+	------------------------------------------------
+			12、String类的常见面试题(考点)
+	------------------------------------------------
+1.判断定义为String类型的s1和s2是否相等
+	String s1 = "abc";
+	String s2 = "abc";
+	System.out.println(s1 == s2);		//? true
+	System.out.println(s1.equals(s2));	//true
+2.下面这句话在内存中创建了几个对象？
+	String s1 = new String("abc");		//2个
+3.判断定义为String类型的s1和s2是否相等
+	String s1 = new String("abc");
+	String s2 = "abc";
+	System.out.println(s1 == s2);		//?false
+	System.out.println(s1.equals(s2));	//true
+4.判断定义为String类型的s1和s2是否相等
+	String s1 = "a" + "b" + "c";
+	String s2 = "abc";
+	System.out.println(s1 == s2);		//?true
+	System.out.println(s1.equals(s2));	//true
+5.判断定义为String类型的s1和s2是否相等
+	String s1 = "ab";
+	String s2 = "abc";
+	String s3 = s1 + "c";
+	System.out.println(s3 == s2);		//?false
+	System.out.println(s3.equals(s2));	//true
+-----------------------------------------------------
+	public static void main(String[] args) {
+		demo1();
+		demo2();
+		demo3();
+		demo4();
+
+		String s1 = "ab";
+		String s2 = "abc";
+		String s3 = s1 + "c";			//任何数据与字符串用+号相连接，都会产生新的字符串。
+							//底层是通过StringBuffer或（StringBuilder）实现的。
+		System.out.println(s3 == s2);		//?
+		System.out.println(s3.equals(s2));	//?
+		详见API中String的文字解释。
+			Java 语言提供对字符串串联符号（"+"）以及将其他对象转换为字符串的特殊支持。
+			字符串串联是通过 StringBuilder（或 StringBuffer）类及其 append 方法实现的。
+			字符串转换是通过 toString 方法实现的，该方法由 Object 类定义，并可被 Java 中的所有类继承。
+		原因：参考《String字符串常量池3.png》
+	
+	}
+
+	private static void demo4() {	
+		//byte b = 3 + 4;			//在编译时就变成7，把7赋值给b，常量优化机制
+		String s1 = "a" + "b" + "c";
+		String s2 = "abc";
+		System.out.println(s1 == s2);		//?Java中有常量优化机制byte b = 3 + 4;
+		System.out.println(s1.equals(s2));	//?
+	}
+
+	private static void demo3() {
+		String s1 = new String("abc");	//记录的是堆内存中对象的地址
+		String s2 = "abc";		//记录的是常量池中对象的地址
+		System.out.println(s1 == s2);		//?
+		System.out.println(s1.equals(s2));	//?
+	}
+
+	private static void demo2() {	
+		//创建2个对象，一个在常量池中，一个在堆内存中
+		String s1 = new String("abc");
+		//把常量池中"abc"的副本拷贝给堆内存对象一份。详见API中String的public String(String original)构造方法解释
+		//有原本和副本，所以是2个对象	
+		原因：参考《String字符串常量池2.png》
+	}
+
+	private static void demo1() {	//如果常量池中没有这个字符串对象，就创建一个，如果有就直接用即可
+		String s1 = "abc";
+		String s2 = "abc";
+		System.out.println(s1 == s2);		//==比较的是地址值，只有s1和s2是同一个对象时，结果才为true
+		System.out.println(s1.equals(s2));
+		//equals()：将此字符串与指定的对象比较。当且仅当该参数不为null，并且是与此对象表示相同字符序列的String对象时，结果才为true。
+		原因：参考《String字符串常量池1.png》
+		常量池："abc"要进入常量池，如果常量池中没有"abc"，就创建一个；如果池中没有，就不创建了。
+	}
+
+	------------------------------------------------
+			13、String类的判断功能
+	------------------------------------------------
+String类的判断功能
+	boolean equals(Object obj)：比较字符串的内容是否相同，区分大小写
+	boolean equalsIgnoreCase(String str)：比较字符串的内容是否相同，忽略大小写
+	boolean contains(String str)：判断大字符串中是否包含小字符串
+	boolean startsWith(String str)：判断字符串是否以某个指定的字符串开头
+	boolean endsWith(String str)：判断字符串是否以某个指定的字符串结尾
+	boolean isEmpty()：判断字符串是否为空
+
+(考点)	""和null的区别：
+	""是字符串常量，同时也是一个String类的对象，既然是对象当然可以调用String类中的方法
+	null是空常量，不能调用任何的方法，否则会出现空指针异常，null常量可以给任意的引用数据类型赋值
+--------------------------------------------------------
+	public static void main(String[] args) {
+		demo1();
+		demo2();
+		
+		String s1 = "hebau";
+		String s2 = "";
+
+		String s3 = null;
+
+		System.out.println(s1.isEmpty());
+		System.out.println(s2.isEmpty());
+
+		System.out.println(s3.isEmpty());	//java.lang.NullPointerException
+	}
+
+	private static void demo2() {
+		String s1 = "我爱河北农业大学，呵呵";
+		String s2 = "河北农业大学";
+		String s3 = "河大";
+		String s4 = "我爱";
+		String s5 = "呵呵";
+
+		System.out.println(s1.contains(s2));	//判断是否包含传入的字符串
+		System.out.println(s1.contains(s3));
+		
+		System.out.println("---------------------");
+		System.out.println(s1.startsWith(s4));	//判断是否以传入的字符串开头
+		System.out.println(s1.startsWiht(s5));
+
+		System.out.println("---------------------");
+		System.out.println(s1.endsWith(s4));	//判断是否以传入的字符串结尾
+		System.out.println(s1.endsWith(s5));
+	}
+
+	private static void demo1() {
+		String s1 = "hebau";
+		String s2 = "hebau";
+		String s3 = "HeBau";
+
+		System.out.println(s1.equals(s2));
+		System.out.println(s2.equals(s3));
+
+		System.out.println("-----------");
+
+		System.out.println(s1.equalsIgnoreCase(s2));
+		System.out.println(s1.equalsIgnoreCase(s3));	//不区分大小写
+	}
+
+	------------------------------------------------
+		14、String类的练习：模拟用户登录
+	------------------------------------------------
+需求：
+	模拟登陆，给三次机会，并提示还有几次
+	用户名和密码都是admin
+分析：
+	1.模拟登陆，需要键盘录入，Scanner
+	2.给三次机会，需要循环，for
+	3.并提示有几次，需要判断，if
+
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);	//创建键盘录入对象
+
+	for(int i = 0; i < 3; i++) {
+		System.out.println("请输入用户名：");
+		String userName = sc.nextLine();	//将键盘录入的用户名存储在userName中
+		System.out.println("请输入密码：");
+		String passWord = sc.nextLine();	//将键盘录入的密码存储在passWor的中
+	
+/* 代码是调出来的，不是敲出来的*/
+		if("admin".equals(userName) && "admin".equals(passWord)) {
+		//为什么是字符串常量("admin")在前，字符串变量(userName)在后呢？
+		//因为常量肯定不能是null，而变量有可能存储的是null，可能会出现空指针异常。	
+		//如果字符串常量和字符串变量去比较，通常都是字符串常量调用方法，将变量当做参数传递，防止空指针异常。
+			System.out.println("欢迎" + userName + "登录");
+			break; 		//跳出循环
+		}else {
+			if(i == 2) {
+				System.out.println("您的错误次数已到，请明天再来吧");
+			}else {
+				System.out.println("录入错误，您还有" + (2-i) + "次机会");
+			}
+		}
+	}
+}
+
+	------------------------------------------------
+			15、String类的获取功能
+	------------------------------------------------
+String类中的方法特别的重要，而且还多，需要掌握下，没办法。
+
+int length()：获取字符串的长度。
+char charAt(int index)：获取指定索引位置的字符
+int indexOf(int ch)：返回指定字符在此字符串中第一次出现处的索引
+int indexOf(String str)：返回在此字符串中第一次出现指定字符处的索引，从指定的索引开始搜索。
+int indexOf(int ch, int fromIndex)：返回指定字符在此字符串中从指定位置后第一次出现处的索引。
+int indexOf(String str, int fromIndex)：返回指定字符串在此字符串中从指定位置后第一次出现处的索引。
+int lastIndexOf(String str)：返回指定子字符串在此字符串中最右边出现处的索引。
+int lastIndexOf(String str, int fromIndex)：返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索。
+
+String substring(int start)：从指定位置开始截取字符串，默认到末尾。
+String substring(int start, int end)：从指定位置开始到指定位置结束截取字符串。
+---------------------------------------------------------------------------
+public static void main(Strin[] args) {
+	demo1();
+	demo2();
+	demo3();
+	demo4();
+(考点)	//陷阱题
+	String s = "woaihebau";
+	s.substring(4);			//substring会产生一个新的字符串，需要将新的字符串记录在一个变量中
+	System.out.println(s);
+}
+
+private static void demo4() {
+	String s1 = "hebauwudi";
+	String s2 = s1.substring(5);
+	System.out.println(s2);
+	
+	String s3 = s1.substring(0,5);		//包含头，不包含尾，左闭右开
+	System.out.println(s3);
+}
+
+private static void demo3() {
+	String s1 = "woaihebau";
+	int index1 = s1.indexOf('a',3);
+	System.out.println(index1);		//从指定位置开始向后找
+
+	int index2 = s1.lastIndexOf('a');	//从后向前找，第一次出现的字符索引
+	System.out.println(index2);
+	
+	int index3 = s1.lastIndexOf('a',7);	//从指定位置向前找
+	System.out.println(index3);
+}
+
+private static void demo2() {
+	String s1 = "hebau";
+	int index = s1.indexOf(97);	////如果不存在，返回-1
+	//int index = s1.indexOf('a');	//参数接受的是int类型，传递char类型会进行类型自动提升
+	System.out.println(index);
+
+	int index2 = s1.indexOf('z');
+	System.out.println(index2);	//如果不存在，返回-1
+
+	int index3 = s1.indexOf("au");
+	System.out.println(index3);	//获取字符串中第一个字符出现的位置
+	
+	int index4 = s1.indexOf("bu");
+	System.out.println(index4);
+}
+
+private static vodi demo1() {
+	//int[] arr = {11,22,33};
+	//System.out.println(arr.length);		//数组中的length是属性
+	String s1 = "hebau";
+	System.out.println(s1.length());		//length()是一个方法，获取的是每一个字符的个数
+	String s2 = "河北农业大学，渤海校区";		//不是每个字符占的字节数之和
+	System.out.println(s2.length());
+
+	char c = s2.charAt(7);		//根据索引获取对应位置的字符
+	System.out.println(c);		//注意：只要是根据索引找字符，就一定有越界的问题
+	char c2 = s2.charAt(15);	//StringIndexOutOfBoundsException字符串索引越界异常
+	System.out.println(c2);
+}
+
+	------------------------------------------------
+			16、字符串的练习
+	------------------------------------------------
+A：字符串的遍历
+	需求：遍历字符串
+
+public static void main(String[] args) {
+	String s = "hebau";
+
+	for(int i = 0; i < s.length(); i++) {		//通过for循环获取到字符串中每个字符的索引
+		/*char c = s.charAt(i);
+		System.out.println(c);*/
+	
+		System.out.println(s.charAt(i));	//通过索引获取每一个字符
+	}
+}
+
+B：统计不同类型字符个数
+	需求：统计一个字符串中大写字母字符、小写字母字符、数字字符出现的次数，其它字符出现的次数。
+	      ABCDEabcde123456！@#$%^&
+	分析：字符串是有字符组成的，而字符的值都是有范围的，通过范围来判断是否包含该字符
+	      如果包含，就让计数器变量自增。
+public static void main(String[] args) {
+	String s = "ABCDEabcde123456！@#$%^&";
+	int big = 0;
+	int small = 0;
+	int num = 0;
+	int other = 0;
+	//1.获取每一个字符，通过for循环遍历
+	for(int i = 0; i < s.length(); i++) {
+		char c = s.charAt(i);		//通过索引获取每一个字符
+		//2.判断字符是否在这个范围内
+		if(c >= 'A' && c <= 'Z') {
+			big++;			//如果满足是大写字符，就让对应的变量自增
+		}else if(c >= 'a' && c <= 'z') {
+			small++;
+		}else if(c >= '0' && c <= '9') {
+			num++;
+		}else {
+			other++;
+		}
+	}
+	System.out.println(s + "中大写字母有：" + big + "个，小写字母有：" + small + "个，数字字符："
+	+ num + "个，其它字符：" + other + "个");
+
+	------------------------------------------------
+			17、String类的转换功能
+	------------------------------------------------
+String类的转换功能：
+	byte[] getBytes()：把字符串转换为字节数组。
+	char[] toCharArray()：把字符串转换为字符数组。
+	static String valueOf(char[] chs)：把字符数组转成字符串
+	static String valueOf(int i)：把int类型的数据转成字符串。
+	注意：String类的valueOf()方法可以把任意类型的数据转成字符串
+
+	static String valueOf(Object obj);
+
+（了解的功能）
+	String toLowerCase()：把字符串转成小写。
+	String toUpperCase()：把字符串转成大写。
+	String concat(String str)：把字符串拼接。
+
+public static void main(String[] args) {
+	demo1();
+	demo2();
+	demo3();
+	String s1 = "heBAU";
+	String s2 = "chengxuYUAN";
+	String s3 = s1.toLowerCase();
+	String s4 = s2.toUpperCase();
+
+	System.out.println(s3);
+	System.out.println(s4);
+	//字符串拼接
+	System.out.println(s3 + s4);		//用+拼接字符串更强大，可以用字符串与任意类型相加
+	System.out.println(s3.concat(s4));	//concat()方法调用的和传入的都必须是字符串
+}
+
+private static void demo3() {
+	//valueOf()的API中的重载方法说明，可以将任意类型转换成字符串，且都是静态方法
+	char[] arr = {'a','b','c'};
+	String s = String.valueOf(arr);		//底层是由Sting类的构造方法完成的。valueOf()原码用的是String的构造方法
+	System.out.println(s);
+
+	String s2 = String.valueOf(100);
+	System.out.println(s2);
+	System.out.println(s2 + 100);
+
+	Person p1 = new Person("张三",23);
+	String s3 = String.valuesOf(p1);	//调用的是对象的toString()方法。参数向上转型
+	System.out.println(s3);		//相当于调用了toString()方法。打印结果：类名@hashcode
+	System.out.println(p1);		//默认也是调用toString()方法
+}
+
+private static void demo2() {
+	String s = "hebau";
+	char[] arr = s.toCharArray();		//将字符串转换为字符数组
+	
+	for(int i = 0; i < arr.length; i++) {
+		System.out.println(arr[i] + "");
+	}
+}
+
+private static void demo1() {
+	String s1 = "abc";
+	byte[] arr = s1.getBytes();
+	for(int i = 0; i < arr.length; i++) {
+		System.out.println(arr[i] + " ");
+	}
+
+	String s2 = "你好你好";
+	byte[] arr2 = s2.getBytes();			//通过GBK码表将字符串转换成字节数组
+	for(int i = 0; i < arr2.length; i++) {		//编码：把我们看的懂得，转换为计算机看得懂的
+		System.out.print(arr2[i] + " ");	//GBK码表一个中文代表2个字节。-60 -29 -70 - 61 -60 -29 -70 - 61
+	}						//GBK码表特点：中文的第一个字节，肯定是负数。
+
+	String s3 = "琲";
+	byte[] arr3 = s2.getBytes();
+	for(int i = 0 ;i < arr3.length; i++) {
+		System.out.print(arr3[i] + " ");
+	}
+}
+
+	------------------------------------------------
+		18、按要求转换成字符串（链式编程）
+	------------------------------------------------
+A：需求：
+	把一个字符串的首字母转换成大写，其余为小写。（只考虑英文大小写字母字符）
+   	
+链式编程：只要保证每次调用完方法返回的是对象，就可以继续调用
+public static void main(String[] args) {
+	String s = "woaiHeBeiNongYeDaXueniaima";
+	String s2 = s.substring(0,1).toUpperCaset().concat(s.substring(1).toLowerCase());
+	//	         拿到w          把w变成W     连接  从1开始截取到末尾 全部转换成小写
+	System.out.println(s2);
+}
+
+B：需求：
+	把数组中的数据按照指定格式拼接成一个字符串
+   例如：
+	int[] arr = {1,2,3};
+	输出结果："[1, 2, 3]"
+   分析：
+	1.需要定义一个字符串"["
+	2.遍历数组获取每一个元素
+	3.用字符串与数组中的元素进行拼接
+
+public static void main(String[] args) {
+	int[] arr = {1,2,3};
+	String s = "[";		//定义一个字符串，用来与数组中的元素拼接
+
+	for(int i = 0; i < arr.length; i++) {
+		if(i == arr.length - 1) {
+			s = s + arr[i] + "]";
+		}else {
+			s = s + arr[i] + ", ";
+		}
+	}
+
+	System.out.println(s);
+}
+	------------------------------------------------
+			19、String类的其它功能
+	------------------------------------------------
+A：String的替换功能
+	String replace(char old,char new)
+	String replace(String old,String new)
+B：String的去除字符串两端的空格
+	String trim()
+C：String的按字典顺序比较两个字符串
+	int compareTo(String str)（了解）
+	int compareToIgnoreCase(String str)（了解）
+
+public static void main(String[] args) {
+	demo1();
+	demo2();
+	String s1 = "abc";
+	Stting s2 = "bcd";
+
+	int num = s1.compareTo(s2);	//按照码表值比较
+	System.out.println(num);	//-1：97-98
+	----------------------------------------------------
+	String s1 = "abc";
+	Stting s2 = "ccd";
+	int num = s1.compareTo(s2);	
+	System.out.println(num);	//-2
+
+	String s1 = "abc";
+	Stting s2 = "dcd";
+	int num = s1.compareTo(s2);	
+	System.out.println(num);	//-3
+
+	String s1 = "abc";
+	String s2 = "acd";
+	int num = s1.compareTo(s2);	
+	System.out.println(num);	//-1.第一个字母相同时，看第二个字母
+	
+	String s1 = "a";
+	Stting s2 = "aaaa";
+	int num = s1.compareTo(s2);	
+	System.out.println(num);	//-3.都一样的话，按照长度比较
+	----------------------------------------------
+	String s3 = "河";
+	String s4 = "北";
+	int num2 = s3.compareTo(s4);	
+	System.out.println(num2);	//
+	System.out.println('河' + 0);	//查找的是Unicode码表值。因为char的编码都是Unicode的。
+	System.out.println('北' + 0);	//从字节转化成字符串、字符串转换成字节，是GBK码表。本质是硬盘到内存的操作，
+					//在硬盘上存储的都是以字节形式存储的，读到内存的时候，将字节转换成系统所使用的字符串，
+					//跟系统的文件操作，肯定是跟系统的编码表有关的。
+
+	String s5 = "hebei";
+	String s6 = "HEBEI";
+	int num3 = s5.compareTo(s6);
+	System.out.println(num3);
+	
+	int num4 = s5.compareToIgnoreCase(s6);
+	System.out.println(num4);	//0
+
+	//查看底层原码找比较的实现过程
+	/*  public int compare(String s1, String s2) {
+            int n1 = s1.length();
+            int n2 = s2.length();
+            int min = Math.min(n1, n2);
+            for (int i = 0; i < min; i++) {
+                char c1 = s1.charAt(i);
+                char c2 = s2.charAt(i);
+                if (c1 != c2) {
+                    c1 = Character.toUpperCase(c1);					//将c1字符转换成大写
+                    c2 = Character.toUpperCase(c2);					//将c2字符转换成大写
+                    if (c1 != c2) {
+                        c1 = Character.toLowerCase(c1);					//将c1字符转换成小写
+                        c2 = Character.toLowerCase(c2);					//将c2字符转换成小写
+                        if (c1 != c2) {
+                            // No overflow because of numeric promotion
+                            return c1 - c2;
+                        }
+                    }
+                }
+            }
+            return n1 - n2;
+	*/
+}
+
+private static void demo2() {
+	String s = "   he bau    ";
+	String s2 = s.trim();		//将两端的空格去掉，中间的并不删除
+	System.out.println(s2);
+	//trim()在开发中的应用：在做注册登录页面，填写用户名和密码时，删除用户在用户名和密码之后的空格
+}
+
+private static void demo1() {
+	String s = "hebau";
+	String s2 = s.replace('b','o');		//用o替换b
+	System.out.println(s2);
+
+	String s3 = s.replace('z','o');		//z不存在，保留原字符不改变
+	System.out.prinln(s3);
+
+	String s4 = s.replace("ba","beia");
+	System.out.println(s4);
+}
+
+	------------------------------------------------
+			20、字符串的翻转
+	------------------------------------------------
+A：需求1：
+	把字符串翻转
+举例：
+	键盘录入："abc"
+	输出结果："cba"
+分析：
+	1.通过键盘录入获取字符串，Scanner
+	2.将字符串转换成字符数组
+	3.倒着遍历字符数组，并再次拼接成字符串
+	4.打印
+
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);	//创建键盘录入对象
+	System.out.println("请输入一个字符串：");
+	String line = sc.nextLine();		//将键盘录入的字符串存储在line中
+
+	char[] arr = line.toCharArray();	//将字符串转换为字符数组
+	
+	String s = "";
+	for(int i = arr.length-1; i >= 0; i--) {//倒着遍历字符数组
+		s = s + arr[i];			//拼接成字符串
+	}
+
+	System.out.println(s);
+}
+
+	------------------------------------------------
+		21、在大串中查找小串出现的次数
+	------------------------------------------------
+A：需求
+	统计大串中小串出现的次数
+	这里的大串和小串可以自己根据情况给出
+B：思路图解
+	1.定义计数器变量，变量为0
+	2.通过indexOf()方法在大串中找小串
+		如果没有返回-1，程序结束
+		如果有返回索引值
+	3.根据获取的索引值加上小串的长度，截取大串，将截取后的结果赋值给大串
+	4.回到第二步
+	
+	详见：《在大串中查找小串出现的次数.png》	
+
+C：案例演示
+public static void main(String[] args) {
+	//定义大串
+	String max = "woainongda,nongdabutongyugongda,wulunnongdahaigongda,zhaodaogongzuojiushihaodaxue";
+	//定义小串
+	String min = "nongda";
+
+	//定义计数器变量
+	int count = 0;
+	//定义索引
+	int index = 0;
+	//定义循环，判断小串是否在大传中出现
+	while((index = max.indexOf(min)) != -1) {
+		count++;	//计数器自增
+		max = max.substring(index + min.length());
+	}
+
+	System.out.println(count);
+}

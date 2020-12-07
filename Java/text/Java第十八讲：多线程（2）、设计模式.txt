@@ -1,0 +1,1066 @@
+	====================================================
+		     1、多线程：单例设计模式（掌握）
+	====================================================
+单例：单个实例、单个对象。
+
+单例设计模式：保证类在内存中只有一个对象。
+
+定义一个类，可以创建n多个对象。
+
+如何保证类在内存中只有一个对象呢？
+	（1）控制类的创建，不让其它类创建本类对象。private
+	（2）在本类中定义一个本类的对象。Singleton s;
+	（3）提供公共的访问方式。public static Singgleton getInstance(){return s}
+
+单例写法两种：
+	（1）饿汉式 开发用这种方式
+
+		// 饿汉式
+		class Singleton {
+			// 1，私有构造函数
+			private Singleton(){}
+
+			// 2，创建本类对象
+			private static Singleton s = new Singleton();
+
+			// 3，对外提供公共的访问方式
+			public static Single getInstance() {
+				return s;
+			}
+
+			public static void print() {
+				System.out.println("111111111111");
+			}
+		}
+
+	（2）懒汉式 面试写这种方式。多线程的问题？和多线程有关系的
+		先声明，不去创建对象，做一个判断，需要的时候再去创建对象
+		// 懒汉式，单例的延迟加载模式
+		class Singleton {
+			// 1，私有构造函数
+			private Singleton() {}
+
+			// 2，声明一个本类的引用
+			private static Singleton s;
+
+			// 3，对外提供公共的访问方法
+			public static Singleton getInstance() {
+				if(s == null)
+					// 线程1，线程2
+					s = new Singleton();
+				return s;
+			}
+
+			public static void print() {
+				System.out.println("111111111111");
+			}
+		}
+
+	饿汉式和懒汉式哪个更好一点？
+		饿汉式：不管你用不用，一上来就创建对象，浪费内存空间；
+		懒汉式：先声明，不创建对象，什么时候用，什么时候再创建对象。
+
+
+	（3）第三种格式
+		class Singleton {
+			private Singleton() {}
+			
+			public static final Singleton s = new Singleton();
+				// final是最终的意思，被final修饰的变量不可以被更改
+		}
+---------------------------------------------------------------------------
+public class Demo1_Singleton {
+	// 单例设计模式：保证类在内存中只有一个对象
+	public static void main(String[] args) {
+		//Singleton s1 = new Singleton();	// 构造方法被私有化后，就不能这样创建对象了
+
+		/* 成员变量被私有，不能通过类名.成员调用
+		Singleton s1 = Singleton.s;	// s1和s指向的是同一个对象
+		//Singleton.s = null;
+		Singleton s2 = Singleton.s;
+
+		System.out.println(s1 == s2);	// 比较两个引用地址值，看是不是同一个地址值
+		// 这种方式有弊端，当Singleton.s = null时，输出false
+		// 有没有办法不让去改变Singleton.s呢？
+		*/
+
+		Singleton s1 = Singleton.getInstance();
+		Singleton s2 = Singleton.getInstance();
+
+		System.out.println(s1 == s2);
+	}
+}
+
+// 老外给这种方式提供一个名字：饿汉式
+/*
+class Singleton {
+	// 1，私有构造方法，其它类不能访问该构造方法
+	private Singleton() {}
+
+	// 2，创建本类对象
+	//public Singleton s = new Singleton();	
+		//s是成员变量，就必须用对象来调用，没有对象，就必须用另外一种方式：类名.成员
+	//public static Singleton s = new Singleton();
+	private static Sgingleton s = new Singleton();
+	
+	// 把成员变量私有化后，肯定会对外提供对应的set、get方法，
+	// 在此不需要提供set方法，只需要提供一个get方法就可以了
+	// 如果提供set方法，又可以修改值了
+
+	// 3，对外提供公共的访问方法
+	public static Singleton getInstance() {	// 获取实例（对象）
+		return s;
+	}
+}
+*/
+
+//懒汉式
+class Singleton {
+	// 1，私有构造方法，其它类不能访问该构造方法
+	private Singleton() {}
+
+	// 2，声明一个对象的引用
+	private static Sgingleton s;	// 先声明
+
+	// 3，对外提供公共的访问方法
+	public static Singleton getInstance() {	// 获取实例（对象）
+		if(s == null) {
+			s = new Singleton();
+		}
+
+		return s;
+	}
+}
+
+最好的还是饿汉式，不是饿汉式。为什么呢？
+如果要是多线程访问的话，当线程1访问if(s == null)后，线程执行权被抢去，线程进行等待。
+线程2访问if(s == null)后，也等待；线程1抢回执行权，创建一个对象，return s返回。
+线程2也抢到执行权，也创建一个对象，这时其实是创建了2个对象，就不是单例模式了。
+所以，懒汉式在开发时不用，只在面试的时候用。
+面试的时候，会让你写一个单例的延迟加载模式，其实就是懒汉式。
+懒汉式在多线程访问的时候，有安全隐患。因为有可能会创建多个对象。
+
+饿汉式和懒汉式的区别：
+	1，饿汉式是空间换时间，
+		目前，时间比空间重要，内存是越做越大的。而时间不会越做越多。
+	   懒汉式是时间换空间
+		每一次都要做判断，浪费了时间。浪费时间，节约了空间。我们不推荐用。
+	2，在多线程访问时，饿汉式不会创建多个对象，而懒汉式有可能会创建多个对象
+
+
+// 第3中方式，final，没有名字
+class Singleton {
+	// 1，私有构造方法，其它类不能访问该构造方法
+	private Singleton() {}
+
+	// 2，声明一个对象的引用
+	private static final Sgingleton s = new Singleton();
+		// final同样可以达到一个单例模式
+}
+
+	====================================================
+		     2、多线程：Runtime类
+	====================================================
+单例模式的应用场景。
+Runtime类是一个单例类，使用了单例设计模式。
+
+查看Runtime类的API：
+	如果一个类中没有构造方法，说明构造方法被私有。
+	构造方法被私有后，很有可能它所有的方法都是静态的。
+
+	static Runtime getRuntime()：返回与当前Java应用程序相关的运行时对象。
+		其实是私有构造方法，在本类中创建对象，对外提供getRuntime()公共访问方式。
+
+	Process exec(String command)：在单独的进程中执行指定的字符串命令
+		字符串命令：DOS命令：shutdown、notepad、winword、calc、mspaint、msconfig
+			shutdown -s -t 3600 一小时后关闭计算机
+			shutdown -a 取消关闭计算机
+
+	ctrl+shift+t：查看源码：Runtime
+		private static Runtime currentRuntime = new Runtime();私有本类对象
+		public static Runtime getRuntime() {
+			return currentRuntime;
+		}
+		private Runtime() {} 私有构造方法
+		是饿汉式。
+	---------------------------------------------
+	Runtime r = Runtime.getRuntime();
+	//r.exec("shutdown -s -t 300");	//300秒后关机
+	r.exec("shutdown -a");
+	--------------------------------------------
+public class Demo2_Runtime {
+	public static void main(String[] args) throws IOException {
+		Runtime r = Runtime.getRuntime();	// 获取运行时对象
+		r.exec("shutdown -s -t 3600");	// 有异常，跑出去
+		r.exec("shutdown -a");
+
+		// 为什么要是单例模式呢？
+		// 因为第一次是你修改过的对象，第二次是你修改你修改过的对象
+		// 操作的都是同一个对象，需要用到单例模式。
+	}
+}
+
+	====================================================
+		       3、多线程：Timer（掌握）
+	====================================================
+Timer类：计时器类。在指定时间安排指定的任务。
+
+计时器类的应用在哪里？
+	比如说手机里的闹钟，其实就是计时器。在指定时间安排执行指定任务，这就是计时器。
+
+查看Timer类的API
+	一种工具，线程用其安排以后在后台线程中执行的任务。可安排任务执行一次，或者定期重复执行。
+		闹钟响了后，不关，过10分钟有重复响。
+
+	void schedule(TimerTask task,Date time)：
+		TimerTask：就是任务；time：就是时间。
+		TimerTask类的API：
+			属于java.util包，使用使导包；直接父类是Object；实现了Runnable接口。
+			由Timer安排为一次执行或重复执行的任务。
+			abstract void run()：抽象的run()方法，任务是交给子类去完成的。
+			有个TimerTask，得去创建其子类，子类写想要完成的任务。
+
+	void schedule(TimerTask task,Date firstTime,long period)：
+		安排指定的任务从指定的延迟后开始进行重复的固定延迟执行。
+		firstTime：是第一次执行的时间；
+		period：是过过长时间再执行。
+	-------------------------------------------------------------------------
+	实现了Runnable接口，类中也有run()方法
+	public class Demos_Timer {
+		public static void main(String[] args) {
+			Timer t = new Timer();
+			// 在指定时间安排指定任务
+			// 第一个参数：是安排的任务，
+			// 第二个参数：执行的时间；
+			// 第三个参数：过多长时间再重复执行
+			t.schedule(new TimerTask(),new Date(114,9,15,10,54,20),3000);
+
+			while(true) {
+				System.out.println(new Date());
+				Thread.sleep(1000);
+			}
+		}
+	}
+
+	class MyTimerTask extends TimerTask {
+		public void run() {
+			System.out.println("起床背英语单词");
+		}
+	}
+	-------------------------------------------------------
+improt java.util.Timer;
+import java.util.TimerTask;
+
+public class Demo3_Timer {
+	public static void main(String[] args) InterruptedException {
+		
+		Timer t = new Timer();
+
+		/*
+		// 到这个时间点就执行“起床背英语单词”
+		t.schedule(new MyTimerTask(),new Date(119,9,15,11,39,10));
+			
+		while(true) {	// 每隔1秒钟打印一次时间
+			Thread.sleep(1000);
+			System.out.println(new Date());
+		}
+
+		//Date类的API：Date(int year,int date,int hrs,int min,int sec)
+			year：减去1900的年份
+			month：0-11之间的月份
+			date：月中1-31之间的某一天
+			hrs：0-23之间的小时数
+			min：0-59之间的分钟数
+			sec：0-59之间的描述
+		*/
+
+		t.schedule(new MyTimerTask(),new Date(119,9,15,11,39,10),3000);
+			// 每隔3秒再执行一次
+		while(true) {	// 每隔1秒钟打印一次时间
+			Thread.sleep(1000);
+			System.out.println(new Date());
+		}
+	}
+}
+// Android开发一定会用到这个类
+class MyTimerTask extends TimerTask {
+	public void run() {
+		System.out.println("起床背英语单词");
+	}
+}
+
+	====================================================
+		     4、多线程：两个线程间的通信（掌握）
+	====================================================
+也叫等待-唤醒机制
+
+1.什么时候需要通信
+	多个线程并发执行时，在默认情况下CPU是随机切换线程的
+	如果我们希望它们有规律的执行，就可以使用通信，例如每个线程执行一次打印
+
+2.怎么通信
+	如果希望线程等待，就调用wait()
+	如果希望唤醒等待的线程，就调用notify()
+	这两个方法必须在同步代码中执行，并且使用同步锁对象来调用
+
+查看Object类的API，关注几个方法：
+	void wait()：在其它线程调用此对象的notify()方法或notifyAll()方法前，导致当前线程等待。
+	void notify()：唤醒在此对象监视器上等待的单个线程
+	void notifyAll()：唤醒在此对象监视器上等待的所有线程
+------------------------------------------------------------
+轮流输出：
+河北农业大学
+理工系
+
+public class Demo1_Notify {
+	// 等待-唤醒机制
+	public static void main(String[] args) {
+		// 局部内部类在使用局部变量的时候，必须要用final修饰
+		final Printer p = new Printer();
+		
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print1();
+					} catch (InterruptedException e) {
+						p.printStackTrace();
+					}
+				}
+			}
+		}.start();
+
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print2();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+	}
+}
+
+class Printer {
+	private int flag = 1;
+	public void print1() throws InterruptedException {
+		synchronized(this) {
+			if(flag != 1) {
+				this.wait();	// 当前线程等待
+			} 
+			System.out.println("河");
+			System.out.println("北");
+			System.out.println("农");
+			System.out.println("业");
+			System.out.println("大");
+			System.out.println("学");
+			System.out.println("\r\n");
+
+			flag = 2;
+			this.notify();	// 随机唤醒单个等待的线程
+		}
+	}
+
+	public void print2() throws InterruptedException {
+		synchronized(this) {
+			if(flag != 2) {
+				this.wait();
+			}
+			System.out.println("理");
+			System.out.println("工");
+			System.out.println("系");
+			System.out.println("\r\n");
+
+			flag = 1;
+			this.notify();
+		}
+	}
+}
+
+详细分析两个线程执行的过程。
+
+	====================================================
+		 5、多线程：三个或三个以上间的线程通信
+	====================================================
+也是等待唤醒机制
+
+多个线程通信的问题
+	notify()方法是随机唤醒一个线程
+	notifyAll()方法是唤醒所有线程
+	JDK1.5之前无法唤醒指定的一个线程
+	如果多个线程之间通信，需要使用notifyAll()通知所有线程，用while来反复判断条件
+public class Demo2_NotifyAll {
+	public static void main(String[] args) {
+		final Printer2 p = new Printer2();
+
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print1();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print2();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print3();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+	}
+}
+
+class Printer2 {
+	private int flag = 1;
+	public void print1() throws InterruptedException {
+		synchronized(this) {
+			/*
+			if(flag != 1) {
+				this.wait();	// 当前线程等待
+			} 
+			*/
+			while(flag != 1) {
+				this.wait();	// 当前线程等待
+			}
+
+			System.out.println("河");
+			System.out.println("北");
+			System.out.println("农");
+			System.out.println("业");
+			System.out.println("大");
+			System.out.println("学");
+			System.out.println("\r\n");
+
+			flag = 2;
+			//this.notify();	// 随机唤醒单个等待的线程
+			this.notifyAll();
+		}
+	}
+
+	public void print2() throws InterruptedException {
+		synchronized(this) {
+			/*
+			if(flag != 2) {
+				this.wait();
+			}
+			*/
+			
+			while(flag != 2) {
+				this.wait();
+			}
+			System.out.println("理");
+			System.out.println("工");
+			System.out.println("系");
+			System.out.println("\r\n");
+
+			flag = 3;
+			//this.notify();
+			this.notifyAll();
+		}
+	}
+
+	public void print3() throws InterruptedException {
+		synchronized(this) {
+			/*
+			if(flag != 3) {
+				this.wait();	// 线程3在此等待，if语句是在哪里等待，就在哪里被唤醒，不再去判断
+			}
+			*/
+
+			while(flag != 3) {	// while循环是循环判断，每次都会判断标记
+				this.wait();
+			}	
+			System.out.println("计");
+			System.out.println("算");
+			System.out.println("机");
+			System.out.println("科");
+			System.out.println("学");
+			System.out.println("与");
+			System.out.println("技");
+			System.out.println("术");
+			System.out.println("\r\n");
+
+			flag = 1;
+			//this.notify();
+			this.notifyAll();
+		}
+	}
+}
+
+这是在JDK1.5版本之前的解决方法。
+在JDK1.5版本之后，有一个更好的解决办法：互斥锁。
+
+	====================================================
+		 5、多线程：线程间的通信注意事项（掌握）
+	====================================================
+注意1：
+	在同步代码块中，如果用什么对象当做锁，那就用什么对象调用wait()和notif()方法。
+注意2：
+	为什么wait()方法和notify()方法定义在Object类中？
+	答：因为锁对象可以是任意对象，Object是所有类的基类，
+	    所以，wait()方法和notify()方法需要定义在Object类中。
+注意3：（面试题）
+	sleep()方法和wait()方法的区别？
+	答：a：sleep()方法必须传入参数，参数就是时间，时间到了自动醒来。
+	       wait()方法可以传入参数，也可以不传入参数。
+	       传入参数，就是在参数的时间结束后等待；
+	       不传入参数，就是直接等待。
+	    b：sleep()方法在同步函数或同步代码块中，不释放锁。即“睡”着了，也抱着锁“睡”。
+	       wait()方法在同步函数或同步代码块中，释放锁。
+
+
+	====================================================
+		     6、多线程：JDK1.5的新特性互斥锁（掌握）
+	====================================================
+1.同步
+	使用ReentrantLock类的lock()和unlock()方法进行同步
+
+	lock()和unlock()方法替代synchronized，lock()就是获取锁，unlock()方法就是释放锁
+
+	ReentrantLock类API：
+		属于JDK1.5版本
+		void lock()：获取锁
+		void unlock()：试图释放锁
+
+		Condition newCondition()：返回用来与此Lock实例一起使用的Condition实例。
+		Condition类的API：
+			void await()：造成当前线程再接到信号或被中断之前一直处于等待状态。
+			void signal()：唤醒一个等待线程。
+
+2.通信
+	使用ReentrantLock类的newCondition()方法可以获取Condition对象
+	需要等待的时候使用Condition的await()方法，唤醒的时候用signal()方法
+	不同的线程使用不同的Condition，这样就能区分唤醒的时候找哪个线程了
+
+public class Demo3_ReentrantLock {
+	public static void main(String[] args) {
+		final Printer3 p = new Printer3();
+
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print1();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print2();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+
+		new Thread() {
+			public void run() {
+				while(true) {
+					try {
+						p.print3();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+	}
+}
+
+class Printer3 {
+	private ReentantLock r = new ReentrantLock();
+	private Condition c1 = r.newCondition();
+	private Condition c2 = r.newCondition();
+	private Condition c3 = r.newCondition();
+	private int flag = 1;
+	public void print1() throws InterruptedException {
+		r.lock();	// 获取锁
+			if(flag != 1) {
+				c1.await();
+			}
+
+			System.out.println("河");
+			System.out.println("北");
+			System.out.println("农");
+			System.out.println("业");
+			System.out.println("大");
+			System.out.println("学");
+			System.out.println("\r\n");
+
+			flag = 2;
+			c2.signal();
+		r.unlock();	//释放锁
+	}
+
+	public void print2() throws InterruptedException {
+		r.lock();
+			if(flag != 2) {
+				c2.await();
+			}
+			System.out.println("理");
+			System.out.println("工");
+			System.out.println("系");
+			System.out.println("\r\n");
+
+			flag = 3;
+			c3.signal();
+		r.unlock();
+	}
+
+	public void print3() throws InterruptedException {
+		r.lock();
+			if(flag != 3) {	
+				c3.await();
+			}	
+			System.out.println("计");
+			System.out.println("算");
+			System.out.println("机");
+			System.out.println("科");
+			System.out.println("学");
+			System.out.println("与");
+			System.out.println("技");
+			System.out.println("术");
+			System.out.println("\r\n");
+
+			flag = 1;
+			c1.signal();
+		r.unlock();
+	}
+}
+
+	====================================================
+		     7、多线程：线程组的概述和使用（了解）
+	====================================================
+把线程分成组，目的是为了便于管理
+
+A：线程组概述
+	Java中使用ThreadGroup来表示线程组，它可以对一批线程进行分类管理，Java允许程序直接对线程组进行控制。
+	默认情况下，所有的线程都属于主线程组。
+		public final ThreadGroup getThreadGroup() // 通过线程对象获取它所属于的组
+		public final String getName() // 通过线程组对象获取它组的名字
+
+	我们也可以给线程设置分组
+		1，ThreadGroup(String name) 创建线程组对象并给其赋值名字
+		2，创建线程对象
+		3，Thread(ThreadGroup group,Runnable target,String name)
+			Thread有参构造：分配新的Thread对象，以便将target作为其运行对象，
+					将制定的name作为其名称，并作为group所一应的线程组的一员。
+					可以是Runnable对象，也可以是Thread对象，因为Thread实现了Runnable
+		4，设置整组的优先级或者守护线程
+
+B：案例演示
+	线程组的使用，默认是主线程
+
+	MyRunnable mr = new MyRunnable();
+	Thread t1 = new Thread(mr,"张三");
+	Thread t2 = new Thread(mr,"李四");
+
+	// 获取线程组
+	// Thread线程类里面的方法：public final ThreadGroup getThreadGroup()
+	ThreadGroup tg1 = t1.getThreadGroup();
+	ThreadGroup tg2 = t2.getThreadGroup();
+
+	// 线程组里面的方法：public final String getName()
+	String name1 = tg1.getName();
+	String name2 = tg2.getName();
+	System.out.println(name1);
+	System.out.println(name2);
+
+	// 通过结果我们知道了：线程默认情况下属于main线程组
+	// 通过下面的测试，你应该能够看到，默认情况下，所有的线程都属于同一个组
+	System.out.println(Thread.currentThread().getThreadGroup().getName());
+
+	自己设定线程组
+
+	// ThreadGroup(String name)
+	ThreadGroup tg = new ThreadGroup("这是一个新的组");
+
+	MyRunnable mr = new MyRunnable();
+	// Thread(ThreadGroup group,Runnable target,String name)
+	Thread t1 = new Thread(tg,mr,"张三");
+	Thread t2 = new Thread(tg,mr,"李四")
+
+	System.out.println(t1.getThreadGroup().getName());
+	System.out.println(t2.getThreadGroup().getName());
+
+	// 通过组名称设置后台线程，表示该组的线程都是后台线程
+	tg.setDaemo(true);
+	-------------------------------------------------------------
+
+public class Demo4_ThreadGroup {
+	public static void main(String[] args) {
+		//demo1();
+		ThreadGroup tg = new ThreadGroup("我是一个新的线程组");	// 创建新的线程组
+		MyRunnable mr = new MyRunnable();			// 创建Runnable的子类对象
+		
+		Thread t1 = new Thread(tg,mr,"张三");			// 将线程t1放在组中
+		Thread t2 = new Thread(tg,mr,"李四");			// 将线程t2放在组中
+
+		System.out.println(t1.getThreadGroup().getName());	// 获取组名
+		System.out.println(t2.getThreadGroup().getName());
+
+		tg.setDaemon(true);	// 整个组变成守护线程。好处就是可以对整个组进行设置。
+	}
+
+	public static void demo1() {
+		MyRunnable mr = new MyRunnable();
+		Thread t1 = new Thread(mr,"张三");
+		Thread t2 = new Thread(mr,"李四");
+
+		ThreadGroup tg1 = t1.getThreadGroup();
+		ThreadGroup tg2 = t2.getThreadGroup();
+
+		System.out.println(tg1.getName());	// 默认是main线程
+		System.out.println(tg2.getName());
+	}
+}
+
+class MyRunnable implements Runnable {
+	public void run() {
+		for(int i = 0; i < 1000; i++) {
+			System.out.println(Thread.currentThread().getName() + "..." + i);
+		}
+	}
+}
+
+	====================================================
+		     8、多线程：线程的五种状态（掌握）
+	====================================================
+新建、就绪、运行、阻塞、死亡
+
+详见《线程状态图.png》
+
+Thread类中的void stop()方法已过时，因为“太暴力”。
+
+	====================================================
+		     9、多线程：线程池的概述和使用（了解）
+	====================================================
+白话：池中养着几条线程，你要用线程，就拿出去用，用完之后再还回来，线程还是活着的。
+	省着去创建、死亡、再创建、再死亡了。因为创建线程的“成本”是很高的。
+
+A：线程池概述
+	程序启动一个新线程成本是比较高的，因为它涉及到要与操作系统进行交互。
+	而使用线程池可以很好的提高性能，尤其是当程序中要创建大量生存期很短的线程时，
+	更应该考虑使用线程池。线程池里的每一个线程代码结束后，并不会死亡，而是再次
+	回到线程池中成为空闲状态，等待下一个对象来使用。在JDK1.5之前，我们必须手动
+	实现自己的线程池，从JDK1.5开始，Java内置支持线程池。
+
+	服务器是要有线程池的，因为服务器不断要有访问。
+
+B：内置线程池的使用概述
+	JDK5新增了一个Executors工厂类来产生线程池，有如下几个方法
+		public static ExecutorService newFixedThreadPool(int nThreads)
+		public static ExecutorService newSingleThreadExecutor();
+		这些方法的返回值是ExecutorService对象，该对象表示一个线程池，
+		可以执行Runnable对象或者Callable对象代表的线程，它提供了如下方法：
+		Future<?> submit(Runnable task)
+		<T> Future<T> submit(Callable<T> task);
+
+	使用步骤：
+		创建线程池对象
+		创建Runnable实例
+		提交Runnable实例
+		关闭线程池
+
+ExecutorService类的API：
+	void shutdowm()：启动一次顺序关闭，执行以前提交的任务，但不接受新任务。
+
+C：案例演示
+	提交的是Runnable
+
+	// public static ExecutorService newFixedThreadPool(int nThreads)
+	ExecutorService pool = Executors.newFixedThreadPool(2);
+
+	// 可以执行Runnable对象或者Callable对象代表的线程
+	pool.submit(new MyRunnable());
+	pool.submit(new MyRunnable());
+
+	// 结束线程池
+	pool.shutdown();
+	----------------------------------------------------------------
+import java.util.concurrent.ExecutorService;
+
+public class Demo5_Executors {
+	public static void main(String[] args) {
+		ExecutorService pool = Executors.newfixedThreadPool(2);	// 创建线程池
+		pool.submit(new MyRunnable());	// 将线程放进池子里并执行
+		pool.submit(new MyRunnable());
+
+		pool.shutdown();	// 关闭线程池
+	}
+}
+
+class MyRunnable implements Runnable {
+	public void run() {
+		for(int i = 0; i < 1000; i++) {
+			System.out.println(Thread.currentThread().getName() + "..." + i);
+		}
+	}
+}
+
+	====================================================
+		 10、多线程：多线程程序实现的方式3（了解）
+	====================================================
+提交的是Callable
+
+java.util.concurrent 接口 Callable<V> 有一个泛型。
+V call()：计算结果，如果无法计算结果，则抛出一个异常。
+
+	// 创建线程池对象
+	ExecutorService pool = Executors.newFixedThreadPool(2);
+
+	// 可以执行Runnable对象或者Callable对象代表的线程
+	Future<Integer> f1 = pool.submit(new MyCallable(100));
+	Future<Integer> f2 = pool.submit(new Mycallable(200));
+
+	// V get()
+	Integer i1 = f1.get();
+	Integer i2 = f2.get();
+
+	// 结束
+	pool.shutdown();
+
+	public class MyCallable implements Callable<Integer> {
+		private int number;
+
+		public MyCallable(int number( {
+			this.number = number;
+		}
+
+		public Integer call() throws Exception {
+			int sum = 0;
+			for(int x = 1; x <= number; x++) {
+				sum += x;
+			}
+			return sum;
+		}
+	}
+
+多线程程序实现的方式3的好处和弊端
+
+好处：
+	可以有返回值
+	可以抛出异常
+弊端：
+	代码比较复杂，所以一般不用
+------------------------------------------------------------
+import java.util.concurrent.Callable;
+public class Demo6_Callable {
+	public static void main(String[] args) throws InterruptedException,ExecutionException{
+		ExecutorService pool = Executors.newfixedThreadPool(2);	// 创建线程池
+		Future<Integer> f1 = pool.submit(new MyCallable(100));	// 将线程放进池子里并执行
+		Future<Integer> f2 = pool.submit(new MyCallable(50));
+
+		System.out.println(f1.get());
+		System.out.println(f2.get());
+
+		pool.shutdown();	// 关闭线程池
+	}
+}
+
+class MyCallable implements Callable<Integer> {
+	private int num;
+	
+	public MyCallable(int num) {
+		this.num = num;
+	}
+
+	public Integer call() throws Excepiton {
+		int sum = 0;
+		for(int i = 1; i <= num; i++) {
+			sum += i;
+		}
+
+		return sum;
+	}
+}
+
+	====================================================
+		 11、设计模式：简单工厂模式概述和使用（了解）
+	====================================================
+A：简单工厂模式概述
+	又叫静态工厂方法模式，它定义一个具体的工厂类负责创建一些类的实例
+B：优点
+	客户端不需要再负责对象的创建，从而明确了各个类的职责
+C：缺点
+	这个静态工厂类负责所有对象的创建，如果有新的对象增加，或者某些对象的创建方式不同，
+	就需要不断的修改工厂类，不利于后期的维护。
+	总去修改你的源码，是不利于后期维护的。
+
+	任何一个类，都是用它的好处，规避它的弊端。
+
+D：案例演示
+	动物抽象类：public abstract Animal {public abstract void eat(); }
+	具体狗类：public class Dog extends Animal {}
+	具体猫类：public class Cat extends Animal {}
+	开始，在测试类中每个具体的内容自己创建对象，但是，创建对象的工作比较麻烦，
+	就需要有人专门做这个事情，所以，就制造了一个专门的类来创建对象。
+
+	public class AnimalFactory {
+		private AnimalFactory() {}
+
+		// public static Dog createDog() {return new Dog(); }
+		// public static Cat createCat() {return new Cat(); }
+
+		// 改进
+		public static Animal createAnimal(String animalName) {
+			if("dog".equals(animalName)) {}
+			else if("cat".equals(animal)) {
+
+			} else {
+				return null;
+			}
+		}
+	}
+	--------------------------------------------------------------
+public abstract class Animal {
+	public abstract void eat();
+}
+
+public class Dog extends Animal {
+	public void eat() {
+		System.out.println("狗吃肉");
+	}
+}
+
+public class Cat extends Animal {
+	public void eat() {
+		System.out.println("猫吃鱼");
+	}
+}
+
+publci class AnimalFactory {
+	/*
+	public static Dog createDog() {
+		return new Dog();
+	}
+
+	public static Cat createCat() {
+		return new Cat();
+	}
+	*/
+
+	// 发现方法会定义很多，复用性太差
+	// 改进
+	public static Animal createAnimal(String name) {
+		if("dog".equals(name)) {
+			return new Dog();
+		} else if("cat".equals(name)) {
+			return new Cat();
+		} else {
+			return null;
+		}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		//Dog d = AnimalFactory.createDog();
+		//System.out.println(d);
+
+		Dog d = (Dog) AnimalFactory.createAnimal("dog");
+		d.eat();
+
+		Cat c = (Cat) AnimalFactory.createAnimal("cat");
+		c.eat();
+	}
+}
+
+	====================================================
+	        12、设计模式：工厂方法模式的概述和使用（掌握）
+	====================================================
+A：工厂方法模式概述
+	工厂方法模式中抽象工厂类负责定义创建对象的接口，具体对象的创建工作由继承工厂的具体类实现。
+B：优点
+	客户端不需要在负责对象的创建，从而明确了各个类的职责，如果有新的对象增加，
+	只需要增加一个具体的类和具体的工厂类即可，不影响已有的代码，后期维护容易，增强了系统的扩展性。
+C：缺点
+	需要额外的编写代码，增加了工作量
+D：案例演示
+
+	动物抽象类：public abstract Animal { public abstract void eat(); }
+	工厂接口：public interface Factory { public abstract Animal createAnimal(); }
+	具体狗类：public class Dog extends Animal {}
+	具体猫类：public class Cat extends Animal {}
+	开始，在测试类中每个具体的内容自己创建对象，但是，创建对象的工作如果比较麻烦，就需要有人专门做这个事情，
+	所以就制造了一个专门的类来创建对象。发现每次修改代码太麻烦，发现每次修改代码太麻烦，用工厂方法改进，
+	针对每一个具体的实现提供一个具体工厂。
+	狗工厂：public class DogFactory implements Factory {
+			public Animal createAnimal() {...}
+		}
+	猫工厂：public class CatFactory implements Factory {
+			public Animal createAnimal {...}
+		}
+	------------------------------------------------------
+public abstract class Animal {
+	public abstract void eat();
+}
+
+public class Dog extends Animal {
+	public void eat() {
+		System.out.println("狗吃肉");
+	}
+}
+
+public class Cat extends Animal {
+	public void eat() {
+		System.out.println("猫吃鱼");
+	}
+}
+
+public interface Factory {
+	public Animal createAnimal();
+
+}
+
+public class CatFactory implements Factory {
+	public Animal createAnimal() {
+		return new Cat();
+	}
+}
+
+public class DogFactory implements Factory {
+	public Animal createAnimal() {
+		retrun new Dog();
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		DogFactory df = new DogFactory();
+		Dog d = (Dog) df.createAnimal();
+		d.eat();
+	}
+}
+
+你们家生产钱就是不行，就得交给国家来生产。否则就是犯法。

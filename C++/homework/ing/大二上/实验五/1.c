@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-11-27 15:27:06
  * @LastEditors: Weidows
- * @LastEditTime: 2020-11-27 15:28:15
+ * @LastEditTime: 2020-12-04 15:01:15
  * @FilePath: \Weidows\C++\homework\ing\大二上\实验五\1.c
  * @Description:
  */
@@ -144,11 +144,10 @@ int main()
   printf("index = %d\n", index);
   printf("===============KMP===============\n");
   get_next(T, next);
-  //get_nextval(T, next);
+  // get_nextval(T, next);
   print_index(next, len);
 
   index = KMP_index(S, T, pos);
   printf("index = %d\n", index);
-  system("pause");
   return 0;
 }

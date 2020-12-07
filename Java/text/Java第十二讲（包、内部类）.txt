@@ -1,0 +1,824 @@
+=========================================================================
+*				面向对象5：包、内部类			*
+=========================================================================
+	------------------------------------------------
+		1、package关键字的概述及作用
+	------------------------------------------------
+A：为什么要有包
+	将字节码（.class）进行分类存放
+	包其实就是文件夹
+解释：在实际做项目的时候，可能有成百上千个类，若这些类都放在一个文件夹里，很难去管理，
+      而且类名容易重复。如果放在多个文件夹中的话，利于开发人员管理。
+B：包的概述
+举例：
+	学生：增加、删除、修改、查询
+	老师：增加、删除、修改、查询
+	...
+方案1：按照功能进行划分：
+	com.hebau.add
+		AddStudent
+		AddTeacher
+	com.hebau.delete
+		DeleteStudent
+		DeleteTeacher
+	com.hebau.update
+		UpdateStudent
+		UpdateTeacher
+	com.hebau.find
+		FindStudent
+		FindTeacher
+
+方案2：按照模块划分
+	com.hebau.teacher
+		AddTeacher
+		DeleteTeacher
+		UpdateTeacher
+		FindTeacher
+	com.hebau.student
+		AddStudent
+		DeleteStudent
+		UpdateStudent
+		FindStudent
+
+包的命名方式：域名倒着写
+例如百度域名：www.baidu.com或www.hebau.edu.cn
+倒着写就是：com.baidu.www  或cn.edu.hebau.www(最后一级是作用或模块)
+
+	------------------------------------------------
+		2、包的定义以及注意事项
+	------------------------------------------------
+A：定义包的格式
+	package 包名;
+	多级包用.分开即可。"."：代表路径分隔符
+B：定义包的注意事项
+	a：package语句必须是程序的第一条可执行的代码
+	b：package语句在一个java文件中只能有一个
+	c：如果没有package，默认表示无包名
+C：案例演示
+
+package com.hebau;	//多级包
+class Demo1_Package {
+	public static void main(String[] args) {
+		System.out.println();
+	}
+}
+
+	------------------------------------------------
+		3、带包的类编译和运行
+	------------------------------------------------
+A：如何编译、运行带包的类
+	a：javac编译的时候，在命令行窗口运行javac命令，带上-d即可
+		javac -d . HelloWorld.java
+	b：通过java命令执行
+		java 包名.HelloWorld
+B：案例演示
+
+package com.hebau;	
+class Demo1_Package {
+	public static void main(String[] args) {
+		System.out.println();
+	}
+}
+Ctrl+F1，可以编译通过
+Ctrl+F2，运行报错
+没加包名时，就说：去裕华路办事。
+加包名后，就得说：去保定裕华路办事，去石家庄裕华路办事
+
+加上包后，类名就改变了，应该是包名.类名，是全类名。
+应该在生成包的当前目录下运行下面的命令：
+java com.hebau.Demo1_Package
+
+编译的时候，javac目录中加路径即可。
+java -d . Demo1_Package.java
+
+运行的时候，加上全类名。
+java com.hebau.Demo1_Package
+
+学了eclipse后，就没有这么繁琐了。
+为什么不先学eclipse，再学这个呢？是为了让大家学会使用命令创建报。
+
+	------------------------------------------------
+		4、不同包下类之间的访问
+	------------------------------------------------
+案例演示：
+
+package com.hebau;	
+class Demo1_Package {
+	public static void main(String[] args) {
+		Person p = new Person("张三",23);
+		System.out.println(p.getName() + "..." + p.getAge());
+	}
+}
+
+package com.baidu;
+class Person {
+	private String name;
+	private int age;
+	
+	Person() {}
+	
+	Person(String name,int age) {
+		this.name = neame;
+		this.age = age;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getAge() {
+		return age;
+	}
+}
+	
+不加包，所有的.class文件都在同一个目录下。
+两个包的时候，先编译Person.java，再编译Demo1_Package.java
+javac -d . Person.java
+javac -d . Demo1_Package.java
+报错：找不到符号。
+为什么呢？Person类存在啊？
+	因为Person类放在com.baidu文件夹下，所以，在访问类的时候就要加上包名，使用全类名
+package com.hebau;	
+class Demo1_Package {
+	public static void main(String[] args) {
+		com.baidu.Person p = new com.baidu.Person("张三",23);
+		System.out.println(p.getName() + "..." + p.getAge());
+	}
+}
+再重新编译Demo_Package.java。
+报错：Person在com.baidu中不是公共的。
+需要在class Person{}类的定义前，加上pbulic，变为
+public class person {
+	...
+}
+
+对Person文件进行过修改了，就要保存重新编译。
+
+再编译Demo1_Package.java文件。
+报错：构造方法在Person()中不是公共的。
+需要在Person类的两个构造方法前加public关键字
+package com.baidu;
+public class Person {
+	private String name;
+	private int age;
+	
+	public Person() {}
+	
+	public Person(String name,int age) {
+		this.name = neame;
+		this.age = age;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getAge() {
+		return age;
+	}
+}
+再编译Person.java和Demo1_Package.java两个文件。
+运行Demo1_Package
+java com.hebau.Demo1_Package
+-------------------------------------
+之前说过，私有是封装的一种体现形式，不是能说把私有就是封装。
+封装就是隐藏实现细节，对外提供公共访问方式。即，只要你访问不到我，我对你就是一种封装。
+在Person类前不加public，Demo1_Package类就不能访问Person类，这就是一种封装。
+不能访问就是一种封装，封装是相对而言的。
+在同一个包下，默认修饰符就可以访问；不同包下，默认修饰符就不能访问了。
+例如：我的钱包，对于你们来说就是封装的，你们要访问我的钱包的话，就是犯法；
+      我回到家中，我媳妇要访问我的钱包，就不属于封装了（否则会出大事儿的）。
+      所以，封装是相对而言的。
+即：只要是我不想让你看见，就是一种封装。
+
+	------------------------------------------------
+		5、import关键字的概述和使用
+	------------------------------------------------
+A：为什么要有import
+	是让有包的类调用者可见，不用写全类名了
+B：导包格式
+	import 包名;
+C：注意
+	这种方式是导类的名称。
+	虽然可以最后写*，但是不建议，因为匹配时间长。
+D：面试题
+	package、import、class有没有顺序关系？
+		package必须放在第一行可执行的语句，且只能有一个package语句。
+		import放在package和class中间，且可由有多个import语句。
+		class放在最后面。
+
+package com.hebau;
+import com.baidu.Person;
+//import java.util.Scanner;	//在开发中用的都是导入具体的类
+import java.util.*;		//*代表通配符，它会到该包下挨个匹配，匹配上就导入
+
+//导入具体类和导入*有什么区别？
+	导包实际上是导入具体的类，*号是util包下的所有类对我都是可见的，
+	然后再去匹配，匹配到Scanner后，就把Scanner拿出来。
+	存在一个效率的问题，导入类的话直接使用，导入*的话需要挨个匹配，
+	找到Scanner会慢一些。
+	如果项目足够大，导的包又多，这样匹配的越多，效率越低。
+	所以，在开发中导入的都是具体的类。
+	
+class Demo1_Package {
+	public static void main(String[] args) {
+		//com.baidu.Person p = new com.baidu.Person("张三",23);
+		Person p = new Person();
+		System.out.println(p.getName() + "..." + p.getAge());
+		
+		java.util.Scanner.Scanner sc = new java.util.Scanner(System.in);
+		int x = sc.nextInt();
+		System.out.println(x);
+	}
+}
+导包的意义就是Person类对Demo1_Package类可见，Demo1_Package类可以访问Person类了。
+
+	------------------------------------------------
+			6、四种权限修饰符
+	------------------------------------------------
+	      本类	同一个包下	不同包下	     不同包下
+		      （子类和无关类）   （子类）	    （无关类）
+private		Y
+默认		Y	    Y
+protected	Y	    Y		   Y
+public		Y	    Y		   Y		Y
+
+默认，就是指在类前面不加任何修饰符。
+
+不同包下的无关类，必须用public修饰，才能访问，否则，报错，不是公共的，不能访问。
+现在可以理解：封装是私有的一种形式，不能说封装就是私有。的含义了。
+只要访问不了，就是封装。
+
+protected：
+测试：不同包下的无关类能不能访问。
+package com.hebau;
+import com.baidu.Person;
+class Demo1_Package {
+	public static void main(String[] args) {
+		Person p = new Person();
+		System.out.println(p.getName() + "..." + p.getAge());
+
+		p.print();	//如果能访问，就证明在不同包下的无关类能访问。
+				//如果不能访问，不能访问不同包下的无关类。
+				//不同包下的无关类，protected不允许访问。
+	}
+}
+--------------------
+package com.baidu;
+public class Person {
+	private String name;
+	private int age;
+	
+	public Person() {}
+	
+	public Person(String name,int age) {
+		this.name = neame;
+		this.age = age;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	protected void print() {	//私有的方法
+		System.out.println("print");
+	}
+}
+--------------------------
+测试不同包下的子类
+packeage com.xxx;
+import com.baidu.Person;
+public class Student extends Person {
+	public Student();
+
+	public Student(String name,int age) {
+		super(name,age);
+	}
+
+	public void method() {
+		print();	//访问父类中的print()方法
+	}
+}
+
+package com.hebau;
+import com.baidu.Person;
+import com.xxx.Student;
+class Demo1_Package {
+	public static void main(String[] args) {
+		Person p = new Person();
+		System.out.println(p.getName() + "..." + p.getAge());
+
+		Student s = new Student("李四",24);	
+		System.out.println(s.getName() + "..." + s.getAge());
+		s.method();
+	}
+}
+
+	------------------------------------------------
+		7、类及其组成所使用的常见修饰符（记住）
+	------------------------------------------------
+A：修饰符
+	权限修饰符：private、默认的、protected、public
+	状态修饰符：static、final
+	抽象修饰符：abstract
+B：类
+	权限修饰符：默认修饰符、public	//外部类不能私有private。如果把类私有了，整个类都不让访问，没有意义。
+						例如：借钱时，你只需把钱包藏起来，没必要把你整个人都藏起来
+	状态修饰符：final		//外部类不能受保护protected。保护自己的子类，
+						一个类中的某些方法、某些成员变量让子类去使用，其其它的不让访问使用。
+	抽象修饰符：abstract
+	
+	用的最多的就是：public
+
+C：成员变量
+	权限修饰符：private、默认的、protected、public
+	状态修饰符：static、final
+	
+	用的最多的就是：private
+
+D：构造方法
+	权限修饰符：private、默认的、protected、public	//什么情况下把构造类私有？
+							当一个类中所有的方法都是静态的时候，把该类的构造方法私有化
+	
+	用的最多的就是：public
+
+E：成员方法
+	权限修饰符：private、默认的、protected、public
+	状态修饰符：static、final
+	抽象修饰符：abstract
+
+	用的最多的就是：public
+
+F：除此之外的组合规则
+	成员变量：public static final	//接口中的成员变量
+	成员方法：
+		public static
+		public abstract
+		public final
+
+	------------------------------------------------
+		8、内部类概述和访问特点
+	------------------------------------------------
+A：内部类概述
+	在类中定义类，叫内部类
+B：内部类的访问特点
+	a：内部类可以直接访问外部类的成员，包括私有。
+	b：外部类要访问内部类的成员，必须创建对象。格式如下：
+		外部类名.内部类名 对象名 = 外部类.内部对象;
+C：案例演示
+	内部类及其访问特点
+
+class Demo1_InnerClass {
+	public static void main(String[] args) {
+		Outer.Inner oi = new Outer().new Inner();	//创建内部类对象
+	//Inner是属于Outer里的  = 创建外部类对象.访问内部类成员（只不过该成员是一个类，需要实例化其对象）
+	//类似于com.baidu
+		
+		oi.method();
+	}	
+}
+
+class Outer {
+	private int num = 10;
+	class Inner {	//将Inner类看做是Outer类的一个成员。创建Outer类的对象才能访问其成员
+		public void method() {
+			System.out.println("Hello Inner Class");
+			System.out.println(num);//相当于一个成员方法访问成员边变量
+		}
+	}
+}
+
+	------------------------------------------------
+		9、成员内部类私有使用
+	------------------------------------------------
+class Demo1_InnerClass {
+	public static void main(String[] args) {
+		/*Outer.Inner oi = new Outer().new Inner();
+		oi.method();*/	//报错
+		
+		Outer o = new Outer();
+		o.print();
+	}	
+}
+
+class Outer {
+	private int num = 10;
+	private class Inner {	
+		public void method() {
+			System.out.println("Hello Inner Class");
+			System.out.println(num);
+		}
+	}
+	public void print() {	//成员内部类被私有后，只能用这种方式访问
+		Inner i = new Inner();
+		i.method();
+	}
+}
+
+	------------------------------------------------
+			10、静态成员内部类
+	------------------------------------------------
+静态成员内部类2中形式
+	a：静态内部类中是普通成员方法
+		外部类名.内部类名 对象名 = 外部类名.内部类对象;
+	b：静态内部类中是静态成员方法
+		外部类名.内部类名.静态方法;
+
+class Demo1_InnerClass {
+	public static void main(String[] args) {
+		//按照访问类中静态成员的方式进行访问
+		//Outer.Inner oi = Outer.new Inner();//按照书写习惯，把new放在前面
+		//		   类名.静态成员名
+		Outer.Inner oi = new Outer.Inner();
+		oi.method();
+
+		Outer.Inner2.print();
+	}	
+}
+
+class Outer {
+	static class Inner {
+		public void method() {
+			System.out.println("静态内部类的普通方法");
+		}
+	}
+
+	//静态内部类的另外一种方式
+	static class Inner2 {
+		public static void method() {
+			System.out.println("静态内部类的静态方法");
+		}
+	}
+}
+
+	------------------------------------------------
+			11、成员内部类面试题(考点)
+	------------------------------------------------
+要求：使用已知的变量，在控制台输出30、20、10.
+
+class Test1_InnerClass {
+	public static void main(String[] args) {
+		Outer.Inner oi = new Outer().new Inner();
+		oi.show();
+	}
+}
+
+class Outer {
+	public int num = 10;
+	class Inner {
+		public int num =20;
+		public void show() {
+			int num = 30;
+			System.out.println(?);	//num
+			System.out.println(??);	//this.num
+			System.out.println(??);	//Outer.this.num
+						//内部类之所以能获取到外部类的成员，是因为它能获取了外部类的引用：外部类名.this.
+		}
+	}
+}
+
+	------------------------------------------------
+		12、局部内部类访问局部变量的问题
+	------------------------------------------------
+局部内部类访问局部变量必须用final修饰
+局部内部类在访问它所在方法中的局部变量必须用final修饰，为什么？
+	因为当调用这个方法时，局部变量如果没有final修饰，它的生命周期和方法的生命周期是一样的，当方法弹栈时，这个局部变量也会消失。
+	那么如果局部内部类对象还没有马上消失，想用这个局部变量时，就没有了。如果用final修改时，
+	会在类加载的时候进入常量池，即使方法弹栈，常量池的常量还在，也可以继续使用。
+
+	但jdk1.8取消了这个规则。可以认为是个bug。
+class Demo1_InnerClass {
+	public static void main(String[] args) {
+		Outer o = new Outer();
+		o.method();	//当调用method()方法时，就创建Inner对象，执行print方法
+	}
+}
+
+class Outer {
+	public void method() {
+		//局部内部类。同局部变量一个意思。只在该方法内有效，出了该方法就访问不到该类。
+		//局部内部类，只能在其所在的方法中访问。
+		class Inner {
+			public void print() {
+				System.out.println("Hell Inner");
+			}
+		}
+		
+		Inner i = new Inner();
+		i.print();
+	}
+}
+-------------------------------------------------
+class Outer {
+	public void method() {
+
+		final int num = 10;	//jdk1.8以前版本，必须要用final修饰，否则报错	
+
+		//局部内部类。同局部变量一个意思。只在该方法内有效，出了该方法就访问不到该类。
+		//局部内部类，只能在其所在的方法中访问。
+		class Inner {
+			public void print() {
+				System.out.println(num);
+			}
+		}
+		
+		Inner i = new Inner();
+		i.print();
+	}
+}
+
+int num的生命周期和method()方法的生命周期是一样。
+当method()方法出栈之后，new Inner()对象仍然想使用int num，就无法使用了。
+
+常量池：是方法区的一部分。final修饰的变量是常量，进入常量池，不在栈中。
+常量池的作用：延迟变量的生命周期。
+内存图详见《局部内部类访问局部变量，变量前加final.png》
+
+	------------------------------------------------
+		13、匿名内部类的格式和理解
+	------------------------------------------------
+A：匿名内部类
+	就是内部类的简化写法。
+B：前提：存在一个类或接口
+	这里的类可以是具体类，也可以是抽象类。
+	匿名内部类是没有名字的类，需要想办法去表示没有名字的类，怎么表示呢？
+	去实现一个接口继承一个类，必须和外面的某个接口或某个类产生关系，这才是匿名内部类。
+C：格式
+	new 类名或者接口名() {
+		重写方法;
+	}
+	解释：new 类名(){} 是继承这个类
+	     new 接口名(){}是实现这个接口
+D：本质是什么呢？
+	是一个继承了该类或者实现了该接口的子类匿名对象
+E：案例演示
+	按照要求写一个匿名内部类
+
+
+class Demo_NoNameInnerClass {
+	public static void main(String[] agrs) {
+		Outer o = new Outer();
+		o.method();
+	}
+}
+----------有名字的内部类--------------
+interface Inter {
+	public void print();
+}
+
+class Outer {
+	class Inner implements Inter {
+		public void print() {	//重写接口中的方法
+			System.out.println("print");
+		}
+	}
+
+	public void method() {
+		Inner i = new Inner();
+		i.print();
+	}
+}
+
+----------匿名内部类--------------
+匿名内部类是局部内部类的一种，所以，匿名内部类必须写在方法里。（考点）
+interface Inter {
+	public void print();
+}
+
+class Outer {
+	class Inner implements Inter {
+		public void print() {	//重写接口中的方法
+			System.out.println("print");
+		}
+	}
+
+	public void method() {
+		//new Inter();	//报错。因为接口是不能直接被实例化的
+		new Inter() {	//实现了Inter接口。必须重写接口中的方法
+			public void print() {
+				System.out.println("print");
+			}	
+		};	//new Inter() {} 代表Inter的子类对象
+			
+		--------------------------------------------
+		new Inter() {	//实现了Inter接口。必须重写接口中的方法
+			public void print() {
+				System.out.println("print");
+			}	
+		}.pirint();	//既然是对象，就可以调用对象的方法print()
+		//new Inner().print(); 对照着这个理解
+		//把重写和实现的步骤都写在一起了，包括创建对象。
+		//这样写的好处，不用起名字了。
+	}
+}
+
+	------------------------------------------------
+		14、匿名内部类重写多个方法调用
+	------------------------------------------------
+A：案例演示
+class Demo2_NoNameInnerClass {
+	public static void main(String[] agrs) {
+		Outer o = new Outer();
+		o.method();
+	}
+}
+
+interface Inter {	//接口中有两个抽象方法
+	public void show1();
+	public void show2();
+}
+//匿名内部类只针对重写一个方法时候使用，如果是多个方法的时候，使用有名字的类。
+class Outer {
+	public void method() {	//匿名内部类要写在方法内
+		/*new Inter() {	//new 接口名(){}代表实现这个接口，代表整个子类对象
+			public void show1() {	//实现接口要重写接口中的抽象方法
+				System.out.println("show1");
+			}
+			public void show2() {	//有多少个抽象方法就要重写多少个
+				System.out.println("show2");
+			}
+		}.show1();
+		//那么，如何调用show2呢？
+		//答：再想上面一样，调用show2
+		new Inter() {	
+			public void show1() {	
+				System.out.println("show1");
+			}
+			public void show2() {	
+				System.out.println("show2");
+			}
+		}.show2();*/
+		//以上方法不太好，改进一下，用父类引用指向子类对象
+		Inter i = new Inter() {	
+			public void show1() {	
+				System.out.println("show1");
+			}
+			public void show2() {	
+				System.out.println("show2");
+			}
+			/*public void show3() {	
+				System.out.println("show3");
+			}*/
+		};//代表Inter的子类对象
+		i.show1();	//编译看到是接口中的show1()方法，运行看的是子类对象中的show1()方法
+		i.show2();
+		//i.show3();	//匿名内部类是不能向下转型的，因为没有子类类名。
+		//说明：这样做有弊端。当子类对象中有自己特有的方法show3()时，i.show3()是不行的。
+			因为编译看的是接口中的show3()方法，接口中没有该方法，编译报错。
+			向下强转吧？但是没有子类名字啊，如何强转。
+		结论：匿名内部类在重写多个方法的时候要注意，只有一个方法的时候用，超过一个方法就不用了。
+		      因为太麻烦了，就不如用有名字的类了。
+	}
+}
+
+	------------------------------------------------
+		15、匿名内部类在开发中的应用
+	------------------------------------------------
+代码如下：
+class Test1_NoNameInnerClass {
+	public static void main(String[] args) {
+		//如何调用PersonDemo中的method方法呢？
+		PersonDemo pd = new PersonDemo();
+	}
+}
+//这里写抽象类，接口都行
+abstract class Person {
+	public abstract void show();
+}
+class PersonDemo {
+	public void method(Person p) {	//此处的Person P参数，要求传递一个匿名内部类
+		p.show();
+	}
+}
+------------------------方法1：有名字的类-------------------------
+class Test1_NoNameInnerClass {
+	public static void main(String[] args) {
+		//如何调用PersonDemo中的method方法呢？
+		PersonDemo pd = new PersonDemo();
+		//pd.method(new Person());	//不能传Person对象，因为Person是抽象类，无法进行实例化
+						//只能传Person子类对象
+		pd.method(new Student());
+	}
+}
+//这里写抽象类，接口都行
+abstract class Person {
+	public abstract void show();
+}
+class PersonDemo {
+	public void method(Person p) {	//使用多态，父类引用指向子类对象。Person p = new Student();
+		p.show();
+	}
+}
+
+//子类继承Person，并重写Person中的抽象方法
+class Student extends Person {
+	public void show() {
+		System.out.println("show");
+	}
+}
+------------------------方法2：匿名内部类-------------------------
+class Test1_NoNameInnerClass {
+	public static void main(String[] args) {
+		//如何调用PersonDemo中的method方法呢？
+		PersonDemo pd = new PersonDemo();
+		pd.method(new Person(){		//new Person(){}继承Person类，代表Person的子类对象，就要重写其抽象方法
+			public void show() {
+				System.out.println("show");
+			};
+		});	//匿名内部类当做参数传递（本质是把匿名内部类看做一个对象）
+	}
+}
+//这里写抽象类，接口都行
+abstract class Person {		//new Person(){}就相当于继承Person类
+	public abstract void show();
+}
+class PersonDemo {
+	//参数传递相当于是以下的语句
+	//Person p = new Person() {	//父类引用指向子类对象
+	//	public void show() {
+	//		System.out.println("show");
+	//	}
+	//};
+	public void method(Person p) {	//此处的Person P参数，要求传递一个匿名内部类
+		p.show();
+	}
+}
+这就是匿名内部类在开发中的应用。
+
+	------------------------------------------------
+		16、匿名内部类的面试题(考点)
+	------------------------------------------------
+按要求，补齐代码
+class Test2_NoNameInnerClass {
+	public static void main(String[] args) {
+		Outer.method().show();
+	}
+}
+
+interface Inter {
+	void show();
+}
+
+class Outer {
+	//补齐代码
+}
+
+要求在控制台输出"HelloWorld"
+----------------------------------
+class Test2_NoNameInnerClass {
+	public static void main(String[] args) {
+		Outer.method().show();	//分析：Outer.method()，说明method()方法是静态的static
+					//      Outer.method().show();调用完method()方法后，还能调用show()方法，
+					//	说明Outer.method()执行完后，返回的是一个对象。
+					//	而show()方法在接口Inter中，且是抽象方法，是非静态的。abstract和static不能共用的。
+					//	非静态的方法使用，必须通过创建对象来调用，说明Outer.method()返回的是一个对象，对象调用show()方法。
+					//	有show()方法的只有接口Inter，说明method()方法的返回值应该是Inter，只要method()方法return Inter子类对象就行。
+		//相当于是子类对象调用其自身的show()方法。
+		//Outer.method().show();//链式编程：每次调用方法之后还能再继续调用方法，证明调用方法返回的是对象。
+		//等同于以下的两条语句。
+		Inter i = Outer.method();	//父类引用指向子类对象
+		i.show();	//编译看的是接口Inter中的show()方法，执行的是子类中重写的show()方法。
+	}
+}
+
+interface Inter {
+	void show();
+}
+
+class Outer {
+	public static Inter method() {
+		return new Inter() {	//new Inter(){}：表示实现这个接口。实现这个接口就要重写其中的抽象方法
+			public void show() {
+				System.out.println("Hello World");
+			}
+		};
+	}
+}

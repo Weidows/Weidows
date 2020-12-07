@@ -5,10 +5,8 @@
       "path": ".."
     },
     {
-      "path": "..\\..\\Github\\Blog"
-    },
-    {
-      "path": "..\\..\\Github\\About-me"
+      "name": "Blog-private",
+      "path": "..\\..\\Github\\Blog-private"
     }
   ],
   "settings": {

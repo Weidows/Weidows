@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - RandomDemo",
+      "request": "launch",
+      "mainClass": "test.homework.ing.random.RandomDemo",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - QuickSort",
       "request": "launch",
       "mainClass": "arithmetic.quick_sort.QuickSort",

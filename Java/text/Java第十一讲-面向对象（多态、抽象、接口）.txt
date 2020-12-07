@@ -1,0 +1,1050 @@
+=========================================================================
+*			面向对象4：多态、抽象、接口			*
+=========================================================================
+三大块重点：面向对象、集合、IO
+面向对象的重点就是：多态
+
+	------------------------------------------------
+		1、多态的概述及其代码体现
+	------------------------------------------------
+A：多态（polymorphic）概述
+	事物存在的多种形态（这只猫很可爱，这个动物很可爱）
+B：多态前提
+	a：要求继承关系
+	b：要求方法重写
+	c：要有父类引用指向子类对象
+C：案例演示
+	代码体现多态
+
+class Demo1_Polymorphic {
+	public static void main(String[] args) {
+		Cat c = new Cat();	//不用多态
+		c.eat();
+
+		Animal a = new Cat();	//父类引用指向子类对象
+		a.eat();
+	}
+}
+
+class Animal {
+	public void eat() {
+		System.out.println("动物吃饭");
+	}
+}
+
+class Cat extends Animal {
+	public void eat() {
+		System.out.println("猫吃鱼");
+	}
+}
+
+	------------------------------------------------
+			2、多态中的成员访问特点（考点）
+	------------------------------------------------
+成员变量
+	编译看左边（父类），运行看左边（父类）
+成员方法
+	编译看左边(父类)，运行看右边(子类)。动态绑定
+静态方法
+	编译看左边(父类)，运行看左边(父类)。
+	(静态和类相关，算不上重写，所以，访问还是左边的)
+
+	只有非静态的成员方法,编译看左边,运行看右边
+-----------------------------------------------------
+多态中的成员访问特点之成员变量
+	编译看左边（父类），运行看左边（父类）
+class Demo2_Polymorphic {
+	public static void main(String[] args) {//父类引用指向子类对象
+		Father f = new Son();
+		System.out.println(f.num);	//输出父类的num值10
+
+		Son  s = new Son();
+		System.out.println(s.sum);	//输出子类的num值20
+	}
+}
+
+class Father {
+	int num = 10;
+}
+
+class Son extends Father {
+	int num = 20;
+}
+详见：《多态中的成员变量.png》
+
+-----------------------------------------------------
+多态中的成员访问特点之成员方法
+	编译看左边(父类)，运行看右边(子类)。动态绑定
+	
+class Demo2_Polymorphic {
+	public static void main(String[] args) {//父类引用指向子类对象
+		/*Father f = new Son();
+		System.out.println(f.num);	//输出父类的num值10
+
+		Son  s = new Son();
+		System.out.println(s.sum);*/	//输出子类的num值20
+
+		Father f = new son();
+		f.print();	//输出son
+	}
+}
+
+class Father {
+	int num = 10;
+	public void print() {
+		System.out.println("father");
+	}
+}
+
+class Son extends Father {
+	int num = 20;
+	public void print() {
+		System.out.println("son");
+	}
+}
+编译看父类中有没有print()方法，保证编译的时候能通过。如果父类中没有print()方法，编译报错。
+执行的时候子类的print()方法入栈。
+这叫动态绑定。
+
+-----------------------------------------------------
+多态中的成员访问特点之静态成员方法
+	编译看左边(父类)，运行看左边(父类)。
+	(静态和类相关，算不上重写，所以，访问还是左边的)
+	总结：只有非静态的成员方法,编译看左边,运行看右边	
+
+之前说过，静态方法不叫重写。
+
+class Demo2_Polymorphic {
+	public static void main(String[] args) {//父类引用指向子类对象
+		/*Father f = new Son();
+		System.out.println(f.num);	//输出父类的num值10
+
+		Son  s = new Son();
+		System.out.println(s.sum);*/	//输出子类的num值20
+
+		Father f = new son();
+		//f.print();	//输出son
+		f.method();	//输出father static method	//相当于是Father.method()
+	}
+}
+
+class Father {
+	int num = 10;
+	public void print() {
+		System.out.println("father");
+	}
+
+	pbulic static void method() {
+		System.out.println("father static method");
+	}
+}
+
+class Son extends Father {
+	int num = 20;
+	public void print() {
+		System.out.println("son");
+	}
+
+	pbulic static void method() {
+		System.out.println("son static method");
+	}
+}
+
+
+	------------------------------------------------
+			3、多态中向上转型和向下转型
+	------------------------------------------------
+A：多态的解释
+	超人案例
+class Demo3_SuperMan {
+	public static void main(String[] args) {
+		//虽然他是超人，但是表现在我面前的并不是超人。平时并不是穿超人的衣服。
+		Person p = new SuperMan();	//乔装成一个普通人。父类引用指向子类对象。超人提升为了一个人
+		System.out.println(p.name);	
+		p.谈生意();	//表现出超人自己真正的行为
+		p.fly();	//报错。编译找的是父类的fly()方法，父类中没有此方法，就报错。	
+				//如何让p能调用fly()方法呢？引入向上转型和向下转型。
+	}
+}
+
+class Person {
+	String name = "John";
+	public void 谈生意() {
+		System.out.println("谈生意");
+	}
+}
+
+class SuperMan extends Person {
+	String name = "superMan";
+
+	pbulic void 谈生意() {
+		System.out.println("谈几个亿的大单子");
+	}
+
+	public void fly() {
+		System.out.println("飞出去救人");
+	}
+}
+
+---------------------------------------------
+B：多态中向上转型和向下转型
+	Person p = new SuperMan();	向上转型
+	SuperMan sm = (SuperMan)p;	向下转型
+
+内存图详见：《多态中的向上转型和向下转型.png》
+
+class Demo3_SuperMan {
+	public static void main(String[] args) {
+		//虽然他是超人，但是表现在我面前的并不是超人。平时并不是穿超人的衣服。
+		Person p = new SuperMan();	//乔装成一个普通人。父类引用指向子类对象。超人提升为了一个人
+						//父类引用指向子类对象就是向上转型
+		System.out.println(p.name);	
+		p.谈生意();	//表现出超人自己真正的行为
+		//p.fly();	//报错。编译找的是父类的fly()方法，父类中没有此方法，就报错。	
+				//如何让p能调用fly()方法呢？引入向上转型和向下转型。
+				//多态的弊端：不是使用子类特有的属性和行为
+		/*
+		基本数据类型自动类型提升和强制类型转换
+		
+		int i = 10;
+		byte b = 20;
+		i = b;		//自动类型提升。小的转换成大的。
+		b = (byte)i;	//强制类型转换。大的转换成小的。
+		
+		引用数据类型和基本数据类型类似
+		*/
+
+		SuperMan sm = (SuperMan)p;	//向下转型
+						//一定是先有向上转型后，才有向下转型
+		sm.fly();
+	}
+}
+
+class Person {
+	String name = "John";
+	public void 谈生意() {
+		System.out.println("谈生意");
+	}
+}
+
+class SuperMan extends Person {
+	String name = "superMan";
+
+	pbulic void 谈生意() {
+		System.out.println("谈几个亿的大单子");
+	}
+
+	public void fly() {
+		System.out.println("飞出去救人");
+	}
+}
+
+	------------------------------------------------
+			4、多态的好处和弊端
+	------------------------------------------------
+A：多态的好处
+	a：提高了代码的维护性（维护性是由继承保证的）
+	b：提高了代码的扩展性（由多态保证）
+B：案例演示
+	多态的好处
+	可以当做形式参数，可以接受任意子类对象
+C：多态的弊端
+	不能使用子类的特有属性和行为
+D：案例演示
+	method(Animal a)
+	method(Cat c)
+
+class Demo4_Animal {
+	public static void main(String[] args) {
+		/*Cat c1 = new Cat();
+		c1.eat();*
+	
+		method(new Cat());
+		method(new Dog());	//若没有method(Dog d)报错。无法将Dog类型转换为Cat类型
+					//Cat c = new Dog();
+		//若再有一个动物类horse，还需要在定义一个method。
+		//这样方法的扩展性一点儿都不好
+
+		//Animal a = new Cat();	//开发时候，很少在创建对象的时候用父类引用指向子类对象。
+					//直接创建子类对象更方便，可以使用子类中的特有属性和行为。
+		
+	}
+
+	/*public static void method(Cat c) {
+		c.eat();
+	}
+	
+	public static void method(Dog d) {	//method()方法重载
+		d.eat();
+	}*/
+
+	public static void method(Animal a) {	//当做参数的时候用多态最好，因为扩展性强
+		/*a.eat();
+		//a.catchMouse();*/	//报错。因为父类中没有此方法
+
+		/*Cat c = (Cat)a;
+		c.eat();
+		c.catchMouse();	*/
+		//当执行method(new Dog());时报错，类型转换错误
+		//如果把狗强转成猫就会出现类型异常，ClassCastException
+
+		//为解决上述问题，进行判断，引入instanceof关键字
+		//instanceof 判断前面的引用是否是后边的数据类型
+		if (a instanceof Cat) {
+			Cat c = (Cat)a;		//在实际开发中，很少去判断是那个类型的，然后再进行强转
+			c.eat();		//直接在实参中传子类，在形参中定义父类，直接使用子类方法就行。
+			c.catchMouse();
+		}else if(a instanceof Dog) {	//开发中，父类中具备了这个方法，子类重写这个方法，把父类类型当做参数
+			Dog d = (Dog)a;		//把子类传递过来就行
+			d.eat();		//很少调用子类特有的方法，那样必须强转之后才能使用
+			d.lookHome();
+		}else {
+			a.eat();
+		}
+	}
+}
+
+class Animal {
+	public void eat() {
+		System.out.println("动物吃饭");
+	}
+}
+
+class Cat extends Animal {
+	public void eat() {
+		System.out.println("猫吃鱼");
+	}
+
+	public void catchMouse() {
+		System.out.println("抓老鼠");
+	}
+}
+
+class Dog extends Animal {
+	public void eat() {
+		System.out.println("狗吃肉");
+	}
+
+	public void lookHome() {
+		System.out.println("看家");
+	}
+}
+
+	------------------------------------------------
+			5、多态的练习（考点）
+	------------------------------------------------
+练习1：
+看下面程序是否有问题，如果有，说出结果
+class Test1_Polymorphic {
+	public static void main(String[] args) {
+		Fu f = new Zi();
+		//f.method();	//报错。编译看左边，运行看右边。左边没有method()方法
+		f.show();
+	}
+}
+class Fu {
+	public void show() {
+		System.out.println("fu show");
+	}
+}
+
+class Zi extends Fu {
+	public void show() {	//把子类中的show()方法注释掉，仍然可以运行，执行的是Fu类中的show()方法
+		System.out.println("zi show");
+	}
+
+	public void method() {
+		System.out.println("zi method");
+	}
+}
+
+练习2：
+看下面程序是否有问题，如果有，说出结果
+
+先分析main方法中的
+	A a = new B();	
+	a.show();
+再分析
+	B b = new C();
+	b.show();
+
+class Test2_Polymorphic {
+	public static void main(String[] args) {
+		/*A a = new B();	//编译看父类，运行看子类
+		a.show();*/
+		
+		B b = new C();
+		b.show();
+	}
+}
+class A {
+	public void show() {
+		show2();
+	}
+	public void show2() {
+		System.out.println("我");
+	}
+}
+class B extends A {
+	public void show2() {
+		System.out.println("爱");
+	}
+}
+class C extends B {
+	public void show() {
+		super.show();
+	}
+	public void show2() {
+		System.out.println("你");
+	}
+}
+
+
+	------------------------------------------------
+			6、抽象类的概述及其特点
+	------------------------------------------------
+A：抽象类概述
+	抽象就是看不懂的
+B：抽象类特点
+	a：抽象类和抽象方法必须用abstract关键字修饰
+		abstract class 类名 {}
+		public abstract void eat();	//不加{}
+(考点)	b：抽象类不一定有抽象方法，但是有抽象方法的类一定是抽象类或者是接口
+	c：抽象类不能实例化。那么抽象类如何实例化呢？
+		按照多态的方式，由具体的子类实例化。其实这也是多态的一种，抽象类多态。
+	d：抽象类的子类
+		要么是抽象类
+		要么重写抽象类中的所有抽象方法(一般用这种方式)
+C：案例演示
+	抽象类特点
+
+class Demo1_Abstract {
+	public static void main(String[] args) {
+		//Animal a = new Animal();	//错误: Animal是抽象的; 无法实例化
+						//因为如果可以实例化，那就意味着可以调用其eat()抽象方法，调用没有具体实现的抽象方法是没有意义的。
+						//非要实例化，借助于多态。
+						//不能实例化，但是可以声明：Animal a;
+		Animal a = new Cat();		//父类引用指向子类对象
+		a.eat();
+	}
+}
+
+abstract class Animal {			//抽象类
+	public abstract void eat();	//抽象方法。不加{}
+	//什么时候把方法定义为抽象的呢？当你不知道方法具体是怎么实现的，那就把该方法定义为抽象的。
+	//比如说 动物吃。你知道动物怎么吃么？动物吃什么么？
+	//有的吃动物，有的吃植物，有食肉的，有食草的。有细嚼慢咽的，有狼吞虎咽的。
+	//所以，动物吃 的方法，定义为抽象方法。
+
+	//动物类本身就是抽象的，它的eat()方法也不具体。
+	//还有水果类。
+}
+
+class Cat extends Animal {
+	//子类必须强制重写父类的抽象方法。否则报错。
+	/*public void eat() {	//重写父类的抽象方法
+		System.out.println("猫吃鱼");
+	}*/
+}
+
+//子类可以定义为抽象类
+abstract Cat extends Animal {
+}
+
+
+	------------------------------------------------
+			7、抽象类的成员特点
+	------------------------------------------------
+A：抽象类的成员特点
+（考点）	a：成员变量：既可以是变量，也可以是常量。abstract是否可以修饰成员变量？不能修饰成员变量
+	b：构造方法：有。
+		用于子类访问父类数据的初始化。
+	c：成员方法：既可以是抽象的，也可以是非抽象的。
+
+	d：案例演示：抽象类的成员特点
+B：抽象类的成员方法特性
+	a：抽象方法：强制要求子类做的事情
+	b：非抽象方法：子类继承的事情，提高代码复用性
+
+abstract class Demo {
+	int num1 = 10;
+	final int num2 = 20;
+
+	public Demo() {
+		System.out.println("非抽象方法");
+	}
+
+	public abstract void method();
+}
+
+class Test extends Demo {
+	public void method() {
+		System.out.println("重写抽象类中的抽象方法，否则报错");
+	}
+}
+
+-------------------------------------
+抽象方法强制子类重写案例：相声
+
+class Demo3_相声 {
+	public static void main(String[] args) {
+		岳云鹏 小岳岳 = new 岳云鹏();
+		小岳岳.说学逗唱();	
+	}
+}
+
+abstract class 相声 {
+	public abstract void 说学逗唱();
+}
+
+class 岳云鹏 extends 相声 {
+	public void 说学逗唱() {
+		System.out.println("拜郭德纲为师，学习说学逗唱，主要风格耍贱卖萌");
+	}
+}
+
+class 郭麒麟 extends 相声 {
+	public void 说学逗唱() {
+		System.out.println("打小跟德云社学习，耳濡目染");
+	}
+}
+
+	------------------------------------------------
+			8、抽象类的案例（讲一个）
+	------------------------------------------------
+案例演示1：
+	具体事物：猫，狗
+	共性：姓名，年龄，吃饭
+	猫的特性:抓老鼠
+	狗的特性:看家
+class Test1_Animal {
+	public static void main(String[] args) {
+		Cat c = new Cat("加菲",8);
+		System.out.println(c.getName() + "..." + c.getAge());
+		c.eat();
+		c.catchMouse();
+
+		Dog d = new Dog("八公",30);
+		System.out.println(d.getName() + "..." + d.getAge());
+		d.eat();
+		d.lookHome();
+	}
+}
+
+abstract class Animal {
+	private String name;			//姓名
+	private int age;			//年龄
+
+	public Animal(){}			//空参
+
+	public Animal(String name,int age) {	//有参
+		this.name = name;
+		this.age = age;
+	}
+
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+	}
+
+	public String getName() {		//获取姓名
+		return name;
+	}
+
+	public void setAge(int age) {		//设置年龄
+		this.age = age;
+	}
+
+	public int getAge() {			//获取年龄
+		return age;
+	}
+
+	public abstract void eat();		//吃饭。不知道具体动物是怎么吃的，所以，定义为抽象类
+}
+
+class Cat extends Animal {
+	public Cat(){}					//空参
+
+	public Cat(String name,int age) {//有参
+		super(name,age);
+	}
+
+	public void eat() {
+		System.out.println("猫吃鱼");
+	}
+
+	public void catchMouse() {
+		System.out.println("抓老鼠");
+	}
+}
+
+class Dog extends Animal {
+	public Dog(){}				//空参
+
+	public Dog(String name,int age) {	//有参
+		super(name,age);
+	}
+
+	public void eat() {
+		System.out.println("狗吃肉");
+	}
+
+	public void lookHome() {
+		System.out.println("看家");
+	}
+}
+----------------------------------------------------
+案例演示2：
+	具体事物：基础课老师，专业课老师
+	共性：姓名，年龄，讲课。
+
+不同的老师讲课内容和讲课方式不一样，所以将老师定义为抽象类
+class Test2_Teacher {
+	public static void main(String[] args) {
+		BaseTeacher bt = new BaseTeacher("张三",28);
+		bt.teach();
+	}
+}
+
+abstract class Teacher {
+	private String name;			//姓名
+	private int age;			//年龄
+
+	public Teacher(){}			//空参
+
+	public Teacher(String name,int age) {	//有参
+		this.name = name;
+		this.age = age;
+	}
+
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+	}
+
+	public String getName() {		//获取姓名
+		return name;
+	}
+
+	public void setAge(int age) {		//设置年龄
+		this.age = age;
+	}
+
+	public int getAge() {			//获取年龄
+		return age;
+	}
+
+	public abstract void teach();
+}
+
+class BaseTeacher extends Teacher {
+	public BaseTeacher(){}			//空参
+
+	public BaseTeacher(String name,int age) {//有参
+		super(name,age);
+	}
+
+	public void teach() {
+		System.out.println("我的姓名是:" + this.getName() + ",我的年龄是:" + this.getAge() + ",讲的内容是java基础");
+	}
+}
+
+案例演示3：
+	假如我们在开发一个系统时需要对程序员类进行设计，程序员包含3个属性：姓名、工号以及工资。
+	经理，除了含有程序员的属性外，另为还有一个奖金属性。
+	请使用继承的思想设计出程序员类和经理类。要求类中提供必要的方法进行属性访问。
+
+class Test3_Employee {
+	public static void main(String[] args) {
+		Coder c = new Coder("德玛西亚","007",8000);
+		c.work();
+
+		Manager m = new Manager("刘经理","9527",3000,20000);
+		m.work();
+	}
+}
+
+abstract class Employee {
+	private String name;			//姓名
+	private String id;			//工号
+	private double salary;			//工资
+
+	public Employee() {}			//空参构造
+
+	public Employee(String name,String id,double salary) {
+		this.name = name;
+		this.id = id;
+		this.salary = salary;
+	}
+
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+	}
+
+	public String getName() {		//获取姓名
+		return name;
+	}
+
+	public void setId(String id) {		//设置id
+		this.id = id;
+	}
+
+	public String getId() {			//获取id
+		return id;
+	}
+
+	public void setSalary(double salary) {	//设置工资
+		this.salary = salary;
+	}
+
+	public double getSalary() {		//获取工资
+		return salary;
+	}
+
+	public abstract void work();	//因为我们不知道员工是怎么工作的，所以定义为抽象的方法
+}
+
+//程序员
+class Coder extends Employee {
+	public Coder() {}			//空参构造
+
+	public Coder(String name,String id,double salary) {
+		super(name,id,salary);
+	}
+
+	public void work() {
+		System.out.println("我的姓名是:" + this.getName() + ",我的工号是:" + this.getId() + ",我的工资是:" 
+			+ this.getSalary() + ",我的工作内容是敲代码");
+	}
+}
+
+//项目经理
+class Manager extends Employee {
+	private int bonus;			//奖金
+	public Manager() {}			//空参构造
+
+	public Manager(String name,String id,double salary,int bonus) {
+		super(name,id,salary);
+		this.bonus = bonus;
+	}
+
+	public void work() {
+		System.out.println("我的姓名是:" + this.getName() + ",我的工号是:" + this.getId() + ",我的工资是:" 
+			+ this.getSalary() + ",我的奖金是:" + bonus + ",我的工作内容是管理");
+	}
+}
+
+	------------------------------------------------
+			9、抽象类的面试题
+	------------------------------------------------
+A：面试题1
+	问：一个抽象类如果没有抽象方法，可不可以定义为抽象类？如果可以，有什么意义？
+	答：可以。 目的只有一个，就是不让其它类创建本类对象，交给子类完成
+B：面试题2
+（考点）	问：abstract不能和哪些关键字共存？修饰方法时。
+	答：a：abstract和static
+	       被abstract修饰的方法没有方法体
+	       被static修饰的可以用类名.调用，但是类名.调用抽象方法没有意义
+	    b：abstract和final
+	       被abstract修饰的方法强制子类重写
+	       被final修饰的不让子类重写，所以这2个关键字矛盾
+	    c：abstract和private
+	       被abstract修饰的是为了让子类看到并强制重写
+	       被private修饰不让子类访问，所以这2个关键字也是矛盾的
+class Demo4_Abstract {
+	public static void main() {
+		System.out.println("");
+	}
+}
+
+abstract class Demo {
+（考点）	//public static abstract void println();	//错误：非法的修饰符组合：abstract和static
+	//public final abstract void println();		//错误：非法的修饰符组合：abstract和final
+	//private abstract void println();		//错误：非法的修饰符组合：abstract和private
+}
+
+	------------------------------------------------
+			10、接口的概述及其特点
+	------------------------------------------------
+抽象类中的方法可以是抽象方法，也可以是非抽象方法
+接口中的方法都是抽象方法
+A：接口概述
+	从狭义的角度讲就是指Java中的interface
+	从广义的角度讲对外提供规则的都是接口，例如USB接口、PS/2接口、RS232接口、RS485接口等
+		一流公司：制定规则，卖接口；产品的公司，例如iPhone，大卡→小卡→纳豆卡→没卡（只有一个手机号）
+		二流公司：卖的是品牌，例如：lv包
+		三流公司：卖服务，例如：淘宝
+B：接口特点
+	a：接口用关键字interface表示
+		interface 接口名 {}
+	b：类实现接口用implements表示
+		class 类名 implements 接口名 {}
+	c：接口不能实例化
+		那么，接口如何实例化呢？
+		按照多态的方式来实例化。
+	d：接口的子类
+		a：可以是抽象类。但意义不大
+		b：可以是具体类。要重写接口中的所有抽象方法。（推荐方案）
+	c：案例演示
+		接口特点
+
+class Demo1_Interface {
+	public static void main(String[] args) {
+		//Inter i = new Inter();//接口不能被实例化，因为调用抽象方法没有意义
+		Inter i = new Demo();	//父类引用指向子类对象
+		i.print();		//编译的时候看父类，执行的时候看子类
+					//接口也是父类，是干爹，可以有多个
+	}
+}
+
+interface Inter {
+	public abstract void print();	//接口中的方法都是抽象方法
+}
+
+class Demo implements Inter {
+	public void print() {
+		System.out.println("print");
+	}
+}
+
+	------------------------------------------------
+			11、接口的成员特点
+	------------------------------------------------
+A：接口成员特点：
+（考点）	成员变量：只能是常量，并且是静态的并公共的
+		  默认修饰符：public static final	三个关键字可以互相交换位置
+		  建议：自己手动输出	初学者可能不知道
+（考点）	构造方法：接口没有构造方法
+（考点）	成员方法：只能是抽象方法。
+		  默认修饰符：public abstract
+		  建议：自己手动给出
+B：案例演示
+	接口成员特点
+class Demo2_Interface {
+	pbulic static void main(String[] args) {
+		Demo d = new Demo();
+		d.print();
+	}
+}
+
+interface Inter {
+	int num = 10;
+}
+class Demo implements Inter {	//相当于从Inter中继承了num
+	public void print() {
+		System.out.println(num);
+	}
+}
+------------------------------------------------
+接口中成员变量：public static final 
+class Demo2_Interface {
+	pbulic static void main(String[] args) {
+		Demo d = new Demo();
+		d.print();
+		System.out.println(Inter.num);
+	}
+}
+
+interface Inter {
+	public static final int num = 10;	//接口中的成员都是对外暴露的，所以都是public类型的
+}
+class Demo implements Inter {	
+	public void print() {
+		//num = 20;	//报错。无法为最终变量分配值。接口中定义的变量都是常量
+		System.out.println(num);
+	}
+}
+------------------------------------------------
+接口中没有构造方法
+class Demo2_Interface {
+	pbulic static void main(String[] args) {
+		Demo d = new Demo();
+		d.print();
+		System.out.println(Inter.num);
+	}
+}
+
+interface Inter {
+	public static final int num = 10;	//接口中的成员都是对外暴露的，所以都是public类型的
+	public Inter() {}	//报错。接口中没有构造方法
+
+	/*public void print() {	//接口中不能定义非抽象方法
+	}*/
+
+	void print();	//默认隐藏abstract 和public。系统在后台很忙，给你加这个加那个的
+}
+//class Demo implements Inter {	//一个类不写继承任何类，默认继承Object类
+class Demo extends Object implements Inter {	//接口是干爹，默认继承Object类（亲爹）
+	//Demo实现了Inter，Demo中有构造方法？
+	public Demo() {
+		super();	//访问的是那个父类？访问的是亲爹（Object）
+	}
+	public void print() {	//子类重写父类的方法时，必须要大于等于父类权限
+		//num = 20;	//报错。无法为最终变量分配值。接口中定义的变量都是常量
+		System.out.println(num);
+	}
+}
+
+接口中的成员都是public的，因为接口是对外暴露的原则。
+	------------------------------------------------
+		12、类与类、类与接口、接口与接口的关系（考点）
+	------------------------------------------------
+A：类与类、类与接口、接口与接口的关系
+	a：类与类
+		继承关系，只能是单继承，可以多层继承
+	b：类与接口
+		实现关系，可以单实现，也可以多实现
+		并且还可以在继承一个类的同时实现多个接口
+	c：接口与接口
+		继承关系，可以是单继承，也可以是多继承
+B：案例演示
+
+class Demo3_Interface {
+	pbulic static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
+}
+
+interface InterA {
+	public abstract void printA();
+}
+
+interface InterB {
+	public abstract void printB();
+}
+
+//class Demo implements InterA,implents InterB {	//这么做是非法的
+class Demo implements InterA,InterB {
+//class Demo extends Object implements InterA,InterB {	//默认是继承Object类。因为有一个亲爹，不耽误再去认干爹
+	public void printA() {
+		System.out.println("printA");
+	}
+
+	public void printB() {
+		System.out.println("printB");
+	}
+}
+多实现没有安全问题。即使两个接口中的方法都是public abstract printA();也没有关系，
+因为这两个方法没有方法体。
+-----------------------------------------------
+接口和接口之间的关系
+再加一个接口
+interface InterC implements InterB{	//编译报错，不能是实现的关系
+
+}
+
+interface InterC extends InterB,interA {	//可以单继承，也可以多继承
+}
+
+只要是一样的，都是继承。不一样的就是实现。
+那么，接口的出现，打破的Java的单继承的局限性
+
+	------------------------------------------------
+			13、抽象类和接口的区别（考点）
+	------------------------------------------------
+A：成员区别
+	抽象类：
+		成员方法：可以是变量，也可以是常量
+		构造方法：有
+		成员方法：可以抽象，也可以非抽象
+			非抽象的子类可以继承，抽象的子类必须对它进行重写
+	接口：
+		成员变量：只可以常量。前有public static final三个关键字
+		成员方法：只可以抽象。前有public abstract两个关键字。没有构造方法。
+B：关系区别
+	类与类
+		继承、单继承
+	类与接口
+		实现，单实现，多实现
+	接口与接口
+		继承，单继承，多继承
+C：设计理念区别
+	抽象类：被继承体现的是“is a”的关系。抽象类中定义的是该继承体系的共性功能。
+		向上抽取出共性的属性和方法。
+	接口：被实现体现的是“like a”的关系（谁像谁的关系）。接口中定义的是该继承体系的扩展功能。
+
+	------------------------------------------------
+		14、猫狗案例加入跳高功能分析及其代码实现
+	------------------------------------------------
+案例演示：
+	动物类：姓名、年龄
+	        吃饭、睡觉是抽象的方法，不同的动物吃的方式和睡觉的方式不同
+	猫和狗
+	动物培训接口：跳高（某些动物具备的功能，马戏团中的动物）
+
+class Test1_Animal {
+	public static void main(String[] args) {
+		Cat c = new Cat("加菲",8);
+		c.eat();
+		c.sleep();
+
+		JumpCat jc = new JumpCat("跳高猫",3);
+		jc.eat();
+		jc.sleep();
+		jc.jump();
+	}
+}
+
+abstract class Animal {
+	private String name;			//姓名
+	private int age;			//年龄
+
+	public Animal() {}			//空参构造
+
+	public Animal(String name,int age) {	//有参构造
+		this.name = name;
+		this.age = age;
+	}
+
+	public void setName(String name) {	//设置姓名
+		this.name = name;
+	}
+
+	public String getName() {		//获取姓名
+		return name;
+	}
+
+	public void setAge(int age) {		//设置年龄
+		this.age = age;
+	}
+
+	public int getAge() {			//获取年龄
+		return age;
+	}
+
+	public abstract void eat();		//吃饭
+
+	public abstract void sleep();		//睡觉
+}
+
+interface Jumping {				//跳高的接口
+	public void jump();
+}
+
+class Cat extends Animal {
+	public Cat() {}				//空参构造
+
+	public Cat(String name,int age) {	//有参构造
+		super(name,age);
+	}
+
+	public void eat() {
+		System.out.println("猫吃鱼");
+	}
+
+	public void sleep() {
+		System.out.println("侧着睡");
+	}
+}
+
+class JumpCat extends Cat implements Jumping {
+	public JumpCat() {}			//空参构造
+
+	public JumpCat(String name,int age) {	//有参构造
+		super(name,age);
+	}
+
+	public void jump() {
+		System.out.println("猫跳高");
+	}
+}
+
+注意：接口编译之后，后缀名也是.class
