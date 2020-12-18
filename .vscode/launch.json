@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - Test",
+      "request": "launch",
+      "mainClass": "test.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Instanceof",
+      "request": "launch",
+      "mainClass": "twenty.september.jvm_model.Instanceof",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Test",
+      "request": "launch",
+      "mainClass": "twenty.november.thread.producer_and_customer.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Test",
+      "request": "launch",
+      "mainClass": "twenty.november.thread.bank.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Test",
+      "request": "launch",
+      "mainClass": "twenty.november.thread.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - RandomDemo",
       "request": "launch",
       "mainClass": "test.homework.ing.random.RandomDemo",

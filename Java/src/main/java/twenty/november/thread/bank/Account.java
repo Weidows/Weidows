@@ -2,14 +2,16 @@
  * @Author: Weidows
  * @Date: 2020-11-03 19:20:18
  * @LastEditors: Weidows
- * @LastEditTime: 2020-11-05 17:17:23
+ * @LastEditTime: 2020-12-13 22:49:43
  * @FilePath: \Weidows\Java\src\main\java\twenty\november\thread\bank\Account.java
  * @Description:
  */
 package twenty.november.thread.bank;
 
+import java.math.BigDecimal;
+
 public class Account {
-  private int money = 3000;
+  private BigDecimal money = new BigDecimal(3000);
   // String name; //如果在这里直接获取线程名,那线程名都变成main,而且也不能让name在这里定义
 
   /**
@@ -21,13 +23,14 @@ public class Account {
    */
   public synchronized void draw(int money) {
     String name = Thread.currentThread().getName();
-    this.threadConnect(name);
+    this.threadConnect(name); // 测试线程间的通信(微信与支付宝运行顺序)
     System.out.println(name + "\t账户原有金额: " + this.money);
     System.out.println(name + "\t取款金额: " + money);
-    if (this.money < money) {
+    if (this.money.compareTo(new BigDecimal(money)) == -1) {
       System.out.println(name + "\t账户余额不足");
     } else {
-      this.money -= money;
+      // 注意BigDecimal做运算返回值需要接一下(不接的话没效果)
+      this.money = this.money.subtract(new BigDecimal(money));
       System.out.println(name + "\t取款后的余额" + this.money);
     }
     this.notify(); //唤醒这个对象所开的线程(也就是上面wait()的线程"微信")
@@ -40,9 +43,9 @@ public class Account {
 
   /**
    * @description: 线程通信
+   * <p>判断线程是否是"微信",是的话让他wait(),让正在排队的线程执行
    * @param {String} name
    * @return {*}
-   * <p>判断线程是否是"微信",是的话让他wait(),让正在排队的线程执行
    */
   private void threadConnect(String name) {
     if (name.equals("微信")) {

@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-09-16 16:34:46
  * @LastEditors: Weidows
- * @LastEditTime: 2020-11-22 15:59:58
+ * @LastEditTime: 2020-12-10 16:00:49
  * @FilePath: \Weidows\C++\Test\Test.c
  */
 //!库
@@ -14,6 +14,6 @@
 
 int main()
 {
-  printf("test");
+  printf("Test.");
   return 0;
 }

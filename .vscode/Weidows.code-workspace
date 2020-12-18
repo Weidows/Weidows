@@ -24,7 +24,8 @@
       "utility": "c",
       "string": "c",
       "stdc++.h": "c",
-      "ctype.h": "c"
+      "ctype.h": "c",
+      "bitset": "c"
     },
     "liveServer.settings.multiRootWorkspaceName": "Weidows"
   }

@@ -1,3 +1,4 @@
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\newcastle\HandlerHelp.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\my_interface\field\Location.java
 d:\Game\Demo\Weidows\Java\src\main\java\test\homework\done\shape\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\typesystem\dome\DataBase.java
@@ -7,6 +8,7 @@ d:\Game\Demo\Weidows\Java\src\main\java\design\mvc_pattern\ke_cheng_biao\KCB.jav
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\june\array\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\my_interface\animal\Rabbit.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\jvm_model\TestTransfer.java
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\newcastle\Room.java
 d:\Game\Demo\Weidows\Java\src\main\java\design\singleton\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\may\while_cycle_and_example\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\jvm_model\TestTransfer_1.java
@@ -24,6 +26,7 @@ d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\generic\Wild_card_charact
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\object_container\Notebook.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\may\ioput_calculating\test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\inheritance_and_polymorphism\dome\CD.java
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\newcastle\Game.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\may\float_num_compare\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\ObjectStream.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\typesystem\dome\Item.java
@@ -32,13 +35,14 @@ d:\Game\Demo\Weidows\Java\src\main\java\test\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\august\text_io_stream\TextStream.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\control_inversion\animal\Fox.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\proxy\Test.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\newcastle\HandlerGo.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\about_final\Final.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\thread\bank\Account.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\august\stream\FileIoStream.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\thread\TestRunnable.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\generic\Generic_method.java
+d:\Game\Demo\Weidows\Java\src\main\java\arithmetic\quick_sort\QuickSort.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\foreach\foreach.java
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\castle\Room.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\august\stream_application\ObjectStream.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\exception\NewArrayIndex.java
 d:\Game\Demo\Weidows\Java\src\main\java\demos\snake_game\snake\Food.java
@@ -54,14 +58,13 @@ d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\BufferStream.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\control_inversion\animal\Rabbit.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\jvm_model\Data.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\my_interface\field\Field.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\newcastle\Handler.java
 d:\Game\Demo\Weidows\Java\src\main\java\test\homework\done\shape\Circle.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\File_Io.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\newcastle\Room.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\control_inversion\fox_and_rabbit\FoxAndRabbit.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\typesystem\dome\DVD.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\thread\TestExtends.java
 d:\Game\Demo\Weidows\Java\src\main\java\design\template_pattern\Test.java
+d:\Game\Demo\Weidows\Java\src\main\java\test\homework\ing\random\RandomDemo.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\my_interface\animal\Animal.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\exception\LatestArrayIndex.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\jvm_model\Instanceof.java
@@ -82,8 +85,6 @@ d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\reflection\person\Move.j
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\my_interface\cell\Cell.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\generic\Generic_interface.java
 d:\Game\Demo\Weidows\Java\src\main\java\design\template_pattern\Template.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\castle\Game.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\castle\Room.java
 d:\Game\Demo\Weidows\Java\src\main\java\design\factory_method\BWMFactory.java
 d:\Game\Demo\Weidows\Java\src\main\java\design\factory_method\BWM.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\inheritance_and_polymorphism\dome\DVD.java
@@ -91,6 +92,7 @@ d:\Game\Demo\Weidows\Java\src\main\java\demos\snake_game\snake\SnakeGrid.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\reflection\person\Student.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\generic\Generic_class.java
 d:\Game\Demo\Weidows\Java\src\main\java\demos\snake_game\snake\Button.java
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\newcastle\HandlerGo.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\may\calculating_max_common_divisor\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\reflection\person\Study.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\TransformStream.java
@@ -105,6 +107,7 @@ d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\control_inversion\animal\Ani
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\IOStreams.java
 d:\Game\Demo\Weidows\Java\src\main\java\demos\guess_num\GuessNum.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\june\string_package\Test.java
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\newcastle\Handler.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\may\type\MultiClass.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\variable_parameter\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\proxy\ProxyDemo.java
@@ -114,14 +117,13 @@ d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\control_inversion\field\View
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\june\object_interaction\clock\Clock.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\hashmap\Coin.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\StandardIO.java
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\newcastle\HandlerBye.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\proxy\TestInterface.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\exception\ArrayIndex.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\newcastle\HandlerHelp.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\proxy\Main.java
 d:\Game\Demo\Weidows\Java\src\main\java\design\singleton\Single_1.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\TransformCharset.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\object_casting\Person.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\newcastle\HandlerBye.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\july\myabstract\Shape.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\june\type_variable\newclock\Clock.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\may\object_generator\Puppy.java
@@ -131,9 +133,10 @@ d:\Game\Demo\Weidows\Java\src\main\java\twenty\october\stream\RandomAccess.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\thread\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\test\homework\done\shape\Shape.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\jvm_model\Person.java
-d:\Game\Demo\Weidows\Java\src\main\java\design\design_principle\newcastle\Game.java
 d:\Game\Demo\Weidows\Java\src\main\java\design\mvc_pattern\ke_cheng_biao\KCBData.java
 d:\Game\Demo\Weidows\Java\src\main\java\test\homework\done\student\Test.java
+d:\Game\Demo\Weidows\Java\src\main\java\test\homework\ing\string_transfer\Test.java
+d:\Game\Demo\Weidows\Java\src\main\java\design\design_pattern\castle\Game.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\november\thread\producer_and_customer\Test.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\september\variable_parameter\Person.java
 d:\Game\Demo\Weidows\Java\src\main\java\twenty\june\object_interaction\display\Display.java
