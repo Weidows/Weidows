@@ -1,0 +1,45 @@
+<!--
+ * @?: *********************************************************************
+ * @Author: Weidows
+ * @Date: 2020-12-20 09:17:58
+ * @LastEditors: Weidows
+ * @LastEditTime: 2020-12-20 09:28:22
+ * @FilePath: \Weidows\Web\定位\3.固定定位\index.html
+ * @Description:
+ * @!: *********************************************************************
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+      div:nth-of-type(1) {
+        width: 100px;
+        height: 100px;
+        background: tomato;
+        /* 绝对定位 */
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+      div:nth-of-type(2) {
+        width: 50px;
+        height: 50px;
+        background: springgreen;
+        /* 固定定位 */
+        position: fixed;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>div1</div>
+    <div>div2</div>
+  </body>
+</html>

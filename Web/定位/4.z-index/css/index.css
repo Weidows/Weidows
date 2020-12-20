@@ -1,0 +1,38 @@
+#content {
+  width: 720px;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  font-size: 30px;
+  border: 1px solid red;
+}
+
+ul,
+li {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+/* 这个的目的是让下面的子元素相对这个父级元素定位 */
+#content ul {
+  position: relative;
+}
+
+.tip-text,
+.tip-bg {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 40px;
+}
+
+.tip-text {
+  color: aqua;
+  z-index: 5;
+}
+
+.tip-bg {
+  background: #000;
+  opacity: 0.5;
+}

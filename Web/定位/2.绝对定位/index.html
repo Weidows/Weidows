@@ -2,8 +2,8 @@
  * @Author: Weidows
  * @Date: 2020-12-06 00:38:05
  * @LastEditors: Weidows
- * @LastEditTime: 2020-12-18 22:51:40
- * @FilePath: \Weidows\Web\定位\1.相对定位\index.html
+ * @LastEditTime: 2020-12-20 00:41:11
+ * @FilePath: \Weidows\Web\定位\2.绝对定位\index.html
  * @Description:
 -->
 <!DOCTYPE html>
@@ -22,12 +22,14 @@
       }
       #father {
         border: 1px solid #666;
+        /* 这里父级元素虽然用了相对定位了,但是并没动,子级元素用来作绝对定位. */
+        position: relative;
       }
       #first {
         border: 1px dashed rgb(172, 96, 96);
-        position: relative; /* 相对定位 */
-        top: -20px; /* 向上偏移20px */
-        left: 20px; /* 向左偏移20px */
+        /* 相对于父级元素左端定位 */
+        position: absolute;
+        left: 50px;
       }
       #second {
         border: 1px dashed rgb(87, 23, 23);

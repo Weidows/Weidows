@@ -2,9 +2,10 @@
  * @Author: Weidows
  * @Date: 2020-09-12 13:10:29
  * @LastEditors: Weidows
- * @LastEditTime: 2020-12-14 20:45:58
+ * @LastEditTime: 2020-12-18 22:59:55
  * @FilePath: \Weidows\Java\src\main\java\twenty\september\jvm_model\Instanceof.java
  */
+
 package twenty.september.jvm_model;
 
 public class Instanceof {
@@ -14,18 +15,17 @@ public class Instanceof {
      */
     Student s = new Student();
     Person p = new Person();
+
     //正常判断
-    System.out.println(s instanceof Student);
-    System.out.println(p instanceof Person);
+    System.out.println(s instanceof Student); //true
+    System.out.println(p instanceof Person); //true
 
     //s由Student实例化,Student是Person的子类,没问题.
-    System.out.println(s instanceof Person);
+    System.out.println(s instanceof Person); //true
     //Person是Student的父类,不对劲.
-    System.out.println(p instanceof Student);
+    System.out.println(p instanceof Student); //false
 
-    String s1 = "abc";
-    String s2 = "abc";
-    String s3 = new String("abc");
+    String s1 = "abc", s2 = "abc", s3 = new String("abc");
     System.out.println("s1的数据与s2是否相等:" + s1.equals(s2)); //true
     System.out.println("s1与s2是否是同一个对象:" + (s1 == s2)); //true
     System.out.println("s1与s3是否是同一个对象:" + (s1 == s3)); //false
@@ -41,11 +41,9 @@ public class Instanceof {
      * 创造对象时每new一次会在堆内存创建新对象数据
      * 而像是Person pr = pp这种是栈数据的复制,所指对象相同
      */
-    Person pp = new Person();
-    Person pe = new Person();
+    Person pp = new Person(), pe = new Person();
     Person pr = pp;
     System.out.println("pp是否与pe是否是同一个对象:" + pp.equals(pe)); // false
     System.out.println("pp是否与pr是否是同一个对象:" + pp.equals(pr)); // true
-
   }
 }

@@ -1,0 +1,58 @@
+<!--
+ * @?: *********************************************************************
+ * @Author: Weidows
+ * @Date: 2020-12-18 23:59:50
+ * @LastEditors: Weidows
+ * @LastEditTime: 2020-12-20 00:10:24
+ * @FilePath: \Weidows\Web\定位\1.相对定位\example.html
+ * @Description:
+ * @!: *********************************************************************
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        border: 1px solid currentColor;
+      }
+      a {
+        width: 100px;
+        height: 100px;
+        text-decoration: none;
+        background: violet;
+        line-height: 100px;
+        text-align: center;
+        color: white;
+        display: block;
+      }
+      a:hover {
+        background: blue;
+      }
+      .a2,.a4{
+        position: relative;
+        top: -100px;
+        left: 200px;
+      }
+      .a5{
+        position: relative;
+        top: -300px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <a href="#" class="a1">链接1</a>
+      <a href="#" class="a2">链接2</a>
+      <a href="#" class="a3">链接3</a>
+      <a href="#" class="a4">链接4</a>
+      <a href="#" class="a5">链接5</a>
+    </div>
+  </body>
+</html>
