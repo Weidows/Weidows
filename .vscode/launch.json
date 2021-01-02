@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch TransformCharset",
+      "request": "launch",
+      "mainClass": "twenty.october.stream.TransformCharset",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - Test",
       "request": "launch",
       "mainClass": "test.Test",

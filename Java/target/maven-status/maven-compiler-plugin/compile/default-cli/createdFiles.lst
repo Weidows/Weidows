@@ -41,6 +41,7 @@ twenty\september\object_casting\Student.class
 twenty\july\exception\BigException.class
 design\factory_method\BWM.class
 twenty\september\jvm_model\TestTransfer.class
+arithmetic\quick_sort\QuickSort.class
 twenty\july\exception\NewClass.class
 twenty\july\hashmap\Coin.class
 twenty\july\my_interface\animal\Animal.class
@@ -59,6 +60,7 @@ twenty\october\inner_class\Test.class
 design\mvc_pattern\data_depart_behave\cellmachine\CellMachine.class
 test\homework\done\shape\Square.class
 twenty\july\object_container\Notebook.class
+test\homework\ing\random\RandomDemo.class
 twenty\may\object_generator\Puppy.class
 twenty\july\control_inversion\field\Field.class
 twenty\july\typesystem\dome\DataBase.class
@@ -66,7 +68,9 @@ twenty\september\new_object\TestPerson.class
 test\homework\done\student\Undergraduate.class
 twenty\june\function_type_object\VendingMachine.class
 twenty\june\string_package\Test.class
+design\design_pattern\newcastle\HandlerBye.class
 test\homework\done\shape\Test.class
+design\design_pattern\newcastle\Handler.class
 twenty\november\thread\bank\User.class
 twenty\october\generic\Generic_method.class
 demos\snake_game\snake\SnakeGrid$SnakeThread.class
@@ -95,6 +99,7 @@ design\mvc_pattern\data_depart_behave\field\View.class
 twenty\october\inner_class\B.class
 design\mvc_pattern\data_depart_behave\field\Field.class
 twenty\july\exception\LatestArrayIndex.class
+design\design_pattern\castle\Game.class
 twenty\november\reflection\person\Student.class
 twenty\october\inner_class\C.class
 twenty\july\my_interface\field\View.class
@@ -114,6 +119,8 @@ demos\guess_num\GuessNum.class
 test\homework\done\shape\Circle.class
 twenty\july\control_inversion\animal\Fox.class
 test\homework\done\student\Test.class
+design\design_pattern\newcastle\HandlerGo.class
+design\design_pattern\castle\Room.class
 twenty\may\while_cycle_and_example\Test.class
 twenty\july\exception\A.class
 demos\snake_game\snake\SnakeGrid$1.class
@@ -126,6 +133,7 @@ twenty\november\thread\bank\Account.class
 twenty\july\exception\CloseException.class
 design\singleton\Single_1.class
 twenty\september\jvm_model\Data.class
+design\design_pattern\newcastle\HandlerHelp.class
 design\mvc_pattern\ke_cheng_biao\KCB.class
 twenty\june\function_type_object\Test.class
 twenty\july\my_interface\animal\Rabbit.class
@@ -154,6 +162,7 @@ twenty\november\reflection\person\Move.class
 design\factory_method\Test.class
 twenty\july\foreach\foreach.class
 twenty\may\binary_tree_switch\Test.class
+design\design_pattern\newcastle\Room.class
 twenty\may\type\B.class
 twenty\november\reflection\Reflection.class
 twenty\october\inner_class\A$InnerC.class
@@ -175,9 +184,11 @@ design\factory_method\BWM3.class
 twenty\october\stream\ByteStream.class
 twenty\july\myabstract\Shape.class
 twenty\may\type\C.class
+test\homework\ing\string_transfer\Test.class
 test\Test.class
 twenty\september\jvm_model\Instanceof.class
 twenty\august\stream_application\Student.class
+design\design_pattern\newcastle\Game.class
 twenty\july\my_interface\animal\Fox.class
 twenty\july\typesystem\dome\VideoGame.class
 twenty\october\generic\B.class
