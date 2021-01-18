@@ -2,11 +2,11 @@
  * @Author: Weidows
  * @Date: 2020-11-04 18:47:31
  * @LastEditors: Weidows
- * @LastEditTime: 2020-11-04 18:56:30
- * @FilePath: \Weidows\Java\src\main\java\test\homework\ing\shape\Test.java
+ * @LastEditTime: 2021-01-17 17:13:08
+ * @FilePath: \Weidows\Java\src\main\java\homework\done\shape\Test.java
  * @Description:测试类
  */
-package test.homework.done.shape;
+package homework.done.shape;
 
 import java.util.Scanner;
 

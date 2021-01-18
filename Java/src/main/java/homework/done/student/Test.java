@@ -2,10 +2,10 @@
  * @Author: Weidows
  * @Date: 2020-10-21 18:49:45
  * @LastEditors: Weidows
- * @LastEditTime: 2020-10-21 19:26:56
- * @FilePath: \Weidows\Java\src\main\java\test\homework\done\student\Test.java
+ * @LastEditTime: 2021-01-17 17:13:27
+ * @FilePath: \Weidows\Java\src\main\java\homework\done\student\Test.java
  */
-package test.homework.done.student;
+package homework.done.student;
 
 public class Test {
   public static void main(String[] args) {

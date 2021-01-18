@@ -2,11 +2,11 @@
  * @Author: Weidows
  * @Date: 2020-12-02 18:44:00
  * @LastEditors: Weidows
- * @LastEditTime: 2020-12-02 19:02:45
- * @FilePath: \Weidows\Java\src\main\java\test\homework\ing\random\RandomDemo.java
+ * @LastEditTime: 2021-01-17 17:11:47
+ * @FilePath: \Weidows\Java\src\main\java\homework\done\random\RandomDemo.java
  * @Description:
  */
-package test.homework.ing.random;
+package homework.done.random;
 
 import java.util.Random;
 

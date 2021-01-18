@@ -2,11 +2,11 @@
  * @Author: Weidows
  * @Date: 2020-11-04 18:46:27
  * @LastEditors: Weidows
- * @LastEditTime: 2020-11-04 18:51:16
- * @FilePath: \Weidows\Java\src\main\java\test\homework\ing\shape\Square.java
+ * @LastEditTime: 2021-01-17 17:13:45
+ * @FilePath: \Weidows\Java\src\main\java\homework\done\shape\Square.java
  * @Description:
  */
-package test.homework.done.shape;
+package homework.done.shape;
 
 public class Square implements Shape {
   @Override

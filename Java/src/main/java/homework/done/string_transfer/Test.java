@@ -2,11 +2,11 @@
  * @Author: Weidows
  * @Date: 2020-11-18 18:45:07
  * @LastEditors: Weidows
- * @LastEditTime: 2020-12-02 18:43:13
- * @FilePath: \Weidows\Java\src\main\java\test\homework\ing\string_transfer\Test.java
+ * @LastEditTime: 2021-01-17 17:13:16
+ * @FilePath: \Weidows\Java\src\main\java\homework\done\string_transfer\Test.java
  * @Description:
  */
-package test.homework.ing.string_transfer;
+package homework.done.string_transfer;
 
 import java.util.Scanner;
 

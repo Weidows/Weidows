@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Test",
+      "request": "launch",
+      "mainClass": "homework.done.shape.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch Calculator",
       "request": "launch",
       "mainClass": "test.Calculator",

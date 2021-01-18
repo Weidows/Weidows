@@ -6,7 +6,7 @@
  * @FilePath: \Weidows\Java\src\main\java\test\homework\done\shape\Shape.java
  * @Description:图形interface
  */
-package test.homework.done.shape;
+package homework.done.shape;
 
 public interface Shape {
   double area(double para);

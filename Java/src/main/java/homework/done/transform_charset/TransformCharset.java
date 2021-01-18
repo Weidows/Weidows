@@ -3,8 +3,8 @@
  * @Author: Weidows
  * @Date: 2020-10-31 14:49:51
  * @LastEditors: Weidows
- * @LastEditTime: 2021-01-02 22:48:24
- * @FilePath: \Weidowsd:\Desktop\新建文件夹 (2)\TransformCharset.java
+ * @LastEditTime: 2021-01-17 17:11:33
+ * @FilePath: \Weidows\Java\src\main\java\homework\done\transform_charset\TransformCharset.java
  * @Description:转换文件编码格式
  * 原理:
  *    1.把文件读入并转换格式,输出到./bufferFile这个中间文件内
@@ -13,7 +13,7 @@
  * @!: *********************************************************************
  */
 
-// package twenty.october.stream;
+package homework.done.transform_charset;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
