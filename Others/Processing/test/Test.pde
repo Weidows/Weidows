@@ -10,7 +10,6 @@ void setep(){
 void draw(){
   //单流程控制
   calculator.control();
-
 }
 
 void mouseClicked( ){

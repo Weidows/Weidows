@@ -1,0 +1,45 @@
+<!--
+ * @?: *********************************************************************
+ * @Author: Weidows
+ * @Date: 2021-01-22 00:22:05
+ * @LastEditors: Weidows
+ * @LastEditTime: 2021-01-22 20:18:34
+ * @FilePath: \Weidows\Web\html\test\index.html
+ * @Description:
+ * @!: *********************************************************************
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="body">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+      var body = document.getElementById("body");
+      // var body = document.getElementsByTagName("body");
+
+      //创建一个新的节点
+      var newP = document.createElement("p"); //创建一个p标签
+      newP.id = "newP";
+      newP.innerText = "Hello World";
+      body.appendChild(newP); // 注意:使用ById得到的对象才有appendChild()
+
+      //创建一个标签节点
+      var myScript = document.createElement("script");
+      myScript.setAttribute("type", "text/javascript");
+
+      //可以创建一个style标签
+      var myStyle = document.createElement("style"); //创建了一个空style标签
+      myStyle.setAttribute("type", "text/css");
+      myStyle.innerHTML = "body{background-color:chartreuse;}"; //设置标签内容
+
+      // document.getElementByTagName("head")[0].appendChild(myStyle);
+    </script>
+  </body>
+</html>
