@@ -1,0 +1,46 @@
+<!--
+ * @?: *********************************************************************
+ * @Author: Weidows
+ * @Date: 2021-01-26 23:17:27
+ * @LastEditors: Weidows
+ * @LastEditTime: 2021-01-26 23:54:47
+ * @FilePath: \Weidows\Web\JavaScript\JQuery\2.HTML
+ * @Description:
+ * @!: *********************************************************************
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <style>
+      #divMove {
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        font-size: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--要求：获取鼠标当前的一个坐标-->
+    Mouse <span id="mouseMove"></span>
+    <div id="divMove">在这里移动鼠标试试</div>
+
+    <script>
+      /**
+       * ! 当网页元素加载完毕之后，响应事件
+       * 原型: $(document).ready(function(){});
+       * 简化后的: $(function (){});
+       */
+      $(function () {
+        $("#divMove").mousemove(function (e) {
+          $("#mouseMove").text("X: " + e.pageX + "Y: " + e.pageY);
+        });
+      });
+    </script>
+  </body>
+</html>

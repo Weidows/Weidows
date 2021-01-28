@@ -1,0 +1,40 @@
+<!--
+ * @?: *********************************************************************
+ * @Author: Weidows
+ * @Date: 2021-01-27 00:08:00
+ * @LastEditors: Weidows
+ * @LastEditTime: 2021-01-27 00:36:56
+ * @FilePath: \Weidows\Web\JavaScript\JQuery\3.html
+ * @Description:
+ * @!: *********************************************************************
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <ul id="test-ul">
+      <li class="js">JavaScript</li>
+      <li name="python">Python</li>
+    </ul>
+
+    <script>
+      // 操作DOM文本
+      $("#test-ul li[class=js]").text(); //获得值
+      $("#test-ul li[class=js]").text("设置值"); //设置值
+      $("#test-ul").html(); //获得值
+      $("#test-ul li[name=python").html("<strong>123</strong>"); //设置值
+
+      // 操作css
+      $("#test-ul li").css({ color: "red" });
+
+      // 控制元素显示,本质display:none
+      $("#test-ul li[name=python]").hide();
+      $("#test-ul li[name=python]").show();
+    </script>
+  </body>
+</html>

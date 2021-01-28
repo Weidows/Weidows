@@ -1,3 +1,9 @@
 Host 树莓派
-  HostName 192.168.43.119
+  HostName 192.168.2.116
   User pi
+  ForwardAgent yes
+
+Host Deepin
+  HostName 192.168.2.101
+  User weidows
+  ForwardAgent yes
