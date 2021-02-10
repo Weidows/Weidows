@@ -27,5 +27,6 @@
       "ctype.h": "c",
       "bitset": "c"
     },
+    "live2D.use": false,
   }
 }

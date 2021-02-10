@@ -19,12 +19,5 @@
 		"paths": [],
 		"group": "",
 		"enabled": true
-	},
-	{
-		"name": "wsl-Weidows",
-		"rootPath": "vscode-remote://\n                           wsl+Ubuntu-20.04\n                           /mnt/d/Game/Weidows/.vscode/Weidows.code-workspace",
-		"paths": [],
-		"group": "",
-		"enabled": true
 	}
 ]

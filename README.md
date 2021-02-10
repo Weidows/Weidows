@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-11-24 21:27:26
  * @LastEditors: Weidows
- * @LastEditTime: 2020-11-28 17:44:52
+ * @LastEditTime: 2021-02-03 14:19:20
  * @FilePath: \Weidows\README.md
  * @Description:
 -->
@@ -23,14 +23,14 @@
 
 - [C++](./C++/)内有一些简单算法和数据结构题和作业,都有注释,需要的话自取
 
-  - 1.[链表](./C++/Data_struct/LinkedList/) 分有 123,3 里面是带界面的最终版本
+  1. [链表](./C++/Data_struct/LinkedList/) 分有 123,3 里面是带界面的最终版本
 
-  - 2.[四种方法求最大公约数](./C++/Arithmetic/求最大公约数/methods_of_calculating_Max_common_divisor.c)
+  2. [四种方法求最大公约数](./C++/Arithmetic/求最大公约数/methods_of_calculating_Max_common_divisor.c)
 
-  - 3.[算法题-求雨滴积累数(本人用的递归)](./C++/Arithmetic/递归-求雨滴积累数/1.c)
-    ![题目](./C++/Arithmetic/递归-求雨滴积累数/2bb975f41bd09c67.png)
+  3. [算法题-求雨滴积累数(本人用的递归)](./C++/Arithmetic/递归-求雨滴积累数/1.c)
+     ![题目](./C++/Arithmetic/递归-求雨滴积累数/2bb975f41bd09c67.png)
 
-  - 4.[C++项目:winter](./C++/Project/winter/) B 站上一位大佬做的模拟电脑项目(已开源)
+  4. [C++项目:winter](./C++/Project/winter/) B 站上一位大佬做的模拟电脑项目(已开源)
 
 # Web
 
@@ -43,15 +43,15 @@
 - [Java](./java/src/main/java/)里面是根据浙大翁凯老师的课程做的源代码笔记等等...
   里面每个 demo 是一个独立 package 而非 project,如果需要导入 IDEA 需要改一下
 
-  - 1.[狐狸与兔子源码](./java/src/main/java/twenty/july/my_interface/)
-    ![图片](./java/src/main/java/twenty/july/my_interface/interface/Cells173751.png)
+  1. [狐狸与兔子源码](./java/src/main/java/twenty/july/my_interface/)
+     ![图片](./java/src/main/java/twenty/july/my_interface/interface/Cells173751.png)
 
-    - 这个是翁凯老师课程 6.3(狐狸与兔子)的源代码内容,中国大学 MOOC 上没有给出,老师的讲解也不全面,网上的资源都...甚至还有 10RMB 出售的(大醉),此处给出送给有缘人:)
-    - 另外,还有[细胞自动机源码](./java/src/main/java/twenty/july/data_depart_behave/) / [下一章 7.x 的狐狸与兔子源码](./java/src/main/java/twenty/july/control_inversion/)
-    - 小小诚意,不求 Star 了,一起共勉!
+  - 这个是翁凯老师课程 6.3(狐狸与兔子)的源代码内容,中国大学 MOOC 上没有给出,老师的讲解也不全面,网上的资源都...甚至还有 10RMB 出售的(大醉),此处给出送给有缘人:)
+  - 另外,还有[细胞自动机源码](./java/src/main/java/twenty/july/data_depart_behave/) / [下一章 7.x 的狐狸与兔子源码](./java/src/main/java/twenty/july/control_inversion/)
+  - 小小诚意,不求 Star 了,一起共勉!
 
-  - 2.[贪吃蛇小程序-README](./java/src/main/java/demos/snake_game/README.md)
-    别人做的小程序,在此学习一下 Java 基础
+  2. [贪吃蛇小程序-README](./java/src/main/java/demos/snake_game/README.md)
+     别人做的小程序,在此学习一下 Java 基础
 
 # Others
 
@@ -62,7 +62,7 @@
 # Python
 
 - [Python](./Python/)
-  - 1.目录里面有个 520 表白(Claim Love.py)的单文件源码,作者是别人(开源了),在此给路人行个方便...
+  1. 目录里面有个 520 表白(Claim Love.py)的单文件源码,作者是别人(开源了),在此给路人行个方便...
 
 # 暂无
 

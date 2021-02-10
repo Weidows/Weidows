@@ -2,8 +2,8 @@
  * @Author: Weidows
  * @Date: 2020-07-08 08:30:19
  * @LastEditors: Weidows
- * @LastEditTime: 2020-07-18 16:23:18
- * @FilePath: \Weidows\Java\src\main\java\twenty\july\design_principle\newcastle\Game.java
+ * @LastEditTime: 2021-02-06 16:36:04
+ * @FilePath: \Weidows\Java\src\main\java\design\design_pattern\newcastle\Game.java
  *
  *
  * 代码类与类之间耦合(关联性)越低越好,接口越少越好->封装

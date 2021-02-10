@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-11-03 10:59:14
  * @LastEditors: Weidows
- * @LastEditTime: 2020-12-13 21:19:31
+ * @LastEditTime: 2021-02-08 23:23:34
  * @FilePath: \Weidows\Java\src\main\java\twenty\november\thread\Test.java
  * @Description:main
  */
@@ -16,24 +16,24 @@ package twenty.november.thread;
  */
 public class Test {
   public static void main(String[] args) {
-    ///1. extends Thread
+    //* 1. extends Thread
     // new TestExtends().start();
 
-    ///2.1 implements Runnable(线程能跑起来call的是Thread.start()不是.run())
+    //* 2.1 implements Runnable(线程能跑起来call的是Thread.start()不是.run())
     // new Thread(new TestRunnable()).start();
-    ///2.2 构造时指定线程名称
+    //* 2.2 构造时指定线程名称
     // new Thread(new TestRunnable(), "TestRunnable_1").start();
-    ///2.3 指定线程名称
+    //* 2.3 指定线程名称
     // Thread t = new Thread(new TestRunnable());
     // t.setName("线程_1");
     // t.start();
 
-    ///3. 多个线程共享资源,线程间同步执行
+    //* 3. 多个线程共享资源,线程间同步执行
     // TestRunnable testRunnable = new TestRunnable();
     // new Thread(testRunnable, "TestRunnable_1").start();
     // new Thread(testRunnable, "TestRunnable_2").start();
 
-    ///4. Thread优先级(int: 1~10, default:5)
+    //* 4. Thread优先级(int: 1~10, default:5)
     // Thread t = new Thread(new TestRunnable(), "线程_2");
     // t.setPriority(10);
     // System.out.println("Thread: " + t.getPriority());
@@ -54,10 +54,10 @@ public class Test {
     //   e.printStackTrace();
     // }
 
-    ///6. .sleep(int)  Thread睡眠int毫秒
+    //* 6. .sleep(int)  Thread睡眠int毫秒
 
-    ///7. .stop()  直接结束Thread
+    //* 7. .stop()  直接结束Thread
 
-    ///8. .isAlive() :boolean判断Thread是否存活
+    //* 8. .isAlive() :boolean判断Thread是否存活
   }
 }

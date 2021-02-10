@@ -5,6 +5,20 @@
       "type": "java",
       "name": "Launch Test",
       "request": "launch",
+      "mainClass": "twenty.november.thread.bank.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Test",
+      "request": "launch",
+      "mainClass": "twenty.november.thread.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Test",
+      "request": "launch",
       "mainClass": "test.Test",
       "projectName": "Java"
     },

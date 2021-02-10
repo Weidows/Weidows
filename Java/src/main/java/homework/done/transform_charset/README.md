@@ -3,8 +3,8 @@
  * @Author: Weidows
  * @Date: 2021-01-02 13:41:43
  * @LastEditors: Weidows
- * @LastEditTime: 2021-01-02 23:09:57
- * @FilePath: \Weidowsd:\Desktop\新建文件夹 (2)\README.md
+ * @LastEditTime: 2021-02-03 14:18:05
+ * @FilePath: \Weidows\Java\src\main\java\homework\done\transform_charset\README.md
  * @Description:
  * @!: *********************************************************************
 -->
@@ -31,8 +31,9 @@
 
 # 原理
 
-- 1.把文件读入并转换格式,输出到./bufferFile 这个中间文件内
-- 2.把原文件删除并把中间文件回传
+1. 把文件读入并转换格式,输出到./bufferFile 这个中间文件内
+2. 把原文件删除并把中间文件回传
+
 - Java 对象层面的操作使单一文件改写困难,而且多对象同时操作同一文件会覆写.
 
 ---
