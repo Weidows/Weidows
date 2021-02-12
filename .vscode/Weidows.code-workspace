@@ -28,5 +28,7 @@
       "bitset": "c"
     },
     "live2D.use": false,
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.dependency.syncWithFolderExplorer": true,
   }
 }

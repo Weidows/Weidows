@@ -2,14 +2,14 @@
  * @Author: Weidows
  * @Date: 2020-11-03 23:38:42
  * @LastEditors: Weidows
- * @LastEditTime: 2020-12-14 21:54:24
+ * @LastEditTime: 2021-02-10 18:41:03
  * @FilePath: \Weidows\Java\src\main\java\twenty\november\thread\producer_and_customer\Test.java
  * @Description:生产者与消费者模型
  */
 package twenty.november.thread.producer_and_customer;
 
 class Clerk {
-  public static int productNumber; // 售货员手中的商品数
+  public int productNumber; // 售货员手中的商品数
 }
 
 public class Test {

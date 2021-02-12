@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-11-03 19:20:18
  * @LastEditors: Weidows
- * @LastEditTime: 2021-02-09 00:28:59
+ * @LastEditTime: 2021-02-10 18:27:22
  * @FilePath: \Weidows\Java\src\main\java\twenty\november\thread\bank\Account.java
  * @Description:
  */
@@ -37,8 +37,11 @@ public class Account {
       this.money = this.money.subtract(demandMoney);
       System.out.println(name + "\t取款后的余额" + this.money);
     }
-    this.notify(); //唤醒这个对象所开的线程(也就是上面wait()的线程"微信")
-    // 如果有多个线程等待唤醒,则唤醒其中随机一个线程.
+    /**
+     * 唤醒这个对象所开的线程(也就是上面wait()的线程"微信")
+     * 如果有多个线程等待唤醒,则唤醒其中随机一个线程.
+     */
+    this.notify();
   }
 
   private void test() {

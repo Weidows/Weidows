@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch StaticProxy",
+      "request": "launch",
+      "mainClass": "twenty.november.proxy.static_proxy.StaticProxy",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Downloader2",
+      "request": "launch",
+      "mainClass": "twenty.november.thread.downloader.Downloader2",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Downloader",
+      "request": "launch",
+      "mainClass": "twenty.november.thread.downloader.Downloader",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Test",
+      "request": "launch",
+      "mainClass": "twenty.november.thread.producer_and_customer.Test",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch Test",
       "request": "launch",
       "mainClass": "twenty.november.thread.bank.Test",
