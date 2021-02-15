@@ -2,8 +2,8 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2020-12-04 23:01:23
- * @FilePath: \Weidows\Others\test.md
+ * @LastEditTime: 2021-02-16 01:23:31
+ * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
 
@@ -26,9 +26,9 @@
 
   ⭐️ Weidow's Mind ⭐️
 
-  <a href="https://weidows.github.io" target="_blank" style="color:deeppink;">_🚀My Website_</a>
+  <a href="https://weidows.github.io" target="_blank" style="color:deeppink;">_🚀 My Blog_</a>
 
-  <a href="https://weidows.github.io/About-me" target="_blank" style="color:chartreuse;">_About Me💩_</a>
+  <a href="https://weidows.github.io/tags/about" target="_blank" style="color:chartreuse;">_About Me 💩_</a>
 
   <!-- 访问计数 -->
   <img src="https://profile-counter.glitch.me/{Weidows}/count.svg" />
