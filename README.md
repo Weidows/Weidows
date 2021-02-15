@@ -76,4 +76,4 @@
 
 </center>
 
-![HonkaiPrincess](https://cdn.jsdelivr.net/gh/Weidows/Images/Game/Honkai3/[Nitrouzs]82409651.jpeg)
+![HonkaiPrincess](https://cdn.jsdelivr.net/gh/Weidows/Images@master/Game/Honkai3/[Nitrouzs]82409651.jpeg)
