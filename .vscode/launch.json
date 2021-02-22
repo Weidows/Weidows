@@ -3,6 +3,76 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Bank",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.sync.Bank",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Ticket",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.sync.Ticket",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestDaemon",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.TestDaemon",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestState",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.TestState",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestJoin",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.TestJoin",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestYield",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.TestYield",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestSleep",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.TestSleep",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestStop",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.TestStop",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch ForEach",
+      "request": "launch",
+      "mainClass": "twenty_one.lambda.ForEach",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Lambda",
+      "request": "launch",
+      "mainClass": "twenty_one.lambda.Lambda",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch StaticProxy",
       "request": "launch",
       "mainClass": "twenty.november.proxy.static_proxy.StaticProxy",

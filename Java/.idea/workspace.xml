@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32f85894-88ef-4498-8bc1-bd5147d092ea" name="默认的" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/lambda/ForEach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/lambda/Lambda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/lambda/Lambda2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestJoin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestSleep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestStop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestYield.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty/november/proxy/static_proxy/StaticProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty/november/proxy/static_proxy/StaticProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/JavaScript/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/JavaScript/test/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/html/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/html/test/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Game\Scoop\persist\maven\mvn-repository" />
+        <option name="mavenHome" value="D:\Game\Scoop\apps\maven\current" />
+        <option name="usePluginRegistry" value="true" />
+        <option name="userSettingsFile" value="D:\Game\Demo\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="11" />
+  </component>
+  <component name="ProjectId" id="1oHtN7zfJz3AspiKoASQX6VdBGK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="库" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Test" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="32f85894-88ef-4498-8bc1-bd5147d092ea" name="默认的" comment="" />
+      <created>1612955302418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612955302418</updated>
+      <workItem from="1612955304614" duration="2421000" />
+      <workItem from="1612975359123" duration="3201000" />
+      <workItem from="1613115860539" duration="651000" />
+      <workItem from="1613379378989" duration="706000" />
+      <workItem from="1613410266297" duration="513000" />
+      <workItem from="1613535732387" duration="796000" />
+      <workItem from="1613655058935" duration="2757000" />
+      <workItem from="1613721330218" duration="1578000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

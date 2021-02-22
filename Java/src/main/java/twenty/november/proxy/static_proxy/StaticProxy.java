@@ -3,7 +3,7 @@
  * @Author: Weidows
  * @Date: 2021-02-11 18:01:50
  * @LastEditors: Weidows
- * @LastEditTime: 2021-02-11 18:22:12
+ * @LastEditTime: 2021-02-19 17:23:43
  * @FilePath: \Weidows\Java\src\main\java\twenty\november\proxy\static_proxy\StaticProxy.java
  * @Description:
  * @!: *********************************************************************
@@ -11,6 +11,7 @@
 
 package twenty.november.proxy.static_proxy;
 
+// ! 测试类
 public class StaticProxy {
   public static void main(String[] args) {
     MarryProxy proxy = new MarryProxy(new Me("Weidows"));
@@ -20,6 +21,7 @@ public class StaticProxy {
 
 /**
  * ! 代理和被代理类都实现Marry接口
+ * 抽象性事件
  */
 interface Marry {
   void Marry();

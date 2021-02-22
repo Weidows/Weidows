@@ -1,6 +1,6 @@
 # 默认忽略的文件
 /shelf/
-/workspace.xml
+#/workspace.xml
 # 数据源本地存储已忽略文件
 /../../../../../:\Game\Weidows\Java\.idea/dataSources/
 /dataSources.local.xml
