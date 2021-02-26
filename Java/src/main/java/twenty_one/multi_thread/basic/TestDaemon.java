@@ -3,12 +3,12 @@
  * @Author: Weidows
  * @Date: 2021-02-21 23:34:01
  * @LastEditors: Weidows
- * @LastEditTime: 2021-02-21 23:43:12
- * @FilePath: \Weidows\Java\src\main\java\twenty_one\multi_thread\TestDaemon.java
+ * @LastEditTime: 2021-02-24 17:20:15
+ * @FilePath: \Weidows\Java\src\main\java\twenty_one\multi_thread\basic\TestDaemon.java
  * @Description:
  * @!: *********************************************************************
  */
-package twenty_one.multi_thread;
+package twenty_one.multi_thread.basic;
 
 //上帝守护你
 public class TestDaemon {

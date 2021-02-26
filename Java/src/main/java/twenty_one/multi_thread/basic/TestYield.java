@@ -8,7 +8,7 @@
  * @Description:
  * @!: *********************************************************************
  */
-package twenty_one.multi_thread;
+package twenty_one.multi_thread.basic;
 
 public class TestYield {
   public static void main(String[] args) {

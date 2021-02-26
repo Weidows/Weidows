@@ -8,7 +8,7 @@
  * @Description:
  * @!: *********************************************************************
  */
-package twenty_one.multi_thread;
+package twenty_one.multi_thread.basic;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -3,7 +3,7 @@
  * @Author: Weidows
  * @Date: 2021-02-22 00:32:08
  * @LastEditors: Weidows
- * @LastEditTime: 2021-02-22 01:18:31
+ * @LastEditTime: 2021-02-22 20:08:38
  * @FilePath: \Weidows\Java\src\main\java\twenty_one\multi_thread\sync\Bank.java
  * @Description:
  * @!: *********************************************************************
@@ -52,21 +52,22 @@ class DrawingChannel extends Thread {
   }
 
   @Override
-  public synchronized void run() {
-    //判断有没有钱
-    if (account.balance.compareTo(drawingMoney) == -1) {
-      System.out.println(account.name + "钱不够" + drawingMoney + "," + this.getName() + "无法取走");
-      return;
-    }
+  public void run() {
+    synchronized (account) {
+      //判断有没有钱
+      if (account.balance.compareTo(drawingMoney) < 0) {
+        System.out.println(account.name + "钱不够" + drawingMoney + "," + this.getName() + "无法取走");
+        return;
+      }
 
-    // 放大错误
-    try {
-      this.sleep(1000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
+      // 放大错误
+      try {
+        sleep(1000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+      draw();
     }
-
-    draw();
   }
 
   private void draw() {

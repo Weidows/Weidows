@@ -8,7 +8,7 @@
  * @Description:
  * @!: *********************************************************************
  */
-package twenty_one.multi_thread;
+package twenty_one.multi_thread.basic;
 
 public class TestStop implements Runnable {
   //1.设置一个标志位

@@ -8,7 +8,7 @@
  * @Description:
  * @!: *********************************************************************
  */
-package twenty_one.multi_thread;
+package twenty_one.multi_thread.basic;
 
 public class TestState {
   public static void main(String[] args) throws InterruptedException {

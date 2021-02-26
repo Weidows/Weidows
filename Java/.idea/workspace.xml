@@ -5,25 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f85894-88ef-4498-8bc1-bd5147d092ea" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/lambda/ForEach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/lambda/Lambda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/lambda/Lambda2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestJoin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestSleep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestStop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestYield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/annotation/Anno1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/annotation/Anno2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/annotation/Anno3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/prime/TestLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/prime/TestThreadPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/sync/DeadLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/sync/JUC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/sync/TestList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/twenty/november/proxy/static_proxy/StaticProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty/november/proxy/static_proxy/StaticProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/JavaScript/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/JavaScript/test/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/html/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/html/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestDaemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/basic/TestDaemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/basic/TestJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestSleep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/basic/TestSleep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/basic/TestState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestStop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/basic/TestStop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/TestYield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/basic/TestYield.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/sync/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/multi_thread/sync/Bank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -69,12 +80,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.Test" />
+    <configuration name="TestDaemon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="twenty_one.multi_thread.basic.TestDaemon" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.*" />
+          <option name="PATTERN" value="twenty_one.multi_thread.basic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -82,9 +93,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JarApplication">
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.Test" />
+        <item itemvalue="应用程序.TestDaemon" />
       </list>
     </recent_temporary>
   </component>
@@ -104,6 +149,9 @@
       <workItem from="1613535732387" duration="796000" />
       <workItem from="1613655058935" duration="2757000" />
       <workItem from="1613721330218" duration="1578000" />
+      <workItem from="1613991149899" duration="7195000" />
+      <workItem from="1614187807107" duration="1727000" />
+      <workItem from="1614270626208" duration="2416000" />
     </task>
     <servers />
   </component>

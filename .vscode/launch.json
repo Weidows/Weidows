@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Demo1",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Demo1",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestThreadPool",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.prime.TestThreadPool",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestLock",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.prime.TestLock",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch DeadLock",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.sync.DeadLock",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch JUC",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.sync.JUC",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestList",
+      "request": "launch",
+      "mainClass": "twenty_one.multi_thread.sync.TestList",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch Bank",
       "request": "launch",
       "mainClass": "twenty_one.multi_thread.sync.Bank",
