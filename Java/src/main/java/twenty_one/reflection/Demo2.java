@@ -3,7 +3,7 @@
  * @Author: Weidows
  * @Date: 2021-02-26 15:28:38
  * @LastEditors: Weidows
- * @LastEditTime: 2021-02-26 15:28:55
+ * @LastEditTime: 2021-02-26 15:35:12
  * @FilePath: \Weidows\Java\src\main\java\twenty_one\reflection\Demo2.java
  * @Description:
  * @!: *********************************************************************
@@ -14,8 +14,8 @@ import java.lang.annotation.ElementType;
 
 public class Demo2 {
   public static void main(String[] args) {
-    Class c1 = Object.class; //类 .
-    Class c2 = Comparable.class; //按口
+    Class c1 = Object.class; //类
+    Class c2 = Runnable.class; //接口
     Class c3 = String[].class; //- -维数组
     Class c4 = int[][].class; //二维数组
     Class c5 = Override.class; //注解
@@ -32,10 +32,5 @@ public class Demo2 {
     System.out.println(c7);//class java.lang.Integer
     System.out.println(c8);//void
     System.out.println(c9);//class java.lang.Class
-    //只要元素类型与维度一样，就是同一个Class.
-    int[] a = new int[10];
-    int[] b = new int[100];
-    System.out.println(a.getClass().hashCode());//1163157884
-    System.out.println(b.getClass().hashCode());//1163157884
   }
 }

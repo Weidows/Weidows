@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Demo3",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Demo3",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Demo2",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Demo2",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch Demo1",
       "request": "launch",
       "mainClass": "twenty_one.reflection.Demo1",
