@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Annotation",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Annotation",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Generic",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Generic",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch PerformanceInfluence",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.PerformanceInfluence",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Demo6",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Demo6",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Demo5",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Demo5",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Demo4",
+      "request": "launch",
+      "mainClass": "twenty_one.reflection.Demo4",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch Demo3",
       "request": "launch",
       "mainClass": "twenty_one.reflection.Demo3",

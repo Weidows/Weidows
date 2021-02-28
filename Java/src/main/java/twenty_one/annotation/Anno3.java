@@ -15,7 +15,6 @@ import java.lang.annotation.*;
 public class Anno3 {
 
   public static void main(String[] args) {
-
   }
 
   //注解可以显示赋值，如果没有默认值 ，我们就必须给注解赋值
