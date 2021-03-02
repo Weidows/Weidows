@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Client",
+      "request": "launch",
+      "mainClass": "twenty_one.net.file_upload.Client",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Server",
+      "request": "launch",
+      "mainClass": "twenty_one.net.file_upload.Server",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Server",
+      "request": "launch",
+      "mainClass": "twenty_one.net.tcp_connect.Server",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Client",
+      "request": "launch",
+      "mainClass": "twenty_one.net.tcp_connect.Client",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Port",
+      "request": "launch",
+      "mainClass": "twenty_one.net.Port",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Ip",
+      "request": "launch",
+      "mainClass": "twenty_one.net.Ip",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch Annotation",
       "request": "launch",
       "mainClass": "twenty_one.reflection.Annotation",

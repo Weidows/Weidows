@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f85894-88ef-4498-8bc1-bd5147d092ea" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/reflection/Annotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/reflection/Demo4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/reflection/Demo5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/reflection/Demo6.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/reflection/Generic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/reflection/PerformanceInfluence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/basic/Ip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/basic/Port.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/file_upload/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/file_upload/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/file_upload/receive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/file_upload/upload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/tcp_connect/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/tcp_connect/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/.idea/Web.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/twenty_one/annotation/Anno3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twenty_one/annotation/Anno3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/JavaScript/JQuery/2.HTML" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/JavaScript/JQuery/2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/JavaScript/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/JavaScript/test/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/html/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/html/test/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +74,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Web" />
     <property name="project.structure.last.edited" value="构件" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -84,13 +94,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,7 +235,8 @@
       <workItem from="1614187807107" duration="1727000" />
       <workItem from="1614270626208" duration="3048000" />
       <workItem from="1614408714017" duration="1497000" />
-      <workItem from="1614414552526" duration="5440000" />
+      <workItem from="1614414552526" duration="7139000" />
+      <workItem from="1614567291058" duration="6627000" />
     </task>
     <servers />
   </component>
