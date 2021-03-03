@@ -3,6 +3,62 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch GetURL",
+      "request": "launch",
+      "mainClass": "twenty_one.net.GetURL",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Student",
+      "request": "launch",
+      "mainClass": "twenty_one.net.chat.Student",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Teacher",
+      "request": "launch",
+      "mainClass": "twenty_one.net.chat.Teacher",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Talk",
+      "request": "launch",
+      "mainClass": "twenty_one.net.chat.Talk",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Client2",
+      "request": "launch",
+      "mainClass": "twenty_one.net._udp_connect.Client2",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Server2",
+      "request": "launch",
+      "mainClass": "twenty_one.net._udp_connect.Server2",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Client",
+      "request": "launch",
+      "mainClass": "twenty_one.net._udp_connect.Client",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Server",
+      "request": "launch",
+      "mainClass": "twenty_one.net._udp_connect.Server",
+      "projectName": "Java"
+    },
+    {
+      "type": "java",
       "name": "Launch Client",
       "request": "launch",
       "mainClass": "twenty_one.net.file_upload.Client",
