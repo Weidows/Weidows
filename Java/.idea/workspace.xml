@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f85894-88ef-4498-8bc1-bd5147d092ea" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/GetURL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/_udp_connect/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/_udp_connect/Client2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/_udp_connect/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/_udp_connect/Server2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/chat/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/chat/TalkReceive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/chat/TalkSend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/twenty_one/net/chat/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/MariRose.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/ssh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/start.vbs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +52,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -70,7 +66,7 @@
     <property name="project.structure.last.edited" value="构件" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="TestDaemon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -82,19 +78,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -228,7 +211,12 @@
       <workItem from="1614270626208" duration="3048000" />
       <workItem from="1614408714017" duration="1497000" />
       <workItem from="1614414552526" duration="7139000" />
-      <workItem from="1614567291058" duration="8715000" />
+      <workItem from="1614567291058" duration="9313000" />
+      <workItem from="1614781182936" duration="608000" />
+      <workItem from="1614821819561" duration="4861000" />
+      <workItem from="1615113868682" duration="1347000" />
+      <workItem from="1615116114210" duration="1050000" />
+      <workItem from="1615165443053" duration="1228000" />
     </task>
     <servers />
   </component>

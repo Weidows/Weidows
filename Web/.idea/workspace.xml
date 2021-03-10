@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f87f06e-e1e7-4ba9-ba8d-abde4d96cc01" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/basic/Ip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/basic/Port.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/file_upload/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/file_upload/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/file_upload/receive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/file_upload/upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/tcp_connect/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java/src/main/java/twenty_one/net/tcp_connect/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Web.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Java/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/JQuery/2.HTML" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/JQuery/2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaScript/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaScript/test/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,31 +44,8 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Web/html/test/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment />
-      <server-settings />
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
@@ -238,6 +199,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614692225598</updated>
       <workItem from="1614692227742" duration="2762000" />
+      <workItem from="1614952416182" duration="599000" />
     </task>
     <servers />
   </component>
@@ -254,5 +216,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -31,5 +31,6 @@
     "java.dependency.packagePresentation": "hierarchical",
     "java.dependency.syncWithFolderExplorer": true,
     "compile-hero.disable-compile-files-on-did-save-code": true,
+    "sqltools.connections": [],
   }
 }
