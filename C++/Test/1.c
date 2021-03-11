@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-09-16 16:34:46
  * @LastEditors: Weidows
- * @LastEditTime: 2021-01-23 16:35:51
+ * @LastEditTime: 2021-03-11 17:09:16
  * @FilePath: \Weidows\C++\Test\1.c
  */
 //!库
@@ -14,7 +14,7 @@
 
 int main()
 {
-  printf("Test.刘伟");
+  printf("Test.刘伟\n");
   system("pause");
   return 0;
 }

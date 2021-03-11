@@ -4,17 +4,17 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "D:/Game/Dev-Cpp/MinGW64/include/*"
+                "D:/Game/Scoop/apps/llvm-mingw/current/include/*"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "D:/Game/Dev-Cpp/MinGW64/bin/gcc.exe",
+            "compilerPath": "D:/Game/Scoop/apps/llvm-mingw/current/bin/gcc",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64"
+            "intelliSenseMode": "windows-clang-x64"
         }
     ],
     "version": 4

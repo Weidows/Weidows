@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f85894-88ef-4498-8bc1-bd5147d092ea" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/../.vscode/MariRose.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.vscode/ssh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.vscode/start.vbs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +212,8 @@
       <workItem from="1615113868682" duration="1347000" />
       <workItem from="1615116114210" duration="1050000" />
       <workItem from="1615165443053" duration="1228000" />
+      <workItem from="1615363848869" duration="654000" />
+      <workItem from="1615433077175" duration="442000" />
     </task>
     <servers />
   </component>
