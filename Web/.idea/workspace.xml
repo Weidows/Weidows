@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f87f06e-e1e7-4ba9-ba8d-abde4d96cc01" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/Weidows.code-workspace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Others/思维导图/中心主题.xmind" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Java/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Others/流程图/My.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../Others/流程图/My.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +201,7 @@
       <updated>1614692225598</updated>
       <workItem from="1614692227742" duration="2762000" />
       <workItem from="1614952416182" duration="599000" />
+      <workItem from="1615566235843" duration="11000" />
     </task>
     <servers />
   </component>
