@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2021-10-10 16:25:23
+ * @LastEditTime: 2021-12-19 23:11:20
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
@@ -58,6 +58,9 @@
   </p>
 
   - Focusing on the projects of [Weidows-projects](https://github.com/Weidows-projects)
+
+  <img align="center" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/img/details.jpg" />
+
   </details>
 
 </div>
