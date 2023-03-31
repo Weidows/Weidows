@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2022-07-02 01:37:38
+ * @LastEditTime: 2023-03-31 18:20:52
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
@@ -37,9 +37,9 @@
 
   <details>
     <summary>
-      <img align="right" width="48px" src="https://www.helloimg.com/images/2022/02/27/GVmXTP.png" />
-      <img align="right" width="48px" src="https://www.helloimg.com/images/2022/02/27/GVmXTP.png" />
-      <img align="right" width="48px" src="https://www.helloimg.com/images/2022/02/27/GVmXTP.png" />
+      <img align="right" width="48px" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/tudoulei.png" />
+      <img align="right" width="48px" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/tudoulei.png" />
+      <img align="right" width="48px" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/tudoulei.png" />
       <b>🎉More about Weidows</b>
     </summary>
 
@@ -59,7 +59,7 @@
 
   - Focusing on the projects of [Weidows-projects](https://github.com/Weidows-projects)
 
-  <img align="center" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/img/details.jpg" />
+  <img align="center" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/README/details.jpg" />
 
   </details>
 
