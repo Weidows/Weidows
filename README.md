@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2023-03-31 18:20:52
+ * @LastEditTime: 2024-03-07 02:28:22
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
@@ -28,7 +28,7 @@
 
   <a href="https://weidows.github.io" target="_blank" style="color:deeppink;">_🚀 My Blog_</a>
 
-  <a href="https://weidows.github.io/tags/about" target="_blank" style="color:chartreuse;">_About Me 💩_</a>
+  <a href="https://weidows.github.io/tags/resume" target="_blank" style="color:chartreuse;">_About Me 💩_</a>
 
   <!-- 访问计数 -->
   <img src="https://profile-counter.glitch.me/{Weidows}/count.svg" />
@@ -44,20 +44,6 @@
     </summary>
 
   ---
-
-  <!-- 语言列表 -->
-  <p align="center">
-    <img
-      alt="Java"
-      src="https://img.shields.io/badge/-Java-007396?style=for-the-badge&logo=Java&logoColor=fff"
-    />
-    <img
-      alt="Python"
-      src="https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=Python&logoColor=fff"
-    />
-  </p>
-
-  - Focusing on the projects of [Weidows-projects](https://github.com/Weidows-projects)
 
   <img align="center" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/README/details.jpg" />
 
