@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2024-03-07 02:28:22
+ * @LastEditTime: 2024-07-07 02:48:11
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
@@ -31,7 +31,8 @@
   <a href="https://weidows.github.io/tags/resume" target="_blank" style="color:chartreuse;">_About Me 💩_</a>
 
   <!-- 访问计数 -->
-  <img src="https://profile-counter.glitch.me/{Weidows}/count.svg" />
+  <!-- <img src="https://profile-counter.glitch.me/{Weidows}/count.svg" /> -->
+  <img src="https://referer.counter.weidows.tech/@Weidows/github" />
 
   </h1>
 
