@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2024-07-07 02:48:11
+ * @LastEditTime: 2024-08-06 06:31:59
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
@@ -38,9 +38,9 @@
 
   <details>
     <summary>
-      <img align="right" width="48px" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/tudoulei.png" />
-      <img align="right" width="48px" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/tudoulei.png" />
-      <img align="right" width="48px" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/tudoulei.png" />
+      <img align="right" width="48px" src="https://pan.weidows.tech/d/local/img/tudoulei.png" />
+      <img align="right" width="48px" src="https://pan.weidows.tech/d/local/img/tudoulei.png" />
+      <img align="right" width="48px" src="https://pan.weidows.tech/d/local/img/tudoulei.png" />
       <b>🎉More about Weidows</b>
     </summary>
 
