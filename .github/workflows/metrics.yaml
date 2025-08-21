@@ -35,7 +35,7 @@ jobs:
         if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
-          filename: general.svg
+          filename: image/README/general.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header
           base_indepth: yes
@@ -44,11 +44,13 @@ jobs:
           # committer_gist: ${{ secrets.GIST }}
           plugin_isocalendar: yes
           plugin_languages: yes
-          plugin_languages_ignored: html, tex, less, makefile, qmake, lex, cmake, gnuplot, scala, ejs
+          plugin_languages_ignored: html, tex, less, makefile, qmake, lex, cmake, gnuplot, scala, ejs, c, js
           plugin_languages_details: lines, bytes-size, percentage
           plugin_languages_sections: most-used, recently-used
           plugin_languages_indepth: yes
-          plugin_languages_limit: 2
+          plugin_languages_limit: 8
+          plugin_languages_recent_load: 400
+          plugin_languages_recent_days: 30
           # https://github.com/lowlighter/metrics/blob/master/source/plugins/topics/README.md
           plugin_topics: yes
           plugin_topics_limit: 0
@@ -62,7 +64,7 @@ jobs:
         with:
           # filename: metrics.plugin.leetcode.svg
           # filename: metrics.plugin.wakatime.svg
-          filename: metrics.plugin.3rd.svg
+          filename: image/README/metrics.plugin.3rd.svg
           token: NOT_NEEDED
           base: ""
           plugin_leetcode: yes
