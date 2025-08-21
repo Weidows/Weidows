@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2025-08-21 23:34:09
+ * @LastEditTime: 2025-08-21 23:42:21
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
@@ -21,14 +21,14 @@
   <a href="https://www.anandmainali.com.np" target="_blank"><img alt="Website" src="https://img.shields.io/badge/Website-www.anandmainali.com.np-blue?style=flat&logo=google-chrome"></a>
   </p> -->
 
-  <img src="./image/README/general.svg" align="left" width="50%" height="" />
-  <img src="./image/README/metrics.plugin.3rd.svg" align="right" width="50%" height="" />
+  <img src="./image/README/general.svg" align="left" width="45%" height="" />
+  <img src="./image/README/metrics.plugin.3rd.svg" align="right" width="45%" height="" />
 
   <!-- 访问计数 -->
   <!-- <img src="https://profile-counter.glitch.me/{Weidows}/count.svg" /> -->
   <img src="https://referer.counter.weidows.tech/@Weidows/github" />
   <!-- 评级 -->
-  <img src="https://github-readme-stats.vercel.app/api?username=Weidows&show_icons=true&theme=synthwave" align="right" width="50%" height="" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Weidows&show_icons=true&theme=synthwave" align="right" width="45%" height="" />
 
   <!-- ⭐️ Weidow's Mind ⭐️ -->
 
