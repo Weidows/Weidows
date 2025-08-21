@@ -1,13 +1,14 @@
-name: Generate animation
-
+name: Metrics
 on:
-  schedule:
-    - cron: "* */24 * * *"
+  # Schedule daily updates
+  schedule: [{ cron: "0 16 * * *" }]
+  # (optional) Run workflow manually
   workflow_dispatch:
-
+  # (optional) Run workflow when pushing on master/main
+  push: { branches: ["master", "main"] }
 jobs:
-  build:
-    name: Jobs to update datas
+  snk:
+    name: Generate Snake SVG
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -15,15 +16,9 @@ jobs:
       - uses: Platane/snk@master
         with:
           github_user_name: ${{ github.repository_owner }}
-          svg_out_path: dist/github-snake.svg
+          svg_out_path: image/README/github-snake.svg
 
-      - uses: crazy-max/ghaction-github-pages@v2.5.0
-        with:
-          target_branch: main
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  # https://github.com/lowlighter/metrics
   github-metrics:
     runs-on: ubuntu-latest
     environment:
@@ -31,6 +26,44 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: 🦑 General
+        if: ${{ success() || failure() }}
+        uses: lowlighter/metrics@latest
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          filename: general.svg
+          token: ${{ secrets.TOKEN }}
+          base: header
+          base_indepth: yes
+          config_order: base.header, isocalendar, languages, notable, discussions, topics
+          # output_action: gist
+          # committer_gist: ${{ secrets.GIST }}
+          plugin_isocalendar: yes
+          plugin_languages: yes
+          plugin_languages_ignored: html, tex, less, makefile, qmake, lex, cmake, gnuplot, scala, ejs
+          plugin_languages_details: lines, bytes-size, percentage
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_indepth: yes
+          plugin_languages_limit: 2
+          # https://github.com/lowlighter/metrics/blob/master/source/plugins/topics/README.md
+          plugin_topics: yes
+          plugin_topics_limit: 0
+          plugin_topics_mode: icons
+          plugin_notable: yes
+          plugin_discussions: yes
+
+      # https://github.com/lowlighter/metrics/blob/master/source/plugins/leetcode/README.md
+      - name: 3rd platform
+        uses: lowlighter/metrics@latest
+        with:
+          # filename: metrics.plugin.leetcode.svg
+          # filename: metrics.plugin.wakatime.svg
+          filename: metrics.plugin.3rd.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_leetcode: yes
+          plugin_leetcode_sections: solved, skills, recent
+
+          # https://github.com/lowlighter/metrics/blob/master/source/plugins/wakatime/README.md
+          plugin_wakatime: yes
+          plugin_wakatime_sections: time, languages, languages-graphs, editors, os
+          plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
