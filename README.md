@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2025-08-21 23:42:21
+ * @LastEditTime: 2026-05-29
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 -->
@@ -37,3 +37,38 @@
   <!-- <a href="https://weidows.github.io/tags/resume" target="_blank" style="color:chartreuse;">_About Me 💩_</a> -->
 
 </div>
+
+---
+
+## 📌 Featured Projects
+
+<p align="center">
+  <a href="https://github.com/Weidows/wutils"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=wutils&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/Weidows.github.io"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=Weidows.github.io&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/fastapi-radar"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=fastapi-radar&theme=synthwave" /></a>
+</p>
+<p align="center">
+  <a href="https://github.com/Weidows/grok2api"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=grok2api&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/next-whois-ui"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=next-whois-ui&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/Sink"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=Sink&theme=synthwave" /></a>
+</p>
+<p align="center">
+  <a href="https://github.com/Weidows/remio-home"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=remio-home&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/UptimeFlare"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=UptimeFlare&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/label-studio-chinese"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=label-studio-chinese&theme=synthwave" /></a>
+</p>
+<p align="center">
+  <a href="https://github.com/Weidows/bai"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=bai&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/aigc4ai"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=aigc4ai&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/hexo-theme-butterfly"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=hexo-theme-butterfly&theme=synthwave" /></a>
+</p>
+<p align="center">
+  <a href="https://github.com/Weidows/CF-Workers-SUB"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=CF-Workers-SUB&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/GeminiProChat"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=GeminiProChat&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/WebStack-Hugo"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=WebStack-Hugo&theme=synthwave" /></a>
+</p>
+<p align="center">
+  <a href="https://github.com/Weidows/moe-counter"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=moe-counter&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/edgetunnel"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=edgetunnel&theme=synthwave" /></a>
+  <a href="https://github.com/Weidows/am-tunnel"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=am-tunnel&theme=synthwave" /></a>
+</p>
