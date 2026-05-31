@@ -2,16 +2,41 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2026-05-29
+ * @LastEditTime: 2026-06-01 01:47:17
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
+
+STAR WHITELIST — update when adding/removing starred repos
+
+### app
+https://github.com/Weidows-projects/Crosstalk-rainbow-fart
+https://github.com/Weidows-projects/Keeper
+https://github.com/Weidows-projects/scoop-3rd
+https://github.com/Weidows-projects/vscode-weidows-theme
+https://github.com/Weidows-projects/Windows-Theme-HighContract-Tokyo-Night
+
+### lib
+https://github.com/Weidows/open-dicom-toolkit
+https://github.com/Weidows/skills
+https://github.com/Weidows/Rainmeter-skin
+https://github.com/Weidows/wutils
+https://github.com/Weidows-projects/Programming-Configuration
+https://github.com/Weidows/Weidows.github.io
+https://github.com/Weidows/Java
+https://github.com/Weidows-projects/awesome-image-collector
+
+### fork
+https://github.com/Weidows-projects/Live2dLoader
+https://github.com/Weidows/RunCat_for_windows
+https://github.com/Weidows/label-studio-chinese
+
 -->
 
 <img align="center" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/README/details.jpg" />
 
 ---
 
-<div align="center" style="background-color: #00dbde;background-image: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);">
+<div align="center">
 
   <!-- 常用语言 -->
   <!-- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Weidows&langs_count=8&theme=tokyonight&layout=compact" /> -->
@@ -22,53 +47,69 @@
   </p> -->
 
   <img src="./image/README/general.svg" align="left" width="45%" height="" />
-  <img src="./image/README/metrics.plugin.3rd.svg" align="right" width="45%" height="" />
+  <!-- <img src="./image/README/metrics.plugin.3rd.svg" align="right" width="45%" height="" /> -->
 
   <!-- 访问计数 -->
   <!-- <img src="https://profile-counter.glitch.me/{Weidows}/count.svg" /> -->
-  <img src="https://referer.counter.weidows.tech/@Weidows/github" />
+  <!-- <img src="https://referer.counter.weidows.tech/@Weidows/github" /> -->
   <!-- 评级 -->
-  <img src="https://github-readme-stats.vercel.app/api?username=Weidows&show_icons=true&theme=synthwave" align="right" width="45%" height="" />
+  <!-- <img src="https://github-readme-stats.vercel.app/api?username=Weidows&show_icons=true&theme=synthwave" align="right" width="45%" height="" /> -->
 
-  <!-- ⭐️ Weidow's Mind ⭐️ -->
-
-  <!-- <a href="https://weidows.github.io" target="_blank" style="color:deeppink;">_🚀 My Blog_</a> -->
-
-  <!-- <a href="https://weidows.github.io/tags/resume" target="_blank" style="color:chartreuse;">_About Me 💩_</a> -->
-
-</div>
+  ![GitHub 统计](https://github-immortality.vercel.app/api?username=Weidows)</div>
 
 ---
 
-## 📌 Featured Projects
+## 📌 App
 
 <p align="center">
-  <a href="https://github.com/Weidows/wutils"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=wutils&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/Weidows.github.io"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=Weidows.github.io&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/fastapi-radar"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=fastapi-radar&theme=synthwave" /></a>
+  <table>
+    <tr>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/Crosstalk-rainbow-fart">Crosstalk-rainbow-fart</a></b><br><sub>相声 Rainbow-Fart 语音包</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/Crosstalk-rainbow-fart?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/Crosstalk-rainbow-fart?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/Keeper">Keeper</a></b><br><sub>自动维护 & 镜像工具集</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/Keeper?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/Keeper?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/scoop-3rd">scoop-3rd</a></b><br><sub>第三方 Scoop Bucket</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/scoop-3rd?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/scoop-3rd?style=flat-square" /></td>
+    </tr>
+    <tr>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/vscode-weidows-theme">vscode-weidows-theme</a></b><br><sub>VSCode 暗色主题</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/vscode-weidows-theme?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/vscode-weidows-theme?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/Windows-Theme-HighContract-Tokyo-Night">Windows-Theme-HighContract-Tokyo-Night</a></b><br><sub>Windows 高对比主题</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/Windows-Theme-HighContract-Tokyo-Night?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/Windows-Theme-HighContract-Tokyo-Night?style=flat-square" /></td>
+      <td width="33%"></td>
+    </tr>
+  </table>
 </p>
+
+---
+
+## 📚 Lib
+
 <p align="center">
-  <a href="https://github.com/Weidows/grok2api"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=grok2api&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/next-whois-ui"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=next-whois-ui&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/Sink"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=Sink&theme=synthwave" /></a>
+  <table>
+    <tr>
+      <td width="33%"><b><a href="https://github.com/Weidows/open-dicom-toolkit">open-dicom-toolkit</a></b><br><sub>DICOM 工具包</sub><br><img src="https://img.shields.io/github/stars/Weidows/open-dicom-toolkit?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/open-dicom-toolkit?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows/skills">skills</a></b><br><sub>Skills 集合</sub><br><img src="https://img.shields.io/github/stars/Weidows/skills?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/skills?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows/Rainmeter-skin">Rainmeter-skin</a></b><br><sub>雨滴桌面皮肤</sub><br><img src="https://img.shields.io/github/stars/Weidows/Rainmeter-skin?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/Rainmeter-skin?style=flat-square" /></td>
+    </tr>
+    <tr>
+      <td width="33%"><b><a href="https://github.com/Weidows/wutils">wutils</a></b><br><sub>Go utils & demos</sub><br><img src="https://img.shields.io/github/stars/Weidows/wutils?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/wutils?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/Programming-Configuration">Programming-Configuration</a></b><br><sub>开发环境配置</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/Programming-Configuration?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/Programming-Configuration?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows/Weidows.github.io">Weidows.github.io</a></b><br><sub>Personal blog</sub><br><img src="https://img.shields.io/github/stars/Weidows/Weidows.github.io?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/Weidows.github.io?style=flat-square" /></td>
+    </tr>
+    <tr>
+      <td width="33%"><b><a href="https://github.com/Weidows/Java">Java</a></b><br><sub>Java</sub><br><img src="https://img.shields.io/github/stars/Weidows/Java?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/Java?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/awesome-image-collector">awesome-image-collector</a></b><br><sub>脚本式图片收集器</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/awesome-image-collector?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/awesome-image-collector?style=flat-square" /></td>
+      <td width="33%"></td>
+    </tr>
+  </table>
 </p>
+
+---
+
+## 🍴 Fork
+
 <p align="center">
-  <a href="https://github.com/Weidows/remio-home"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=remio-home&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/UptimeFlare"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=UptimeFlare&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/label-studio-chinese"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=label-studio-chinese&theme=synthwave" /></a>
-</p>
-<p align="center">
-  <a href="https://github.com/Weidows/bai"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=bai&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/aigc4ai"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=aigc4ai&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/hexo-theme-butterfly"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=hexo-theme-butterfly&theme=synthwave" /></a>
-</p>
-<p align="center">
-  <a href="https://github.com/Weidows/CF-Workers-SUB"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=CF-Workers-SUB&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/GeminiProChat"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=GeminiProChat&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/WebStack-Hugo"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=WebStack-Hugo&theme=synthwave" /></a>
-</p>
-<p align="center">
-  <a href="https://github.com/Weidows/moe-counter"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=moe-counter&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/edgetunnel"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=edgetunnel&theme=synthwave" /></a>
-  <a href="https://github.com/Weidows/am-tunnel"><img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=Weidows&repo=am-tunnel&theme=synthwave" /></a>
+  <table>
+    <tr>
+      <td width="33%"><b><a href="https://github.com/Weidows-projects/Live2dLoader">Live2dLoader</a></b><br><sub>live2d-web 库 (fork)</sub><br><img src="https://img.shields.io/github/stars/Weidows-projects/Live2dLoader?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows-projects/Live2dLoader?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows/RunCat_for_windows">RunCat_for_windows</a></b><br><sub>RunCat on taskbar (fork)</sub><br><img src="https://img.shields.io/github/stars/Weidows/RunCat_for_windows?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/RunCat_for_windows?style=flat-square" /></td>
+      <td width="33%"><b><a href="https://github.com/Weidows/label-studio-chinese">label-studio-chinese</a></b><br><sub>数据标注平台 (fork)</sub><br><img src="https://img.shields.io/github/stars/Weidows/label-studio-chinese?style=flat-square&label=⭐" /> <img src="https://img.shields.io/github/languages/top/Weidows/label-studio-chinese?style=flat-square" /></td>
+    </tr>
+  </table>
 </p>
