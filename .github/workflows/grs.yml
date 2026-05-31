@@ -1,0 +1,138 @@
+name: Update README cards
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── App ──────────────────────────────────────────
+      - name: Pin Crosstalk-rainbow-fart
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=Crosstalk-rainbow-fart&hide_border=true
+          path: profile/app/crosstalk-rainbow-fart.svg
+
+      - name: Pin Keeper
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=Keeper&hide_border=true
+          path: profile/app/keeper.svg
+
+      - name: Pin scoop-3rd
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=scoop-3rd&hide_border=true
+          path: profile/app/scoop-3rd.svg
+
+      - name: Pin vscode-weidows-theme
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=vscode-weidows-theme&hide_border=true
+          path: profile/app/vscode-weidows-theme.svg
+
+      - name: Pin Windows-Theme-HighContract-Tokyo-Night
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=Windows-Theme-HighContract-Tokyo-Night&hide_border=true
+          path: profile/app/windows-theme.svg
+
+      # ── Lib ──────────────────────────────────────────
+      - name: Pin open-dicom-toolkit
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=open-dicom-toolkit&hide_border=true
+          path: profile/lib/open-dicom-toolkit.svg
+
+      - name: Pin skills
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=skills&hide_border=true
+          path: profile/lib/skills.svg
+
+      - name: Pin Rainmeter-skin
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=Rainmeter-skin&hide_border=true
+          path: profile/lib/rainmeter-skin.svg
+
+      - name: Pin wutils
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=wutils&hide_border=true
+          path: profile/lib/wutils.svg
+
+      - name: Pin Programming-Configuration
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=Programming-Configuration&hide_border=true
+          path: profile/lib/programming-configuration.svg
+
+      - name: Pin Weidows.github.io
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=Weidows.github.io&hide_border=true
+          path: profile/lib/weidows-github-io.svg
+
+      - name: Pin Java
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=Java&hide_border=true
+          path: profile/lib/java.svg
+
+      - name: Pin awesome-image-collector
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=awesome-image-collector&hide_border=true
+          path: profile/lib/awesome-image-collector.svg
+
+      # ── Fork ─────────────────────────────────────────
+      - name: Pin Live2dLoader
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows-projects&repo=Live2dLoader&hide_border=true
+          path: profile/fork/live2d-loader.svg
+
+      - name: Pin RunCat_for_windows
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=RunCat_for_windows&hide_border=true
+          path: profile/fork/runcat-for-windows.svg
+
+      - name: Pin label-studio-chinese
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=Weidows&repo=label-studio-chinese&hide_border=true
+          path: profile/fork/label-studio-chinese.svg
+
+      # ── Commit ───────────────────────────────────────
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/
+          git commit -m "Update README cards" || exit 0
+          git push
