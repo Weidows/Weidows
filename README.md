@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2026-06-01 16:07:29
+ * @LastEditTime: 2026-06-01 16:10:53
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 
@@ -53,7 +53,7 @@ https://github.com/Weidows/label-studio-chinese
 
 <table>
   <tr>
-  <td style="vertical-align: top; width: 50%;">
+  <td style="vertical-align: top; width: 45%;">
   <pre>
           ,.=:!!t3Z3z.,                  weidows@pc-weidows-tech
         :tt:::tt333EE3                  -----------------------
@@ -65,7 +65,7 @@ https://github.com/Weidows/label-studio-chinese
       ,.=::::!t=., ` @EEEEEEtttz33QF     WM: Explorer
     ;::::::::zt33)   "4EEEtttji3P*      WM Theme: Custom
     :t::::::::tt33.:Z3z..  `` ,..g.      Terminal: Windows Terminal
-    i::::::::zt33F AEEEtttt::::ztF       CPU: Intel i5-14600KF (20) @ 3.500GHz
+    i::::::::zt33F AEEEtttt::::ztF       CPU: Intel i5-14600KF (20)
   ;:::::::::t33V ;EEEttttt::::t3        Memory: 38390MiB / 65375MiB
   E::::::::zt33L @EEEtttt::::z3F
   {3=*^```"*4E3) ;EEEtttt:::::tZ`
