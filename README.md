@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2026-06-01 14:15:56
+ * @LastEditTime: 2026-06-01 14:37:11
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 
@@ -61,16 +61,16 @@ https://github.com/Weidows/label-studio-chinese
   https://github.com/abhisheknaiidu/awesome-github-profile-readme
   https://github.com/DenverCoder1/DenverCoder1/blob/main/README.md
   -->
-  <div align="left" width="45%">
+  <div style="">
 
   ## 📌 App
 
   <p align="left">
-    <a href="https://github.com/Weidows-projects/Crosstalk-rainbow-fart"><img width="278" src="./profile/app/crosstalk-rainbow-fart.svg" alt="Crosstalk-rainbow-fart"></a>
-    <a href="https://github.com/Weidows-projects/Keeper"><img width="278" src="./profile/app/keeper.svg" alt="Keeper"></a>
-    <a href="https://github.com/Weidows-projects/scoop-3rd"><img width="278" src="./profile/app/scoop-3rd.svg" alt="scoop-3rd"></a>
-    <a href="https://github.com/Weidows-projects/vscode-weidows-theme"><img width="278" src="./profile/app/vscode-weidows-theme.svg" alt="vscode-weidows-theme"></a>
-    <a href="https://github.com/Weidows-projects/Windows-Theme-HighContract-Tokyo-Night"><img width="278" src="./profile/app/windows-theme.svg" alt="Windows-Theme-HighContract-Tokyo-Night"></a>
+    <a href="https://github.com/Weidows-projects/Crosstalk-rainbow-fart"><img width="300" src="./profile/app/crosstalk-rainbow-fart.svg" alt="Crosstalk-rainbow-fart"></a>
+    <a href="https://github.com/Weidows-projects/Keeper"><img width="300" src="./profile/app/keeper.svg" alt="Keeper"></a>
+    <a href="https://github.com/Weidows-projects/scoop-3rd"><img width="300" src="./profile/app/scoop-3rd.svg" alt="scoop-3rd"></a>
+    <a href="https://github.com/Weidows-projects/vscode-weidows-theme"><img width="300" src="./profile/app/vscode-weidows-theme.svg" alt="vscode-weidows-theme"></a>
+    <a href="https://github.com/Weidows-projects/Windows-Theme-HighContract-Tokyo-Night"><img width="300" src="./profile/app/windows-theme.svg" alt="Windows-Theme-HighContract-Tokyo-Night"></a>
   </p>
 
   ---
@@ -78,14 +78,14 @@ https://github.com/Weidows/label-studio-chinese
   ## 📚 Lib
 
   <p align="left">
-    <a href="https://github.com/Weidows/open-dicom-toolkit"><img width="278" src="./profile/lib/open-dicom-toolkit.svg" alt="open-dicom-toolkit"></a>
-    <a href="https://github.com/Weidows/skills"><img width="278" src="./profile/lib/skills.svg" alt="skills"></a>
-    <a href="https://github.com/Weidows/Rainmeter-skin"><img width="278" src="./profile/lib/rainmeter-skin.svg" alt="Rainmeter-skin"></a>
-    <a href="https://github.com/Weidows/wutils"><img width="278" src="./profile/lib/wutils.svg" alt="wutils"></a>
-    <a href="https://github.com/Weidows-projects/Programming-Configuration"><img width="278" src="./profile/lib/programming-configuration.svg" alt="Programming-Configuration"></a>
-    <a href="https://github.com/Weidows/Weidows.github.io"><img width="278" src="./profile/lib/weidows-github-io.svg" alt="Weidows.github.io"></a>
-    <a href="https://github.com/Weidows/Java"><img width="278" src="./profile/lib/java.svg" alt="Java"></a>
-    <a href="https://github.com/Weidows-projects/awesome-image-collector"><img width="278" src="./profile/lib/awesome-image-collector.svg" alt="awesome-image-collector"></a>
+    <a href="https://github.com/Weidows/open-dicom-toolkit"><img width="300" src="./profile/lib/open-dicom-toolkit.svg" alt="open-dicom-toolkit"></a>
+    <a href="https://github.com/Weidows/skills"><img width="300" src="./profile/lib/skills.svg" alt="skills"></a>
+    <a href="https://github.com/Weidows/Rainmeter-skin"><img width="300" src="./profile/lib/rainmeter-skin.svg" alt="Rainmeter-skin"></a>
+    <a href="https://github.com/Weidows/wutils"><img width="300" src="./profile/lib/wutils.svg" alt="wutils"></a>
+    <a href="https://github.com/Weidows-projects/Programming-Configuration"><img width="300" src="./profile/lib/programming-configuration.svg" alt="Programming-Configuration"></a>
+    <a href="https://github.com/Weidows/Weidows.github.io"><img width="300" src="./profile/lib/weidows-github-io.svg" alt="Weidows.github.io"></a>
+    <a href="https://github.com/Weidows/Java"><img width="300" src="./profile/lib/java.svg" alt="Java"></a>
+    <a href="https://github.com/Weidows-projects/awesome-image-collector"><img width="300" src="./profile/lib/awesome-image-collector.svg" alt="awesome-image-collector"></a>
   </p>
 
   ---
@@ -93,9 +93,9 @@ https://github.com/Weidows/label-studio-chinese
   ## 🍴 Fork
 
   <p align="left">
-    <a href="https://github.com/Weidows-projects/Live2dLoader"><img width="278" src="./profile/fork/live2d-loader.svg" alt="Live2dLoader"></a>
-    <a href="https://github.com/Weidows/RunCat_for_windows"><img width="278" src="./profile/fork/runcat-for-windows.svg" alt="RunCat_for_windows"></a>
-    <a href="https://github.com/Weidows/label-studio-chinese"><img width="278" src="./profile/fork/label-studio-chinese.svg" alt="label-studio-chinese"></a>
+    <a href="https://github.com/Weidows-projects/Live2dLoader"><img width="300" src="./profile/fork/live2d-loader.svg" alt="Live2dLoader"></a>
+    <a href="https://github.com/Weidows/RunCat_for_windows"><img width="300" src="./profile/fork/runcat-for-windows.svg" alt="RunCat_for_windows"></a>
+    <a href="https://github.com/Weidows/label-studio-chinese"><img width="300" src="./profile/fork/label-studio-chinese.svg" alt="label-studio-chinese"></a>
   </p>
   </div>
 
