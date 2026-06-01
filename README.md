@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2026-06-01 16:49:19
+ * @LastEditTime: 2026-06-01 17:02:08
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 
@@ -50,7 +50,36 @@ https://github.com/Weidows/RunCat_for_windows
 <!-- 评级 -->
 <!-- <img src="https://github-readme-stats.vercel.app/api?username=Weidows&show_icons=true&theme=synthwave" align="right" width="45%" height="" /> -->
 
+<div>
 <img src="https://github-immortality.vercel.app/api?username=Weidows" width="45%" />
+
+<pre>
+        ,.=:!!t3Z3z.,                  weidows@pc-weidows-tech
+       :tt:::tt333EE3                  -----------------------
+       Et:::ztt33EEEL @Ee.,      ..,   OS: Windows (Unknown) x86_64
+      ;tt:::tt333EE7 ;EEEEEEttttt33#   Uptime: 2 days, 13 hours, 57 mins
+     :Et:::zt333EEQ. $EEEEEttttt33QL   Packages: 273 (scoop)
+     it::::tt333EEF @EEEEEEttttt33F    Shell: bash 5.2.37
+    ;3=*^```"*4EEV :EEEEEEttttt33@.    DE: Aero
+    ,.=::::!t=., ` @EEEEEEtttz33QF     WM: Explorer
+   ;::::::::zt33)   "4EEEtttji3P*      WM Theme: Custom
+  :t::::::::tt33.:Z3z..  `` ,..g.      Terminal: Windows Terminal
+  i::::::::zt33F AEEEtttt::::ztF       CPU: Intel i5-14600KF (20) @ 3.500GHz
+ ;:::::::::t33V ;EEEttttt::::t3        Memory: 38390MiB / 65375MiB
+ E::::::::zt33L @EEEtttt::::z3F
+{3=*^```"*4E3) ;EEEtttt:::::tZ`
+             ` :EEEEtttt::::z7
+                 "VEzjt:;;z>*`
+
+Filesystem                                  Size  Used Avail Use% Mounted on
+C:/Users/weidows/scoop/apps/git-all/2.53.0  1.9T  1.1T  799G  59% /
+D:                                          3.7T  2.5T  1.2T  68% /d
+E:                                           11T  454M   11T   1% /e
+F:                                           13T   11T  2.2T  83% /f
+</pre>
+</div>
+
+---
 
 <!--
 https://github.com/abhisheknaiidu/awesome-github-profile-readme
@@ -58,34 +87,34 @@ https://github.com/DenverCoder1/DenverCoder1/blob/main/README.md
 -->
 <div align="left">
 
-## 📌 App
+  ## 📌 App
 
-<p align="left">
-  <a href="https://github.com/Weidows-projects/Crosstalk-rainbow-fart"><img width="278" src="./profile/app/crosstalk-rainbow-fart.svg" alt="Crosstalk-rainbow-fart"></a>
-  <a href="https://github.com/Weidows-projects/Keeper"><img width="278" src="./profile/app/keeper.svg" alt="Keeper"></a>
-  <a href="https://github.com/Weidows-projects/scoop-3rd"><img width="278" src="./profile/app/scoop-3rd.svg" alt="scoop-3rd"></a>
-  <a href="https://github.com/Weidows-projects/vscode-weidows-theme"><img width="278" src="./profile/app/vscode-weidows-theme.svg" alt="vscode-weidows-theme"></a>
-</p>
+  <p align="left">
+    <a href="https://github.com/Weidows-projects/Crosstalk-rainbow-fart"><img width="278" src="./profile/app/crosstalk-rainbow-fart.svg" alt="Crosstalk-rainbow-fart"></a>
+    <a href="https://github.com/Weidows-projects/Keeper"><img width="278" src="./profile/app/keeper.svg" alt="Keeper"></a>
+    <a href="https://github.com/Weidows-projects/scoop-3rd"><img width="278" src="./profile/app/scoop-3rd.svg" alt="scoop-3rd"></a>
+    <a href="https://github.com/Weidows-projects/vscode-weidows-theme"><img width="278" src="./profile/app/vscode-weidows-theme.svg" alt="vscode-weidows-theme"></a>
+  </p>
 
----
+  ---
 
-## 📚 Lib
+  ## 📚 Lib
 
-<p align="left">
-  <a href="https://github.com/Weidows/open-dicom-toolkit"><img width="278" src="./profile/lib/open-dicom-toolkit.svg" alt="open-dicom-toolkit"></a>
-  <a href="https://github.com/Weidows/skills"><img width="278" src="./profile/lib/skills.svg" alt="skills"></a>
-  <a href="https://github.com/Weidows/Rainmeter-skin"><img width="278" src="./profile/lib/rainmeter-skin.svg" alt="Rainmeter-skin"></a>
-  <a href="https://github.com/Weidows/wutils"><img width="278" src="./profile/lib/wutils.svg" alt="wutils"></a>
-  <a href="https://github.com/Weidows-projects/Programming-Configuration"><img width="278" src="./profile/lib/programming-configuration.svg" alt="Programming-Configuration"></a>
-  <a href="https://github.com/Weidows/Weidows.github.io"><img width="278" src="./profile/lib/weidows-github-io.svg" alt="Weidows.github.io"></a>
-</p>
+  <p align="left">
+    <a href="https://github.com/Weidows/open-dicom-toolkit"><img width="278" src="./profile/lib/open-dicom-toolkit.svg" alt="open-dicom-toolkit"></a>
+    <a href="https://github.com/Weidows/skills"><img width="278" src="./profile/lib/skills.svg" alt="skills"></a>
+    <a href="https://github.com/Weidows/Rainmeter-skin"><img width="278" src="./profile/lib/rainmeter-skin.svg" alt="Rainmeter-skin"></a>
+    <a href="https://github.com/Weidows/wutils"><img width="278" src="./profile/lib/wutils.svg" alt="wutils"></a>
+    <a href="https://github.com/Weidows-projects/Programming-Configuration"><img width="278" src="./profile/lib/programming-configuration.svg" alt="Programming-Configuration"></a>
+    <a href="https://github.com/Weidows/Weidows.github.io"><img width="278" src="./profile/lib/weidows-github-io.svg" alt="Weidows.github.io"></a>
+  </p>
 
----
+  ---
 
-## 🍴 Fork
+  ## 🍴 Fork
 
-<p align="left">
-  <a href="https://github.com/Weidows-projects/Live2dLoader"><img width="278" src="./profile/fork/live2d-loader.svg" alt="Live2dLoader"></a>
-  <a href="https://github.com/Weidows/RunCat_for_windows"><img width="278" src="./profile/fork/runcat-for-windows.svg" alt="RunCat_for_windows"></a>
-</p>
+  <p align="left">
+    <a href="https://github.com/Weidows-projects/Live2dLoader"><img width="278" src="./profile/fork/live2d-loader.svg" alt="Live2dLoader"></a>
+    <a href="https://github.com/Weidows/RunCat_for_windows"><img width="278" src="./profile/fork/runcat-for-windows.svg" alt="RunCat_for_windows"></a>
+  </p>
 </div>
