@@ -2,7 +2,7 @@
  * @Author: Weidows
  * @Date: 2020-07-27 10:28:29
  * @LastEditors: Weidows
- * @LastEditTime: 2026-06-01 02:09:14
+ * @LastEditTime: 2026-06-01 14:15:56
  * @FilePath: \Weidows\README.md
  * 这个markdown是显示在github-profile界面上的
 
@@ -55,8 +55,12 @@ https://github.com/Weidows/label-studio-chinese
   <!-- 评级 -->
   <!-- <img src="https://github-readme-stats.vercel.app/api?username=Weidows&show_icons=true&theme=synthwave" align="right" width="45%" height="" /> -->
 
-  <img src="https://github-immortality.vercel.app/api?username=Weidows" align="right" width="55%" height="" />
+  <img src="https://github-immortality.vercel.app/api?username=Weidows" align="right" width="50%" height="" />
 
+  <!--
+  https://github.com/abhisheknaiidu/awesome-github-profile-readme
+  https://github.com/DenverCoder1/DenverCoder1/blob/main/README.md
+  -->
   <div align="left" width="45%">
 
   ## 📌 App
