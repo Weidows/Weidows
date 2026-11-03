@@ -1,120 +1,35 @@
-<!--
- * @Author: Weidows
- * @Date: 2020-07-27 10:28:29
- * @LastEditors: Weidows
- * @LastEditTime: 2026-06-01 17:02:08
- * @FilePath: \Weidows\README.md
- * 这个markdown是显示在github-profile界面上的
+<img src="dashboard.svg" alt="Featured projects" width="846">
 
-STAR WHITELIST — update when adding/removing starred repos
+**AI / 工具**
 
-### app
-https://github.com/Weidows-projects/Crosstalk-rainbow-fart
-https://github.com/Weidows-projects/Keeper
-https://github.com/Weidows-projects/scoop-3rd
-https://github.com/Weidows-projects/vscode-weidows-theme
+- [**video2script**](https://github.com/Weidows/video2script) — Python · 4.0%： 视频→文稿：自动剔除语气词/结巴/重复 / CLI + 本地网页 GUI，CPU 可跑，说话人分离/字幕/剪片
+- [**gpuq**](https://github.com/Weidows/gpuq) — Python · 4.0%
+- [**mirrorhub**](https://github.com/Weidows/mirrorhub) — TypeScript · 4.0%： 包管理器镜像源切换器：npm/pnpm/yarn/bun/pip/uv/go/cargo/composer/gem/nu
+- [**RunCat_for_windows**](https://github.com/Weidows/RunCat_for_windows) — ★ 5 · fork 1 · C# · 4.0%： A cute running cat animation on your windows taskbar.
+- [**Rainmeter-skin**](https://github.com/Weidows/Rainmeter-skin) — ★ 8 · fork 1 · C++ · 4.0%： 雨滴桌面皮肤备份 / 全场最高 ★8
 
-### lib
-https://github.com/Weidows/open-dicom-toolkit
-https://github.com/Weidows/skills
-https://github.com/Weidows/Rainmeter-skin
-https://github.com/Weidows/wutils
-https://github.com/Weidows-projects/Programming-Configuration
-https://github.com/Weidows/Weidows.github.io
+**Deepseek-Harness**
 
-### fork
-https://github.com/Weidows-projects/Live2dLoader
-https://github.com/Weidows/RunCat_for_windows
+- [**dsh-whalechan-herself**](https://github.com/Weidows/dsh-whalechan-herself) — ★ 3 · JavaScript · 4.0%： 给 DeepSeek Harness 装一个鲸鱼娘（DeepSeek娘）Agent 预设：完整干活能力 + 人设，开工吐
+- [**dsh-icon**](https://github.com/Weidows/dsh-icon) — JavaScript · 4.0%： DSH bundle that renders JetBrains file-type icons before the
+- [**dsh-git**](https://github.com/Weidows/dsh-git) — JavaScript · 4.0%： Git for DeepSeek Harness: a repo/branch chip under the compo
+- [**skills**](https://github.com/Weidows/skills) — ★ 1 · 4.0%
 
--->
+**lib**
 
+- [**wutils**](https://github.com/Weidows/wutils) — ★ 5 · fork 1 · Go · 4.7%： Go 学习与开发期 utils/demos 合集 / ★5 · 持续更新的工具箱
+- [**userscripts**](https://github.com/Weidows/userscripts) — ★ 1 · JavaScript · 4.0%： 油猴/ScriptCat 用户脚本合集 / 后台静默自动化签到
+- [**greasyfork-cli**](https://github.com/Weidows/greasyfork-cli) — TypeScript · 4.0%： Unofficial Greasy Fork client + CLI. Search, inspect and dow
+- [**open-dicom-toolkit**](https://github.com/Weidows/open-dicom-toolkit) — ★ 1 · Python · 4.0%： DICOM 医学影像工具包 / Python 解析/处理流水线
+- [**neomermaid**](https://github.com/Weidows/neomermaid) — TypeScript · 4.0%： 主题化 mermaid 渲染器 / SDK + VS Code 插件 + CLI + live 预览
 
-<img align="center" src="https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/README/details.jpg" />
+**huggingface**
 
----
+- [**embeddinggemma2-zh**](https://github.com/Weidows/embeddinggemma2-zh) — ★ 1 · Python · 4.0%： C-MTEB (MTEB(cmn, v1)) evaluation of google/embeddinggemma-2
 
-<!-- 常用语言 -->
-<!-- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Weidows&langs_count=8&theme=tokyonight&layout=compact" /> -->
+**org**
 
-<!-- Website badge -->
-<!-- <p align="center">
-<a href="https://www.anandmainali.com.np" target="_blank"><img alt="Website" src="https://img.shields.io/badge/Website-www.anandmainali.com.np-blue?style=flat&logo=google-chrome"></a>
-</p> -->
-
-<img src="./image/README/general.svg" align="left" width="45%" height="" />
-<!-- <img src="./image/README/metrics.plugin.3rd.svg" align="right" width="45%" height="" /> -->
-
-<!-- 访问计数 -->
-<!-- <img src="https://profile-counter.glitch.me/{Weidows}/count.svg" /> -->
-<!-- <img src="https://referer.counter.weidows.tech/@Weidows/github" /> -->
-<!-- 评级 -->
-<!-- <img src="https://github-readme-stats.vercel.app/api?username=Weidows&show_icons=true&theme=synthwave" align="right" width="45%" height="" /> -->
-
-<div>
-<img src="https://github-immortality.vercel.app/api?username=Weidows" width="45%" />
-
-<pre>
-        ,.=:!!t3Z3z.,                  weidows@pc-weidows-tech
-       :tt:::tt333EE3                  -----------------------
-       Et:::ztt33EEEL @Ee.,      ..,   OS: Windows (Unknown) x86_64
-      ;tt:::tt333EE7 ;EEEEEEttttt33#   Uptime: 2 days, 13 hours, 57 mins
-     :Et:::zt333EEQ. $EEEEEttttt33QL   Packages: 273 (scoop)
-     it::::tt333EEF @EEEEEEttttt33F    Shell: bash 5.2.37
-    ;3=*^```"*4EEV :EEEEEEttttt33@.    DE: Aero
-    ,.=::::!t=., ` @EEEEEEtttz33QF     WM: Explorer
-   ;::::::::zt33)   "4EEEtttji3P*      WM Theme: Custom
-  :t::::::::tt33.:Z3z..  `` ,..g.      Terminal: Windows Terminal
-  i::::::::zt33F AEEEtttt::::ztF       CPU: Intel i5-14600KF (20) @ 3.500GHz
- ;:::::::::t33V ;EEEttttt::::t3        Memory: 38390MiB / 65375MiB
- E::::::::zt33L @EEEtttt::::z3F
-{3=*^```"*4E3) ;EEEtttt:::::tZ`
-             ` :EEEEtttt::::z7
-                 "VEzjt:;;z>*`
-
-Filesystem                                  Size  Used Avail Use% Mounted on
-C:/Users/weidows/scoop/apps/git-all/2.53.0  1.9T  1.1T  799G  59% /
-D:                                          3.7T  2.5T  1.2T  68% /d
-E:                                           11T  454M   11T   1% /e
-F:                                           13T   11T  2.2T  83% /f
-</pre>
-</div>
-
----
-
-<!--
-https://github.com/abhisheknaiidu/awesome-github-profile-readme
-https://github.com/DenverCoder1/DenverCoder1/blob/main/README.md
--->
-<div align="left">
-
-  ## 📌 App
-
-  <p align="left">
-    <a href="https://github.com/Weidows-projects/Crosstalk-rainbow-fart"><img width="278" src="./profile/app/crosstalk-rainbow-fart.svg" alt="Crosstalk-rainbow-fart"></a>
-    <a href="https://github.com/Weidows-projects/Keeper"><img width="278" src="./profile/app/keeper.svg" alt="Keeper"></a>
-    <a href="https://github.com/Weidows-projects/scoop-3rd"><img width="278" src="./profile/app/scoop-3rd.svg" alt="scoop-3rd"></a>
-    <a href="https://github.com/Weidows-projects/vscode-weidows-theme"><img width="278" src="./profile/app/vscode-weidows-theme.svg" alt="vscode-weidows-theme"></a>
-  </p>
-
-  ---
-
-  ## 📚 Lib
-
-  <p align="left">
-    <a href="https://github.com/Weidows/open-dicom-toolkit"><img width="278" src="./profile/lib/open-dicom-toolkit.svg" alt="open-dicom-toolkit"></a>
-    <a href="https://github.com/Weidows/skills"><img width="278" src="./profile/lib/skills.svg" alt="skills"></a>
-    <a href="https://github.com/Weidows/Rainmeter-skin"><img width="278" src="./profile/lib/rainmeter-skin.svg" alt="Rainmeter-skin"></a>
-    <a href="https://github.com/Weidows/wutils"><img width="278" src="./profile/lib/wutils.svg" alt="wutils"></a>
-    <a href="https://github.com/Weidows-projects/Programming-Configuration"><img width="278" src="./profile/lib/programming-configuration.svg" alt="Programming-Configuration"></a>
-    <a href="https://github.com/Weidows/Weidows.github.io"><img width="278" src="./profile/lib/weidows-github-io.svg" alt="Weidows.github.io"></a>
-  </p>
-
-  ---
-
-  ## 🍴 Fork
-
-  <p align="left">
-    <a href="https://github.com/Weidows-projects/Live2dLoader"><img width="278" src="./profile/fork/live2d-loader.svg" alt="Live2dLoader"></a>
-    <a href="https://github.com/Weidows/RunCat_for_windows"><img width="278" src="./profile/fork/runcat-for-windows.svg" alt="RunCat_for_windows"></a>
-  </p>
-</div>
+- [**Crosstalk-rainbow-fart**](https://github.com/Weidows-projects/Crosstalk-rainbow-fart) — ★ 68 · fork 6 · 12.8%： 相声Rainbow-Fart语音包 特色相声彩虹屁Rainbow-Fart语音包,包含由郭德纲老师为首的各路达人在你敲代
+- [**Live2dLoader**](https://github.com/Weidows-projects/Live2dLoader) — ★ 30 · fork 1 · JavaScript · 9.5%： 易用且适用于所有模型的live2d-web库, 手把手教做人(
+- [**Keeper**](https://github.com/Weidows-projects/Keeper) — ★ 13 · fork 1 · Batchfile · 8.9%： 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系
+- [**scoop-3rd**](https://github.com/Weidows-projects/scoop-3rd) — ★ 11 · fork 1 · PowerShell · 8.1%： third-party scoop bucket. Welcome pull requests!
