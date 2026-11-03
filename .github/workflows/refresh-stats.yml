@@ -81,5 +81,5 @@ jobs:
             echo "nothing staged — skipping commit"
             exit 0
           fi
-          git commit -m "${MESSAGE:-chore(stats): daily refresh}"
+          git commit -m "${MESSAGE:-chore(stats): manual refresh (no data change)}"
           git push
