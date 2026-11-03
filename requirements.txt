@@ -1,0 +1,4 @@
+# generate.py itself is stdlib only; these are for the font subsetting step
+# (assets/font/*.otf -> subset.woff2 embedded in dashboard.svg).
+fonttools
+brotli

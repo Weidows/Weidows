@@ -3,6 +3,7 @@
 
 Usage:
     python generate.py              # fetch live data, write dashboard.svg + preview.html
+    python generate.py --refresh    # refetch every repo in projects.json (ignore cache)
     python generate.py --offline    # rebuild from cache.json (no API calls)
     python generate.py --serve      # local editor: refresh candidates, groups, ordering
     python generate.py --help
@@ -1124,7 +1125,7 @@ def main():
         print(__doc__)
         return
 
-    flags = {"--offline", "--serve", "--no-open"}
+    flags = {"--offline", "--serve", "--no-open", "--refresh"}
     port = 8765
     unknown = []
     i = 0
@@ -1156,13 +1157,17 @@ def main():
         return server.run(port=port, open_browser="--no-open" not in argv)
 
     offline = "--offline" in argv
+    refresh = "--refresh" in argv
+    if offline and refresh:
+        sys.exit("--offline and --refresh contradict each other")
     cfg = load_config()
     cache = load_cache()
 
     global METRICS
     METRICS = Metrics(find_font_source())
 
-    items, weights = resolve_items(cfg, cache, offline, os.environ.get("GITHUB_TOKEN"))
+    items, weights = resolve_items(cfg, cache, offline, os.environ.get("GITHUB_TOKEN"),
+                                   refresh=refresh)
     if not offline:
         save_cache(cache)
 

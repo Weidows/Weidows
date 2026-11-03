@@ -1,0 +1,157 @@
+{
+  "updated": "2026-11-03",
+  "repos": {
+    "Weidows-projects/Crosstalk-rainbow-fart": {
+      "stars": 68,
+      "forks": 6,
+      "watchers": 1,
+      "language": "",
+      "pushed": "2023-03-31",
+      "description": "⭐️ 相声🌈Rainbow-Fart语音包 ⭐️ 特色相声彩虹屁🌈Rainbow-Fart语音包,包含由郭德纲老师为首的各路达人在你敲代码时亲切捧逗~"
+    },
+    "Weidows-projects/Live2dLoader": {
+      "stars": 30,
+      "forks": 1,
+      "watchers": 0,
+      "language": "JavaScript",
+      "pushed": "2026-01-29",
+      "description": "易用且适用于所有模型的live2d-web库, 手把手教做人("
+    },
+    "Weidows-projects/Keeper": {
+      "stars": 13,
+      "forks": 1,
+      "watchers": 1,
+      "language": "Batchfile",
+      "pushed": "2026-11-03",
+      "description": "✅ 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系...etc"
+    },
+    "Weidows-projects/scoop-3rd": {
+      "stars": 11,
+      "forks": 1,
+      "watchers": 1,
+      "language": "PowerShell",
+      "pushed": "2026-11-03",
+      "description": "☘third-party scoop bucket. Welcome pull requests!"
+    },
+    "Weidows/embeddinggemma2-zh": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "language": "Python",
+      "pushed": "2026-10-24",
+      "description": "C-MTEB (MTEB(cmn, v1)) evaluation of google/embeddinggemma-2 — 31 Chinese tasks, with same-harness bge-m3 baseline and a text-modality fix"
+    },
+    "Weidows/wutils": {
+      "stars": 5,
+      "forks": 1,
+      "watchers": 1,
+      "language": "Go",
+      "pushed": "2026-08-24",
+      "description": "Some demos and utils while learning & developing golang."
+    },
+    "Weidows/userscripts": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "language": "JavaScript",
+      "pushed": "2026-10-26",
+      "description": "个人用户脚本（油猴/ScriptCat）合集：后台静默自动化签到等"
+    },
+    "Weidows/greasyfork-cli": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "language": "TypeScript",
+      "pushed": "2026-11-02",
+      "description": "Unofficial Greasy Fork client + CLI. Search, inspect and download userscripts. Zero runtime dependencies."
+    },
+    "Weidows/open-dicom-toolkit": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "language": "Python",
+      "pushed": "2026-07-22",
+      "description": ""
+    },
+    "Weidows/neomermaid": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "language": "TypeScript",
+      "pushed": "2026-11-01",
+      "description": "Modern themeable mermaid renderer — SDK + VS Code extension + CLI + live demo. Same syntax, none of the 2018 styling."
+    },
+    "Weidows/video2script": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "language": "Python",
+      "pushed": "2026-09-19",
+      "description": "视频→文稿：自动剔除语气词/结巴/重复词（CLI + 本地网页 GUI，CPU 可跑，可选说话人分离/字幕/剪片）· Turn videos into clean transcripts — fillers, stutters and repetitions removed"
+    },
+    "Weidows/gpuq": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "language": "Python",
+      "pushed": "2026-08-16",
+      "description": ""
+    },
+    "Weidows/mirrorhub": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "language": "TypeScript",
+      "pushed": "2026-11-02",
+      "description": "包管理器镜像源切换器：npm/pnpm/yarn/bun/pip/uv/go/cargo/composer/gem/nuget 一键测速与切换，CLI + 本地 GUI"
+    },
+    "Weidows/RunCat_for_windows": {
+      "stars": 5,
+      "forks": 1,
+      "watchers": 0,
+      "language": "C#",
+      "pushed": "2023-01-12",
+      "description": "A cute running cat animation on your windows taskbar."
+    },
+    "Weidows/Rainmeter-skin": {
+      "stars": 8,
+      "forks": 1,
+      "watchers": 1,
+      "language": "C++",
+      "pushed": "2023-03-31",
+      "description": "⭐️ Weidow's Rainmeter-Skins ⭐️ 雨滴桌面皮肤备份仓库"
+    },
+    "Weidows/dsh-whalechan-herself": {
+      "stars": 3,
+      "forks": 0,
+      "watchers": 0,
+      "language": "JavaScript",
+      "pushed": "2026-11-02",
+      "description": "给 DeepSeek Harness 装一个鲸鱼娘（DeepSeek娘）Agent 预设：完整干活能力 + 人设，开工吐槽、收工讨饭，按概率发表情包（设置页可调）。"
+    },
+    "Weidows/dsh-icon": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "language": "JavaScript",
+      "pushed": "2026-11-02",
+      "description": "DSH bundle that renders JetBrains file-type icons before the file paths in tool-call rows; theme switchable in Settings."
+    },
+    "Weidows/dsh-git": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "language": "JavaScript",
+      "pushed": "2026-11-02",
+      "description": "Git for DeepSeek Harness: a repo/branch chip under the composer, a header Git button, and a right-sidebar tab with changes and commit history."
+    },
+    "Weidows/skills": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "language": "",
+      "pushed": "2026-07-13",
+      "description": ""
+    }
+  }
+}

@@ -35,6 +35,7 @@ GitHub profile 用的**项目热力 Treemap**：精选项目，方块面积随
 
 ```bash
 python generate.py            # 拉 GitHub API 实时数据 -> dashboard.svg + preview.html
+python generate.py --refresh  # 强制重拉 projects.json 里每个仓库（忽略 cache.json）
 python generate.py --offline  # 用 cache.json 离线重排（调样式/文案时用，不耗 API 配额）
 python generate.py --serve    # 启动本地编辑器（刷新候选 / 分组 / 拖拽排序）
 ```
@@ -195,6 +196,31 @@ python -m pip install fonttools brotli
 缺 `brotli` 时 woff2 编码会失败，脚本会打印真实错误并回退到系统字体
 （不会静默产出没有字体的 SVG）。
 
+## 每日自动刷新（GitHub Actions）
+
+`.github/workflows/refresh-stats.yml` 每天跑一次（`03:17 UTC` = 北京时间 11:17，
+也可以在 Actions 页面手动 `Run workflow`），重拉 star / fork 等数据：
+**有新数据才提交，没变化什么都不提交**。
+
+判断「有没有变」不能只看 `git status`——`generate.py` 每次都会改 `dashboard.svg`：
+新鲜度项随天数衰减、右上角印着当天日期，`dashboard.md` 里的面积占比也会跟着漂。
+所以提交判断交给 `scripts/refresh_stats.py`：把刚拉到的 `cache.json` 里的
+star / fork / watcher / 语言 / pushed 日期 / 描述 提成快照，跟已提交的 `data/stats.json` 比，
+一样就 `git checkout -- .` 丢弃产物直接结束，不一样才写回快照并提交。
+
+```bash
+python generate.py --refresh     # 强制重拉 + 重新生成（GITHUB_TOKEN 提高配额）
+python scripts/refresh_stats.py  # 对比快照；有变化才改写 data/stats.json
+cp dashboard.md README.md        # profile README 就是 dashboard.md 的内容
+```
+
+- 一次提交包含：`dashboard.svg` / `dashboard.md` / `README.md` / `cache.json` /
+  `data/stats.json` / `assets/font/subset.woff2`；
+- commit message 由脚本生成，形如 `chore(stats): ★+3, fork+1, 2 repo(s)`；
+- 本地复现：`GITHUB_TOKEN=$(gh auth token) python generate.py --refresh && python scripts/refresh_stats.py`；
+- `git log data/stats.json` 本身就是一份可读的 star 历史；
+- GitHub 会在仓库连续 60 天无活动后停用 schedule，真停了在 Actions 页面点一次 Enable 即可。
+
 ## 放到 profile 上
 
 1. 把 `dashboard.svg` 拷进 `Weidows/Weidows` 仓库（或本仓库开 GitHub Pages）；
@@ -272,4 +298,7 @@ Preview 模式里，列表按 GitHub 的真实排版渲染（粗体分组标题 
 | `dashboard.md` | 配套的 README 片段：图片 + 每个项目的链接列表 |
 | `preview.html` | 本地预览（含权重明细表），不推 |
 | `cache.json` | API 缓存，离线重排 / 候选池数据源 |
+| `data/stats.json` | 已提交的数据快照（star / fork / watcher / 语言 / pushed / 描述），每日刷新靠它判断「有没有变」 |
+| `scripts/refresh_stats.py` | 刷新工作流的提交闸门：比对 `cache.json` 与 `data/stats.json`，有差才写回 |
+| `.github/workflows/refresh-stats.yml` | 每日 03:17 UTC 重拉数据，有变化才提交 |
 | `assets/font/` | 得意黑 Smiley Sans（[atelier-anchor/smiley-sans](https://github.com/atelier-anchor/smiley-sans)，OFL-1.1；`subset.woff2` 由 `generate.py` 按实际用字自动裁剪内嵌进 SVG，`preview.html` 和编辑器直接引用目录下完整字重） |
