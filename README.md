@@ -29,7 +29,7 @@
 
 **org**
 
-- [**Crosstalk-rainbow-fart**](https://github.com/Weidows-projects/Crosstalk-rainbow-fart) — ★ 68 · fork 6 · 12.8%： 相声Rainbow-Fart语音包 特色相声彩虹屁Rainbow-Fart语音包,包含由郭德纲老师为首的各路达人在你敲代
-- [**Live2dLoader**](https://github.com/Weidows-projects/Live2dLoader) — ★ 30 · fork 1 · JavaScript · 9.5%： 易用且适用于所有模型的live2d-web库, 手把手教做人(
-- [**Keeper**](https://github.com/Weidows-projects/Keeper) — ★ 13 · fork 1 · Batchfile · 8.9%： 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系
-- [**scoop-3rd**](https://github.com/Weidows-projects/scoop-3rd) — ★ 11 · fork 1 · PowerShell · 8.1%： third-party scoop bucket. Welcome pull requests!
+- [**Crosstalk-rainbow-fart**](https://github.com/Weidows-projects/Crosstalk-rainbow-fart) — ★ 68 · fork 6 · 12.7%： 相声Rainbow-Fart语音包 特色相声彩虹屁Rainbow-Fart语音包,包含由郭德纲老师为首的各路达人在你敲代
+- [**Live2dLoader**](https://github.com/Weidows-projects/Live2dLoader) — ★ 30 · fork 1 · JavaScript · 9.4%： 易用且适用于所有模型的live2d-web库, 手把手教做人(
+- [**Keeper**](https://github.com/Weidows-projects/Keeper) — ★ 13 · fork 1 · Batchfile · 9.0%： 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系
+- [**scoop-3rd**](https://github.com/Weidows-projects/scoop-3rd) — ★ 11 · fork 1 · PowerShell · 8.2%： third-party scoop bucket. Welcome pull requests!
