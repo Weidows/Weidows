@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-05",
   "repos": {
     "Weidows-projects/Crosstalk-rainbow-fart": {
       "stars": 68,
@@ -22,7 +22,7 @@
       "forks": 1,
       "watchers": 1,
       "language": "Batchfile",
-      "pushed": "2026-11-03",
+      "pushed": "2026-11-05",
       "description": "✅ 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系...etc"
     },
     "Weidows-projects/scoop-3rd": {
@@ -30,7 +30,7 @@
       "forks": 1,
       "watchers": 1,
       "language": "PowerShell",
-      "pushed": "2026-11-03",
+      "pushed": "2026-11-05",
       "description": "☘third-party scoop bucket. Welcome pull requests!"
     },
     "Weidows/embeddinggemma2-zh": {
@@ -54,7 +54,7 @@
       "forks": 0,
       "watchers": 0,
       "language": "JavaScript",
-      "pushed": "2026-10-26",
+      "pushed": "2026-11-04",
       "description": "个人用户脚本（油猴/ScriptCat）合集：后台静默自动化签到等"
     },
     "Weidows/greasyfork-cli": {
@@ -90,11 +90,11 @@
       "description": "视频→文稿：自动剔除语气词/结巴/重复词（CLI + 本地网页 GUI，CPU 可跑，可选说话人分离/字幕/剪片）· Turn videos into clean transcripts — fillers, stutters and repetitions removed"
     },
     "Weidows/gpuq": {
-      "stars": 0,
+      "stars": 1,
       "forks": 0,
       "watchers": 0,
       "language": "Python",
-      "pushed": "2026-08-16",
+      "pushed": "2026-11-04",
       "description": ""
     },
     "Weidows/mirrorhub": {
@@ -126,7 +126,7 @@
       "forks": 0,
       "watchers": 0,
       "language": "JavaScript",
-      "pushed": "2026-11-02",
+      "pushed": "2026-11-03",
       "description": "给 DeepSeek Harness 装一个鲸鱼娘（DeepSeek娘）Agent 预设：完整干活能力 + 人设，开工吐槽、收工讨饭，按概率发表情包（设置页可调）。"
     },
     "Weidows/dsh-icon": {
