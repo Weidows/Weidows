@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "repos": {
     "Weidows-projects/Crosstalk-rainbow-fart": {
       "stars": 68,
@@ -22,7 +22,7 @@
       "forks": 1,
       "watchers": 1,
       "language": "Batchfile",
-      "pushed": "2026-11-06",
+      "pushed": "2026-11-07",
       "description": "✅ 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系...etc"
     },
     "Weidows-projects/scoop-3rd": {
@@ -30,7 +30,7 @@
       "forks": 1,
       "watchers": 1,
       "language": "PowerShell",
-      "pushed": "2026-11-06",
+      "pushed": "2026-11-07",
       "description": "☘third-party scoop bucket. Welcome pull requests!"
     },
     "Weidows/embeddinggemma2-zh": {
