@@ -10,7 +10,13 @@ name: refresh stats
 # committed snapshot in data/stats.json. Same numbers -> no commit at all.
 #
 # The daily snapshot is also the only place the raw numbers live in git, so
-# `git log data/stats.json` is a readable star history.
+# `git log data/stats.json` is a readable star history (checkout keeps full
+# history for exactly that).
+#
+# GitHub occasionally rejects a legitimate push with a server-side hiccup
+# (`remote: fatal error in commit_refs_rules`) or because a human pushed while
+# the job ran. Neither is a code bug, so the push is retried after a rebase that
+# prefers the freshly regenerated files.
 
 on:
   schedule:
@@ -37,10 +43,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0        # full history so `git log data/stats.json` reads, and retries can rebase
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -82,4 +90,28 @@ jobs:
             exit 0
           fi
           git commit -m "${MESSAGE:-chore(stats): manual refresh (no data change)}"
-          git push
+
+          # Push with retries. Two transient failures are worth surviving:
+          #   - GitHub returns `remote: fatal error in commit_refs_rules` (server
+          #     side, nothing to do with our commit) — seen on 2026-11-04;
+          #   - someone pushed to main while the job was running.
+          # Both are fixed by rebasing onto the new tip and pushing again. The
+          # regenerated files are the source of truth, so conflicting hunks are
+          # resolved in favour of this run (`-X theirs`).
+          branch="${GITHUB_REF_NAME:-main}"
+          for attempt in 1 2 3 4; do
+            if git push origin "HEAD:${branch}"; then
+              echo "pushed on attempt ${attempt}"
+              exit 0
+            fi
+            echo "::warning::push attempt ${attempt}/4 rejected — rebasing onto origin/${branch} and retrying"
+            sleep $((attempt * 5))
+            git fetch --quiet origin "${branch}"
+            if ! git pull --rebase --quiet -X theirs origin "${branch}"; then
+              git rebase --abort || true
+              echo "::error::rebase onto origin/${branch} failed — needs a human"
+              exit 1
+            fi
+          done
+          echo "::error::push still rejected after 4 attempts — GitHub kept returning a server-side error"
+          exit 1
