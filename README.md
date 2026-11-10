@@ -17,7 +17,7 @@
 
 **lib**
 
-- [**wutils**](https://github.com/Weidows/wutils) — ★ 5 · fork 1 · Go · 4.7%： Go 学习与开发期 utils/demos 合集 / ★5 · 持续更新的工具箱
+- [**wutils**](https://github.com/Weidows/wutils) — ★ 5 · fork 1 · Go · 4.6%： Go 学习与开发期 utils/demos 合集 / ★5 · 持续更新的工具箱
 - [**userscripts**](https://github.com/Weidows/userscripts) — ★ 1 · JavaScript · 4.0%： 油猴/ScriptCat 用户脚本合集 / 后台静默自动化签到
 - [**greasyfork-cli**](https://github.com/Weidows/greasyfork-cli) — TypeScript · 4.0%： Unofficial Greasy Fork client + CLI. Search, inspect and dow
 - [**open-dicom-toolkit**](https://github.com/Weidows/open-dicom-toolkit) — ★ 1 · Python · 4.0%： DICOM 医学影像工具包 / Python 解析/处理流水线
