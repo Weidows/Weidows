@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "repos": {
     "Weidows-projects/Crosstalk-rainbow-fart": {
       "stars": 68,
@@ -22,7 +22,7 @@
       "forks": 1,
       "watchers": 1,
       "language": "Batchfile",
-      "pushed": "2026-11-10",
+      "pushed": "2026-11-11",
       "description": "✅ 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系...etc"
     },
     "Weidows-projects/scoop-3rd": {
@@ -30,7 +30,7 @@
       "forks": 1,
       "watchers": 1,
       "language": "PowerShell",
-      "pushed": "2026-11-10",
+      "pushed": "2026-11-11",
       "description": "☘third-party scoop bucket. Welcome pull requests!"
     },
     "Weidows/embeddinggemma2-zh": {
@@ -54,7 +54,7 @@
       "forks": 0,
       "watchers": 0,
       "language": "JavaScript",
-      "pushed": "2026-11-04",
+      "pushed": "2026-11-10",
       "description": "个人用户脚本（油猴/ScriptCat）合集：后台静默自动化签到等"
     },
     "Weidows/greasyfork-cli": {
@@ -78,7 +78,7 @@
       "forks": 0,
       "watchers": 0,
       "language": "TypeScript",
-      "pushed": "2026-11-01",
+      "pushed": "2026-11-10",
       "description": "Modern themeable mermaid renderer — SDK + VS Code extension + CLI + live demo. Same syntax, none of the 2018 styling."
     },
     "Weidows/video2script": {
@@ -122,7 +122,7 @@
       "description": "⭐️ Weidow's Rainmeter-Skins ⭐️ 雨滴桌面皮肤备份仓库"
     },
     "Weidows/dsh-whalechan-herself": {
-      "stars": 3,
+      "stars": 4,
       "forks": 0,
       "watchers": 0,
       "language": "JavaScript",
