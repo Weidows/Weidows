@@ -10,7 +10,7 @@
 
 **Deepseek-Harness**
 
-- [**dsh-whalechan-herself**](https://github.com/Weidows/dsh-whalechan-herself) — ★ 4 · JavaScript · 4.4%： 给 DeepSeek Harness 装一个鲸鱼娘（DeepSeek娘）Agent 预设：完整干活能力 + 人设，开工吐
+- [**dsh-whalechan-herself**](https://github.com/Weidows/dsh-whalechan-herself) — ★ 4 · JavaScript · 4.3%： 给 DeepSeek Harness 装一个鲸鱼娘（DeepSeek娘）Agent 预设：完整干活能力 + 人设，开工吐
 - [**dsh-icon**](https://github.com/Weidows/dsh-icon) — JavaScript · 4.0%： DSH bundle that renders JetBrains file-type icons before the
 - [**dsh-git**](https://github.com/Weidows/dsh-git) — JavaScript · 4.0%： Git for DeepSeek Harness: a repo/branch chip under the compo
 - [**skills**](https://github.com/Weidows/skills) — ★ 1 · 4.0%
